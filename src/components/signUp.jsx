@@ -1,26 +1,52 @@
 import React, { useState } from 'react'
-import { Link, Form, redirect} from 'react-router-dom'
+import { Link, Navigate, redirect } from 'react-router-dom'
 
 
-export async function action({ request }){
-
-  const signUp = await request.formData()
-  const email = signUp.get('email')
-  const password = signUp.get('password')
-  const confirmPW = signUp.get('passwordConfirm')
-  console.log(`email:${email}, password:${password}, confirm:${confirmPW}`)
-
-
-  return password === confirmPW ? redirect('/login') : null
-}
 
 
 
 function SignUp() {
 
+  const [formDetails, setFormDetails] = useState({
+    email:'',
+    password:'',
+    passwordConfirm:'',
+  })
+
+
+  function formChanges(event){
+
+    event.preventDefault();
+
+    const {name, value, type, checked} = event.target
+
+   
+    setFormDetails( prevState => {
+        return{...prevState,
+            [name]: type === 'checkbox' ? checked : value
+        }   
+    })
+}
+
+
+
+    function handleSignUp(event){
+
+      event.preventDefault();
+
+      if(formDetails.password === formDetails.passwordConfirm){
+        console.log('successfully signup')
+
+      }else{
+        console.log('error in signing up user')
+      }
+
+    }
+
+
 
   return (
-      <Form method='post' className='forms'>
+      <form onSubmit={handleSignUp}>
 
         <div className='input-holder'>
         <label htmlFor="email">Email</label>
@@ -29,7 +55,9 @@ function SignUp() {
           placeholder="Email Address" 
           name="email" 
           id="email" 
-          className='input' />
+          className='input'
+          onChange={formChanges}
+          value={formDetails.email} />
         </div>
 
         <div className='input-holder'>
@@ -39,7 +67,9 @@ function SignUp() {
           placeholder="Password" 
           name="password" 
           id="password" 
-          className='input' />
+          className='input'
+          onChange={formChanges}
+          value={formDetails.password} />
         </div>
 
         <div className='input-holder'>
@@ -49,7 +79,9 @@ function SignUp() {
           placeholder="Enter Password Again" 
           name="passwordConfirm" 
           id="confirm-pw" 
-          className='input' />
+          className='input'
+          onChange={formChanges}
+          value={formDetails.passwordConfirm} />
         </div>
 
         <button type="submit">SIGN UP</button>
@@ -57,7 +89,7 @@ function SignUp() {
         <div className='optional'>
           <p>Already have an account? <Link to="/login">Login</Link></p>
         </div>
-      </Form>
+      </form>
   )
 }
 

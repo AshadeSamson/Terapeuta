@@ -1,24 +1,43 @@
 import React, { useState } from 'react'
-import { Link, Form, redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-
-export async function action({ request }){
-
-  const loginDetails = await request.formData()
-  const email = loginDetails.get('email')
-  const password = loginDetails.get('password')
-  console.log(`email:${email}, password:${password}`)
-
-  return redirect('/profile');
-}
 
 
 
 function Login() {
 
+  const [formDetails, setFormDetails] = useState({
+    email:'',
+    password:'',
+  })
+
+
+  function formChanges(event){
+
+    event.preventDefault();
+
+    const {name, value, type, checked} = event.target
+
+   
+    setFormDetails( prevState => {
+        return{...prevState,
+            [name]: type === 'checkbox' ? checked : value
+        }   
+    })
+}
+
+
+
+    function handleLogin(event){
+
+      event.preventDefault();
+
+     console.log(formDetails.email, formDetails.password)
+    }
+
 
   return (
-      <Form method='post' className='forms'>
+      <form onSubmit={handleLogin}>
 
         <div className='input-holder'>
           <label htmlFor="email">Email</label>
@@ -27,7 +46,9 @@ function Login() {
             placeholder="Email Address" 
             name="email" 
             id="email" 
-            className='input' 
+            className='input'
+            onChange={formChanges}
+            value={formDetails.email} 
           />
         </div>
 
@@ -38,7 +59,9 @@ function Login() {
             placeholder="Password" 
             name="password" 
             id="password" 
-            className='input' 
+            className='input'
+            onChange={formChanges}
+            value={formDetails.password} 
           />
         </div>
 
@@ -49,7 +72,7 @@ function Login() {
           <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
         </div>
 
-      </Form>
+      </form>
   )
 }
 
