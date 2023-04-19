@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
         signOut,
@@ -19,14 +19,43 @@ export function userAuth(){
 
 function AuthContextProvider({children}) {
 
+    // state tracking authorized  user
+    const [user, setUser] = useState(null)
+
+
+    // create new user
     function createNewUser(email, password){
         return createUserWithEmailAndPassword(auth, email, password)
     }
+
+    // log out user
+    function logoutUser(email, password){
+        return signOut(auth)
+    }
+
+    // log in user
+    function loginUser(email, password){
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
+
+
+    useEffect(() => {
+        const unsuscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+        });
+        return () => {
+            unsuscribe()
+        }
+    },[])
 
 
     // values being exported to child comps
     const value = {
         createNewUser,
+        user,
+        loginUser,
+        logoutUser,
     }
 
 

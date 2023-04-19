@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Link, Navigate, redirect } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { userAuth } from './contexts/authContext';
 
 
 
@@ -7,20 +8,30 @@ import { Link, Navigate, redirect } from 'react-router-dom'
 
 function SignUp() {
 
+  const navigate = useNavigate()
+
+  // state variables for form input values
   const [formDetails, setFormDetails] = useState({
     email:'',
     password:'',
     passwordConfirm:'',
   })
+  
+  const [action, setAction] = useState(false)
+
+  // state variable for form error 
+  const [error, setError] = useState(() => null)
+
+  // values from context
+  const { createNewUser } = userAuth()
 
 
+  // fuction watching and updating changes in input values
   function formChanges(event){
 
     event.preventDefault();
 
     const {name, value, type, checked} = event.target
-
-   
     setFormDetails( prevState => {
         return{...prevState,
             [name]: type === 'checkbox' ? checked : value
@@ -30,23 +41,35 @@ function SignUp() {
 
 
 
-    function handleSignUp(event){
+    
+  // function to handle form submit and sign up
+    async function handleSignUp(event){
 
       event.preventDefault();
 
       if(formDetails.password === formDetails.passwordConfirm){
-        console.log('successfully signup')
-
+          try{
+            setAction(true)
+            await createNewUser(formDetails.email, formDetails.password);
+            setTimeout(() => {
+              navigate('/profile') 
+            },'1000') 
+          }catch(e){
+            setError(e.message.toLowerCase())
+          }finally{
+            setAction(false)
+          }
       }else{
-        console.log('error in signing up user')
+        setError('passwords do not match')
       }
-
     }
 
 
 
   return (
       <form onSubmit={handleSignUp}>
+
+        {error && <h5 className='error red'>{error}</h5>}
 
         <div className='input-holder'>
         <label htmlFor="email">Email</label>
@@ -84,7 +107,7 @@ function SignUp() {
           value={formDetails.passwordConfirm} />
         </div>
 
-        <button type="submit">SIGN UP</button>
+        <button type="submit">{action ? 'SIGNING UP...' : 'SIGN UP'}</button>
 
         <div className='optional'>
           <p>Already have an account? <Link to="/login">Login</Link></p>

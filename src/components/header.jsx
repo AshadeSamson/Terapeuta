@@ -1,15 +1,20 @@
 import React ,{ useState , useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars , faXmark } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { userAuth } from './contexts/authContext';
 
-function Header() {
+function Header({mobileNav, toggleNav}) {
 
-  const [menu, setMenu] = useState(() => false);
+  const { user, logoutUser } = userAuth()
+  const navigate = useNavigate()
 
-  function toggleMenu(e){
-    e.preventDefault();
-    setMenu(menu => !menu);
+
+  async function logout(e){
+    e.preventDefault()
+    toggleNav();
+    await logoutUser();
+    navigate('.')
   }
 
 
@@ -23,36 +28,51 @@ function Header() {
             </div>
 
             <div className='bars-con'>
-              <a className='menu' onClick={toggleMenu}>{ menu ? 
+              <a className='menu' onClick={toggleNav}>{ mobileNav ? 
                 <FontAwesomeIcon className='bars close-bar' icon={faXmark} size='lg' /> : 
                 <FontAwesomeIcon className='bars open-bar' icon={faBars} size='lg' />}
               </a>
 
-              <div className='nav-items' id={menu ? 'collapsible' : ''}>
+              <div className='nav-items' id={mobileNav ? 'collapsible' : ''}>
 
-               <NavLink 
-               to="profile" 
+               {
+                user !== null
+                &&
+                <NavLink 
+               to="profile"
+               onClick={toggleNav} 
                className='navLink user-in'>
                 Book a session
-                </NavLink>
+                </NavLink>}
 
-               <NavLink 
-               to="login" 
+               {
+                user === null
+                &&
+                <NavLink 
+               to="login"
+               onClick={toggleNav} 
                className='navLink user-out'>
                 Login
-                </NavLink>
+                </NavLink>}
 
-               <NavLink 
-               to="signup" 
+               {
+                user === null
+                &&
+                <NavLink 
+               to="signup"
+               onClick={toggleNav} 
                className='navLink user-out'>
                 SignUp
-                </NavLink>
-                
-               <NavLink 
-               to="." 
+                </NavLink>}
+        
+               {
+                user !== null
+                &&
+                <NavLink 
+               onClick={logout}
                className='navLink user-in'>
                 Logout
-               </NavLink>
+               </NavLink>}
    
               </div>
             </div>
