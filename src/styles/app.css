@@ -30,6 +30,10 @@ body{
     background-color: var(--primary-bg);
 }
 
+.error{
+    color: red;
+    padding: 20px;
+}
 
 
 

@@ -1,24 +1,33 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { userAuth } from './contexts/authContext';
 
 
 
 
 function Login() {
 
+  const navigate = useNavigate()
+
   const [formDetails, setFormDetails] = useState({
     email:'',
     password:'',
   })
 
+  const [action, setAction] = useState(false)
+
+
+  // state variable for form error 
+  const [error, setError] = useState(() => null)
+
+  // values from context
+  const { loginUser } = userAuth()
 
   function formChanges(event){
 
     event.preventDefault();
 
     const {name, value, type, checked} = event.target
-
-   
     setFormDetails( prevState => {
         return{...prevState,
             [name]: type === 'checkbox' ? checked : value
@@ -28,16 +37,29 @@ function Login() {
 
 
 
-    function handleLogin(event){
+  // function to handle form submit and sign up
+  async function handleLogin(event){
 
-      event.preventDefault();
+    event.preventDefault();
 
-     console.log(formDetails.email, formDetails.password)
-    }
-
+        try{
+          setAction(true)
+          await loginUser(formDetails.email, formDetails.password);
+          setTimeout(() => {
+            navigate('/profile')
+          },'1000')
+        }catch(e){
+          setError(e.message.toLowerCase())
+        }finally{
+          setAction(false)
+        }
+    
+  }
 
   return (
       <form onSubmit={handleLogin}>
+
+        {error && <h5 className='error red'>{error}</h5>}
 
         <div className='input-holder'>
           <label htmlFor="email">Email</label>
@@ -66,7 +88,7 @@ function Login() {
         </div>
 
 
-        <button type="submit">LOG IN</button>
+        <button type="submit">{action ? 'LOGGING IN...' : 'LOG IN'}</button>
 
         <div className='optional'>
           <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
