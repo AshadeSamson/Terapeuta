@@ -29,7 +29,7 @@ function AuthContextProvider({children}) {
     }
 
     // log out user
-    function logoutUser(email, password){
+    function logoutUser(){
         return signOut(auth)
     }
 
