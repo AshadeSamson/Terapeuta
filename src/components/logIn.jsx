@@ -46,7 +46,7 @@ function Login() {
           setAction(true)
           await loginUser(formDetails.email, formDetails.password);
           setTimeout(() => {
-            navigate('/profile')
+            navigate('/profile', {replace: true})
           },'1000')
         }catch(e){
           setError(e.message.toLowerCase())
@@ -88,7 +88,7 @@ function Login() {
         </div>
 
 
-        <button type="submit">{action ? 'LOGGING IN...' : 'LOG IN'}</button>
+        <button disabled={action === true} type="submit">{action ? 'LOGGING IN...' : 'LOG IN'}</button>
 
         <div className='optional'>
           <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>

@@ -52,7 +52,7 @@ function SignUp() {
             setAction(true)
             await createNewUser(formDetails.email, formDetails.password);
             setTimeout(() => {
-              navigate('/profile') 
+              navigate('/profile', {replace: true}) 
             },'1000') 
           }catch(e){
             setError(e.message.toLowerCase())

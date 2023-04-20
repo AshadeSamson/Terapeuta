@@ -1,7 +1,7 @@
 import React ,{ useState , useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars , faXmark } from '@fortawesome/free-solid-svg-icons'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { faBars , faXmark, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { userAuth } from './contexts/authContext';
 
 function Header({mobileNav, toggleNav}) {
@@ -27,6 +27,7 @@ function Header({mobileNav, toggleNav}) {
                 <p>...your therapist</p>
             </div>
 
+
             <div className='bars-con'>
               <a className='menu' onClick={toggleNav}>{ mobileNav ? 
                 <FontAwesomeIcon className='bars close-bar' icon={faXmark} size='lg' /> : 
@@ -35,15 +36,33 @@ function Header({mobileNav, toggleNav}) {
 
               <div className='nav-items' id={mobileNav ? 'collapsible' : ''}>
 
+                <NavLink 
+               to="."
+               onClick={toggleNav} 
+               className='navLink homepage'>
+                Home
+                </NavLink>
+
                {
+                user !== null
+                &&
+                <NavLink 
+               to="booking"
+               onClick={toggleNav} 
+               className='navLink user-in'>
+                Book a session
+                </NavLink>}
+
+                {
                 user !== null
                 &&
                 <NavLink 
                to="profile"
                onClick={toggleNav} 
                className='navLink user-in'>
-                Book a session
+                Dashboard
                 </NavLink>}
+
 
                {
                 user === null
@@ -68,11 +87,11 @@ function Header({mobileNav, toggleNav}) {
                {
                 user !== null
                 &&
-                <NavLink 
+                <Link 
                onClick={logout}
                className='navLink user-in'>
-                Logout
-               </NavLink>}
+                <FontAwesomeIcon  icon={faRightFromBracket} size='x'/>
+               </Link>}
    
               </div>
             </div>
