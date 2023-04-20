@@ -240,6 +240,7 @@ button:hover{
 .hero{
     margin-top: 10px;
     height: 70vh;
+    background-image: url('../images/image-1-mobile.jpg');
 }
 
 }
