@@ -1,21 +1,28 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { userAuth } from './contexts/authContext';
 
 function Homepage() {
 
-
+  const { user } = userAuth()
 
   return (
     <div>
       <section className='hero'>
         <div className='hero-text'>
           <h1 className='hero-caption'>
-            Find Balance and Fulfillment: Discover the Power of Therapy for a Better Life
+            {user !== null ? 'Transform Your Life: Discover a Happier and Healthier You with Expert Therapy Sessions' : 'Find Balance and Fulfillment: Discover the Power of Therapy for a Better Life'}
           </h1>
         </div>
-        <Link to='signup'>
+        {
+          user !== null ? 
+          <Link to='booking'>
+          <button>Book a session</button>
+          </Link> : 
+          <Link to='signup'>
           <button>Get started here</button>
-        </Link>
+          </Link>
+        }
       </section>
 
       <section className='about'>
