@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { userAuth } from './contexts/authContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 function Homepage() {
 
@@ -27,7 +29,7 @@ function Homepage() {
 
       <section className='about'>
         <div className='section-heading'><h1>About</h1></div>
-        <div className='about-body'>
+        <div className='section-body'>
           <p>Welcome to Terapeuta, a trusted source for professional therapy services. Our team of experienced therapists is dedicated to providing compassionate and effective care to help you achieve your mental health and wellness goals.</p>
           <p>At Terapeuta, we understand that life can be challenging, and everyone experiences struggles at some point. We provide a safe and supportive environment for our clients to explore their thoughts and feelings, and we offer personalized treatment plans to meet each client's unique needs.</p>
           <p>Our therapists are highly trained and licensed professionals who specialize in a range of therapeutic techniques, including cognitive-behavioral therapy, solution-focused therapy, and mindfulness-based therapy. We believe that therapy is a collaborative process, and we work closely with our clients to develop personalized goals and strategies to achieve lasting change.</p>
@@ -39,9 +41,21 @@ function Homepage() {
 
       <section className='contact'>
       <div className='section-heading'><h1>Contact</h1></div>
-        
-
+        <p className='first-line'>To get in touch with us, you can:</p>
+        <hr />
+        <ul>
+          <li>Call us at +1-234-567-890</li>
+          <li>Email us at infothe@terapeuta.ty</li>
+        </ul>
+        <hr />
+        <p>Our friendly and knowledgeable staff will respond to your inquiry as soon as possible, typically within 24-48 hours.</p>
+        <p>We look forward to hearing from you and supporting you in your mental health journey.</p>
       </section>
+
+      <section className='copyright'>
+        <h1><FontAwesomeIcon icon={faCopyright} size='xl'/> Copyright 2023 Terapeuta</h1>
+      </section>
+
 
     </div>
   )
