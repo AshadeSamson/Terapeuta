@@ -67,6 +67,7 @@ function SignUp() {
 
 
   return (
+    <section className='forms'>
       <form onSubmit={handleSignUp}>
 
         {error && <h5 className='error red'>{error}</h5>}
@@ -113,6 +114,7 @@ function SignUp() {
           <p>Already have an account? <Link to="/login">Login</Link></p>
         </div>
       </form>
+    </section>
   )
 }
 

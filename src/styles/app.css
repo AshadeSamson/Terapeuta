@@ -155,11 +155,36 @@ a:hover{
     background-color: rgba(201, 140, 167, 0.5)
 }
 
-.about p{
+
+.about p, .contact p{
     margin-top: 15px;
     font-family: var(--body-text);
     line-height: 1.5;
     color: var(--black);
+}
+.first-line{
+    margin-bottom: 10px;
+}
+
+
+.contact ul{
+    padding: 10px;
+}
+
+.contact li{
+    font-family: var(--body-text);
+    list-style-type: square;
+    margin-left: 20px;
+    color: var(--primary-color);
+    font-weight: bolder;
+    padding: 2.5px;
+}
+
+.copyright{
+    background-color: var(--primary-color);
+    color: var(--primary-bg);
+    text-align: center;
+    padding: 20px 0;
 }
 
 .contact{
@@ -177,7 +202,6 @@ a:hover{
 .forms{
     text-align: center;
     margin-top: 10%;
-
 }
 
 div.input-holder{
@@ -210,8 +234,13 @@ label{
     margin-bottom: 5px;
 }
 
+.password-box{
+    display: flex;
+    justify-content: center;
+}
+
 button{
-    width: 300px;
+    width: 280px;
     max-width: 400px;
     height: 50px;
     border: 1px solid var(--primary-color);

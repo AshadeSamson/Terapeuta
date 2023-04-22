@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { userAuth } from './contexts/authContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -57,7 +59,9 @@ function Login() {
   }
 
   return (
-      <form onSubmit={handleLogin}>
+
+<section className='forms'>
+    <form onSubmit={handleLogin}>
 
         {error && <h5 className='error red'>{error}</h5>}
 
@@ -94,7 +98,9 @@ function Login() {
           <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
         </div>
 
-      </form>
+    </form>
+</section>
+
   )
 }
 
