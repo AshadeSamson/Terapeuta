@@ -53,7 +53,7 @@ function Homepage() {
       </section>
 
       <section className='copyright'>
-        <h1><FontAwesomeIcon icon={faCopyright} size='x'/> Copyright 2023 Terapeuta</h1>
+        <h1><FontAwesomeIcon icon={faCopyright} size='1x'/> Copyright 2023 Terapeuta</h1>
       </section>
 
 
