@@ -4,7 +4,7 @@ import Login  from "./components/logIn"
 import SignUp  from "./components/signUp"
 import Profile from "./components/profile"
 import Private from "./components/private/private"
-import Booking from "./components/booking"
+import Booking ,{ action as bookingAction } from "./components/booking"
 import { RouterProvider, 
         createBrowserRouter, 
         createRoutesFromElements, 
@@ -25,7 +25,7 @@ function App() {
           <Route path="signup" element={<SignUp/>} />
           <Route element={<Private />}>
             <Route path="profile" element={<Profile/>} />
-            <Route path="booking" element={<Booking/>} />
+            <Route path="booking" element={<Booking/>} action={bookingAction}/>
           </Route>
           </Route>
     )

@@ -90,7 +90,7 @@ function Header({mobileNav, toggleNav}) {
                 <Link 
                onClick={logout}
                className='navLink user-in'>
-                <FontAwesomeIcon  icon={faRightFromBracket} size='x'/>
+                <FontAwesomeIcon  icon={faRightFromBracket} size='1x'/>
                </Link>}
    
               </div>
