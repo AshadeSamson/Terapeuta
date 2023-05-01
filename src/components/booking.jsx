@@ -27,6 +27,9 @@ function Booking() {
 
   return (
    <section className='forms'>
+
+    <h1 className='form-header'>Book an Appointment</h1>
+
     <Form method='post' id='booking'>
 
       <div className='input-holder'>
@@ -36,7 +39,8 @@ function Booking() {
           placeholder="Full Name" 
           name="name" 
           id="name" 
-          className='input'/>
+          className='input'
+          required/>
       </div>
 
       <div className='input-holder'>
@@ -46,7 +50,8 @@ function Booking() {
           placeholder="Email Address" 
           name="email" 
           id="email" 
-          className='input'/>
+          className='input'
+          required/>
       </div>
 
       <div className='input-holder'>
@@ -56,7 +61,10 @@ function Booking() {
           placeholder="Phone No" 
           name="phone" 
           id="phone" 
-          className='input'/>
+          className='input'
+          required
+          minLength='8'
+          maxLength='15'/>
       </div>
 
       <div className='radio-box'>
@@ -68,7 +76,8 @@ function Booking() {
             value="Phone" 
             name="contactMethod" 
             id="contact-phone"
-            className='radio' />
+            className='radio' 
+            required/>
           <label htmlFor="contact-phone">Phone</label>
           </div>
           <div className='radio-holder'>
@@ -77,7 +86,8 @@ function Booking() {
             value="Email" 
             name="contactMethod" 
             id="contact-email"
-            className='radio' />
+            className='radio'
+            required />
           <label htmlFor="contact-email">E-mail</label>
           </div>
         </fieldset>
@@ -105,7 +115,8 @@ function Booking() {
             value="individual" 
             name="therapyType" 
             id="individual"
-            className='radio' />
+            className='radio'
+            required />
           <label htmlFor="individual">Individual</label>
           </div>
           <div className="radio-holder">
@@ -114,7 +125,8 @@ function Booking() {
             value="couples" 
             name="therapyType" 
             id="couples"
-            className='radio' />
+            className='radio'
+            required />
           <label htmlFor="couples">Couples</label>
           </div>
           <div className="radio-holder">
@@ -123,7 +135,8 @@ function Booking() {
             value="family" 
             name="therapyType" 
             id="family"
-            className='radio' />
+            className='radio'
+            required />
           <label htmlFor="family">Family</label>
           </div>
         </fieldset>
@@ -135,12 +148,13 @@ function Booking() {
           type="date" 
           name="date" 
           id="date" 
-          className='input'/>
+          className='input'
+          required/>
       </div>
 
       <div className='input-holder'>
         <label htmlFor="time">Preferred Time for Appointment</label>
-        <select name="time" id="time" className='select'>
+        <select name="time" id="time" className='select' required>
           <option value="">--Select your preferred time--</option>
           <option value="morning">Morning, 9.00 AM</option>
           <option value="afternoon">Afternoon, 1.00 PM</option>

@@ -204,6 +204,12 @@ a:hover{
     margin-top: 10%;
 }
 
+.form-header{
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
 div.input-holder{
     display: flex;
     flex-direction: column;

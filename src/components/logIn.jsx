@@ -61,6 +61,9 @@ function Login() {
   return (
 
 <section className='forms'>
+
+    <h1 className='form-header'>Log-in to Your Account</h1>
+
     <form onSubmit={handleLogin}>
 
         {error && <h5 className='error red'>{error}</h5>}
@@ -74,7 +77,8 @@ function Login() {
             id="email" 
             className='input'
             onChange={formChanges}
-            value={formDetails.email} 
+            value={formDetails.email}
+            required 
           />
         </div>
 
@@ -88,6 +92,9 @@ function Login() {
             className='input'
             onChange={formChanges}
             value={formDetails.password} 
+            required
+            minLength='6'
+            maxLength='18'
           />
         </div>
 
