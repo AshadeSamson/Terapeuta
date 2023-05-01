@@ -13,8 +13,10 @@ export async function action({request}){
   const therapyType = booking.get('therapyType')
   const bookDate = booking.get('date')
   const time = booking.get('time')
+  const reason = booking.get('reason')
+  const comments = booking.get('comments')
 
-  console.log(`name = ${fullName}, mail = ${mail}, phoneNo = ${phone}, contactMethod = ${contactMethod}, therapy Type = ${therapyType}, preferred date = ${bookDate}, time = ${time}`)
+  console.log(`name = ${fullName}, mail = ${mail}, phoneNo = ${phone}, contactMethod = ${contactMethod}, therapy Type = ${therapyType}, preferred date = ${bookDate}, time = ${time}, reason = ${reason}, extra comments = ${comments}`)
 
 
   return null
@@ -25,7 +27,7 @@ function Booking() {
 
   return (
    <section className='forms'>
-    <Form method='post'>
+    <Form method='post' id='booking'>
 
       <div className='input-holder'>
         <label htmlFor="name">Full Name</label>
@@ -57,45 +59,73 @@ function Booking() {
           className='input'/>
       </div>
 
-      <div className='input-holder'>
+      <div className='radio-box'>
         <fieldset>
-          <legend>Preferred method of contact</legend>
+          <legend>Preferred Method of Contact</legend>
+          <div className='radio-holder'>
           <input 
             type="radio" 
             value="Phone" 
             name="contactMethod" 
-            id="contact-phone" />
+            id="contact-phone"
+            className='radio' />
           <label htmlFor="contact-phone">Phone</label>
+          </div>
+          <div className='radio-holder'>
           <input 
             type="radio" 
             value="Email" 
             name="contactMethod" 
-            id="contact-email" />
+            id="contact-email"
+            className='radio' />
           <label htmlFor="contact-email">E-mail</label>
+          </div>
         </fieldset>
       </div>
 
       <div className='input-holder'>
+        <label htmlFor="reason">Reason for Seeking Therapy</label>
+        <textarea 
+          name="reason" 
+          id="reason" 
+          cols="30" 
+          rows="10"
+          placeholder='Why are you seeking therapy...'
+          className='textarea'
+          form='booking'>
+        </textarea>
+      </div>
+
+      <div className='radio-box'>
         <fieldset>
-          <legend>Type of therapy requested</legend>
+          <legend>Type of Therapy Requested</legend>
+          <div className="radio-holder">
           <input 
             type="radio" 
             value="individual" 
             name="therapyType" 
-            id="individual" />
+            id="individual"
+            className='radio' />
           <label htmlFor="individual">Individual</label>
+          </div>
+          <div className="radio-holder">
           <input 
             type="radio" 
             value="couples" 
             name="therapyType" 
-            id="couples" />
+            id="couples"
+            className='radio' />
           <label htmlFor="couples">Couples</label>
+          </div>
+          <div className="radio-holder">
           <input 
             type="radio" 
             value="family" 
             name="therapyType" 
-            id="family" />
+            id="family"
+            className='radio' />
           <label htmlFor="family">Family</label>
+          </div>
         </fieldset>
       </div>
 
@@ -104,12 +134,13 @@ function Booking() {
         <input 
           type="date" 
           name="date" 
-          id="date" />
+          id="date" 
+          className='input'/>
       </div>
 
       <div className='input-holder'>
         <label htmlFor="time">Preferred Time for Appointment</label>
-        <select name="time" id="time">
+        <select name="time" id="time" className='select'>
           <option value="">--Select your preferred time--</option>
           <option value="morning">Morning, 9.00 AM</option>
           <option value="afternoon">Afternoon, 1.00 PM</option>
@@ -117,10 +148,22 @@ function Booking() {
         </select>
       </div>
 
-      <button type="submit">Submit</button>
+      <div className='input-holder'>
+        <label htmlFor="comments">Additional Information or comments</label>
+        <textarea 
+          name="comments" 
+          id="comments" 
+          cols="30" 
+          rows="10"
+          placeholder='Any extra info you would like to let us know...'
+          className='textarea'
+          form='booking'>
+        </textarea>
+      </div>
+
+      <button type="submit">BOOK</button>
 
     </Form>
-
    </section>
   )
 }
