@@ -319,9 +319,41 @@ button:hover{
 
 
 
+    /* DASHBOARD / PROFILE  */
 
+.dashboard{
+    text-align: center;
+    margin-top: 8%;
+}
 
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding: 25px;
+    margin: auto auto;
+    border: 0 solid var(--primary-color);
+    box-shadow:  -3px 3px 5px rgba(0, 0, 0, 0.5);
+}
 
+.user-icon-box{
+    margin-right: auto;
+}
+
+.user-icon{
+    color: var(--primary-color);
+}
+
+.user-greet h1{
+    font-size: 2rem;
+    margin-bottom: 10%;
+}
+
+.user-greet h3{
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
 
 
 @media screen and (max-width: 760px){
@@ -393,6 +425,14 @@ button:hover{
 
 .section-heading h1{
     font-size: 1.7rem;
+}
+
+.user-icon{
+    display: none;
+}
+
+.user{
+    width: 90%;
 }
 }
 
