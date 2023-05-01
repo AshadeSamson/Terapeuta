@@ -49,11 +49,16 @@ function AuthContextProvider({children}) {
         }
     },[])
 
+    // current logged in user
+
+    const userProfile = auth.currentUser
+
 
     // values being exported to child comps
     const value = {
         createNewUser,
         user,
+        userProfile,
         loginUser,
         logoutUser,
     }

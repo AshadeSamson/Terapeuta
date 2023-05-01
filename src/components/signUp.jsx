@@ -68,6 +68,9 @@ function SignUp() {
 
   return (
     <section className='forms'>
+
+      <h1 className='form-header'>Sign-Up for an Account</h1>
+
       <form onSubmit={handleSignUp}>
 
         {error && <h5 className='error red'>{error}</h5>}
@@ -81,7 +84,8 @@ function SignUp() {
           id="email" 
           className='input'
           onChange={formChanges}
-          value={formDetails.email} />
+          value={formDetails.email}
+          required />
         </div>
 
         <div className='input-holder'>
@@ -93,7 +97,10 @@ function SignUp() {
           id="password" 
           className='input'
           onChange={formChanges}
-          value={formDetails.password} />
+          value={formDetails.password}
+          required
+          minLength='6'
+          maxLength='18' />
         </div>
 
         <div className='input-holder'>
@@ -105,7 +112,10 @@ function SignUp() {
           id="confirm-pw" 
           className='input'
           onChange={formChanges}
-          value={formDetails.passwordConfirm} />
+          value={formDetails.passwordConfirm}
+          required
+          minLength='6'
+          maxLength='18' />
         </div>
 
         <button type="submit">{action ? 'SIGNING UP...' : 'SIGN UP'}</button>

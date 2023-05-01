@@ -4,13 +4,13 @@ import { userAuth } from '../contexts/authContext'
 
 function Private() {
 
-    const { user } = userAuth()
+    const { user } =  userAuth()
 
-    if(!user){
-        return <Navigate to='login'/>
-    }
-
-    return <Outlet />
+        if(user === null){
+           return <Navigate to='login'/>
+        }
+        return <Outlet />
+      
 
 }
 
