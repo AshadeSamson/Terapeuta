@@ -1,14 +1,23 @@
 import React from 'react'
 import { userAuth } from './contexts/authContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 function Profile() {
 
-  const { user } = userAuth()
-  console.log(user)
+  const { userProfile } = userAuth()
+  console.log(userProfile)
+
   return (
-    <div>
-      <h1>{user.email}</h1>
-    </div>
+    <section className='dashboard'>
+      <div className='user'>
+        <div className='user-icon-box'><FontAwesomeIcon icon={faUser} size='7x' className='user-icon'/></div>
+        <div className='user-greet'>
+          <h1>Good Morning, Anonymous.</h1>
+          <h3>Today is going to be a better day...</h3>
+        </div>
+      </div>
+    </section>
   )
 }
 
