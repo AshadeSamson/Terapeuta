@@ -211,7 +211,7 @@ div.input-holder{
     margin-bottom: 25px;
 }
 
-input{
+.input{
     width: 300px;
     max-width: 400px;
     height: 40px;
@@ -222,16 +222,71 @@ input{
     background-color: var(--primary-bg);
 }
 
-input:focus{
+.input:focus{
     outline: none;
     border: none;
     border-bottom: 2.5px solid var(--primary-color);
 }
 
-label{
+.textarea{
+    width: 300px;
+    max-width: 400px;
+    aspect-ratio: 2 / 1;
+    border: 1px solid var(--black);
+    padding: 15px;
+    cursor: pointer;
+    font-size: 12px;
+    background-color: var(--primary-bg);
+}
+
+.textarea:focus{
+    outline: none;
+}
+
+.radio-box{
+    width: 300px;
+    max-width: 400px;
+    margin: auto auto;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+fieldset{
+    border: none;
+}
+
+input.radio{
+    margin-right: 5px;
+    accent-color: var(--primary-color);
+}
+
+
+div.radio-holder{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+label,legend{
     color: var(--black);
     font-size: 1.2rem;
     margin-bottom: 5px;
+}
+
+label:not(.radio + label),legend{
+    font-weight: bold;
+}
+
+.select{
+    width: 300px;
+    max-width: 400px;
+    height: 40px;
+    border: 1px solid var(--black);
+    cursor: pointer;
+    font-size: 18px;
+    background-color: var(--primary-bg);
+    outline: none;
 }
 
 .password-box{

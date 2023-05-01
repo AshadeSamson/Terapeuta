@@ -6,7 +6,7 @@ function Private() {
 
     const { user } = userAuth()
 
-    if(user === null){
+    if(!user){
         return <Navigate to='login'/>
     }
 
