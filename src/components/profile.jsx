@@ -8,13 +8,32 @@ function Profile() {
   const { userProfile } = userAuth()
   console.log(userProfile)
 
+  // Getting User's Time
+    const day = new Date()
+    const time = day.getHours()
+    let greet;
+
+    if(time < 12){
+      greet = 'Good Morning'
+    }else if(time >= 12 && time <= 16){
+      greet = 'Good Afternoon'
+    }else{
+      greet = 'Good Evening'
+    }
+
+
+
+
   return (
     <section className='dashboard'>
       <div className='user'>
-        <div className='user-icon-box'><FontAwesomeIcon icon={faUser} size='7x' className='user-icon'/></div>
+        <div className='user-icon-box'>
+          <FontAwesomeIcon icon={faUser} size='6x' className='user-icon'/>
+          <h5>{userProfile.email}</h5>
+        </div>
         <div className='user-greet'>
-          <h1>Good Morning, Anonymous.</h1>
-          <h3>Today is going to be a better day...</h3>
+          <h1>{greet}, Anonymous.</h1>
+          <h3>Today is going to be a better day!</h3>
         </div>
       </div>
     </section>
