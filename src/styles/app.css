@@ -339,6 +339,11 @@ button:hover{
 
 .user-icon-box{
     margin-right: auto;
+    text-align: center;
+}
+
+.user-icon-box h5{
+    margin-top: 10px;
 }
 
 .user-icon{
@@ -431,8 +436,17 @@ button:hover{
     display: none;
 }
 
+.user-icon-box{
+    margin-right: 0;
+}
+
+.user-icon-box h5{
+    margin-bottom: 10px;
+}
+
 .user{
     width: 90%;
+    flex-direction: column;
 }
 }
 
