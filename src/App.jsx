@@ -4,6 +4,11 @@ import Login  from "./components/logIn"
 import SignUp  from "./components/signUp"
 import Profile from "./components/profile"
 import Private from "./components/private/private"
+import Appointments from "./components/sub-components/appointments"
+import Billing from "./components/sub-components/billing"
+import Messages from "./components/sub-components/messages"
+import Resources from "./components/sub-components/resources"
+import Settings from "./components/sub-components/settings"
 import Booking ,{ action as bookingAction } from "./components/booking"
 import { RouterProvider, 
         createBrowserRouter, 
@@ -24,7 +29,13 @@ function App() {
           <Route path="login" element={<Login/>} />
           <Route path="signup" element={<SignUp/>} />
           <Route element={<Private />}>
-            <Route path="profile" element={<Profile/>} />
+            <Route path="profile" element={<Profile/>}>
+              <Route index element={<Appointments />} />
+              <Route path="messages" element={<Messages />} />
+              <Route path="billing" element={<Billing />} />
+              <Route path="resources" element={<Resources />} />
+              <Route path="settings" element={<Settings />} />
+            </Route>
             <Route path="booking" element={<Booking/>} action={bookingAction}/>
           </Route>
           </Route>
