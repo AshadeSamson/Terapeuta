@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink, Outlet } from 'react-router-dom'
 import { userAuth } from './contexts/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
@@ -35,6 +36,43 @@ function Profile() {
           <h1>{greet}, Anonymous.</h1>
           <h3>Today is going to be a better day!</h3>
         </div>
+      </div>
+      <div className='user-tools'>
+
+        <nav>
+          <NavLink
+          to='.'
+          className='navlink' end>
+            Appointments
+          </NavLink>
+
+          <NavLink
+          to='messages'
+          className='navlink'>
+            Notifications
+          </NavLink>
+
+          <NavLink
+          to='billing'
+          className='navlink'>
+            Payments & Billing
+          </NavLink>
+
+          <NavLink
+          to='resources'
+          className='navlink'>
+            Resources
+          </NavLink>
+
+          <NavLink
+          to='settings'
+          className='navlink'>
+            Account Settings
+          </NavLink>
+        </nav>
+        <section>
+           <Outlet />
+        </section>
       </div>
     </section>
   )
