@@ -360,6 +360,29 @@ button:hover{
     color: var(--primary-color);
 }
 
+.user-tools{
+    margin: auto auto;
+}
+.profile-navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto;
+    width: 80%;
+}
+
+.profile-nav{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    background-color: cadetblue;
+}
+
+.user-profile-link{
+    margin-right: 25px;
+}
+
 
 @media screen and (max-width: 760px){
     
@@ -394,9 +417,11 @@ a{
     margin-right: 0;
 }
 
-a:hover{
-    color: var(--black);
+a.active{
+    color: var(--primary-color);
+    font-weight: 700;
 }
+
 
 #collapsible a{
     display: block;
@@ -447,6 +472,19 @@ button:hover{
 .user{
     width: 90%;
     flex-direction: column;
+}
+
+.profile-navbar{
+    width: 90%;
+}
+
+.profile-nav{
+    overflow-x: scroll;
+    padding: 10px;
+}
+
+.user-profile-link:not(:last-child){
+    margin-right: 25px;
 }
 }
 

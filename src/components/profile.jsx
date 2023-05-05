@@ -37,39 +37,41 @@ function Profile() {
           <h3>Today is going to be a better day!</h3>
         </div>
       </div>
-      <div className='user-tools'>
 
-        <nav>
+      <div className='user-tools'>
+        <div className='profile-navbar'>
+          <div className='profile-nav'>
           <NavLink
           to='.'
-          className='navlink' end>
+          className='navlink user-profile-link' end>
             Appointments
           </NavLink>
 
           <NavLink
           to='messages'
-          className='navlink'>
+          className='navlink user-profile-link'>
             Notifications
           </NavLink>
 
           <NavLink
           to='billing'
-          className='navlink'>
+          className='navlink user-profile-link'>
             Payments & Billing
           </NavLink>
 
           <NavLink
           to='resources'
-          className='navlink'>
+          className='navlink user-profile-link'>
             Resources
           </NavLink>
 
           <NavLink
           to='settings'
-          className='navlink'>
+          className='navlink user-profile-link'>
             Account Settings
           </NavLink>
-        </nav>
+          </div>
+        </div>
         <section>
            <Outlet />
         </section>
