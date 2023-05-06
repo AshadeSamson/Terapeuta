@@ -73,10 +73,13 @@ li{
 }
 
 a{
-    margin-right: 25px;
     font-size: 1.2rem;
     text-decoration: none;
     color: var(--black);
+}
+
+a:not(:last-child){
+    margin-right: 25px;
 }
 
 a.active{
@@ -374,14 +377,26 @@ button:hover{
 .profile-nav{
     display: flex;
     align-items: center;
-    padding: 5px;
+    padding:  2px 10px;
     width: 100%;
-    background-color: cadetblue;
+    background-color: var(--black);
 }
 
-.user-profile-link{
+a.user-profile-link{
+    color: var(--primary-bg);
+}
+
+a.user-profile-link.active{
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    padding: 2px 10px;
+}
+
+a.user-profile-link:not(:last-child){
     margin-right: 25px;
 }
+
+
 
 
 @media screen and (max-width: 760px){
@@ -421,6 +436,7 @@ a.active{
     color: var(--primary-color);
     font-weight: 700;
 }
+
 
 
 #collapsible a{
@@ -480,12 +496,8 @@ button:hover{
 
 .profile-nav{
     overflow-x: scroll;
-    padding: 10px;
 }
 
-.user-profile-link:not(:last-child){
-    margin-right: 25px;
-}
 }
 
 
