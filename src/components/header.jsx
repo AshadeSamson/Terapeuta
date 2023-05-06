@@ -43,16 +43,6 @@ function Header({mobileNav, toggleNav}) {
                 Home
                 </NavLink>
 
-               {
-                user !== null
-                &&
-                <NavLink 
-               to="booking"
-               onClick={toggleNav} 
-               className='navLink user-in'>
-                Book a session
-                </NavLink>}
-
                 {
                 user !== null
                 &&
@@ -63,6 +53,15 @@ function Header({mobileNav, toggleNav}) {
                 Dashboard
                 </NavLink>}
 
+               {
+                user !== null
+                &&
+                <NavLink 
+               to="booking"
+               onClick={toggleNav} 
+               className='navLink user-in'>
+                Book a session
+                </NavLink>}
 
                {
                 user === null
