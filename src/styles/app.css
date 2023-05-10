@@ -359,13 +359,14 @@ button:hover{
 }
 
 .user-greet h3{
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--primary-color);
 }
 
 .user-tools{
     margin: auto auto;
 }
+
 .profile-navbar{
     display: flex;
     align-items: center;
@@ -377,24 +378,40 @@ button:hover{
 .profile-nav{
     display: flex;
     align-items: center;
-    padding:  2px 10px;
     width: 100%;
     background-color: var(--black);
+    margin-top: 5px;
+    box-shadow:  -3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 a.user-profile-link{
     color: var(--primary-bg);
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
 }
 
 a.user-profile-link.active{
     background-color: var(--primary-bg);
     color: var(--primary-color);
-    padding: 2px 10px;
+    box-shadow:  -3px 3px 5px rgba(0, 0, 0, 0.5);
+    min-height:50px;
 }
 
 a.user-profile-link:not(:last-child){
     margin-right: 25px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -473,9 +490,6 @@ button:hover{
     font-size: 1.7rem;
 }
 
-.user-icon{
-    display: none;
-}
 
 .user-icon-box{
     margin-right: 0;
@@ -486,16 +500,21 @@ button:hover{
 }
 
 .user{
-    width: 90%;
+    width: 95%;
     flex-direction: column;
 }
 
 .profile-navbar{
-    width: 90%;
+    width: 95%;
 }
 
 .profile-nav{
     overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+a.user-profile-link{
+    font-size: 0.75rem;
 }
 
 }

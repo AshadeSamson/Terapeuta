@@ -51,7 +51,10 @@ function Login() {
             navigate('/profile', {replace: true})
           },'1000')
         }catch(e){
-          setError(e.message.toLowerCase())
+          const msg = e.message.toLowerCase();
+          const regex = /(?<=\/)[^)]+(?=\))/ig;
+          const message = msg.match(regex)
+          setError(message)
         }finally{
           setAction(false)
         }
