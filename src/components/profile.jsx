@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { userAuth } from './contexts/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,8 +6,10 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 function Profile() {
 
-  const { userProfile } = userAuth()
-  console.log(userProfile)
+  const [profileUpdate, setProfileUpdate] = useState(false)
+
+  const { user } = userAuth()
+  console.log(user)
 
   // Getting User's Time
     const day = new Date()
@@ -30,10 +32,10 @@ function Profile() {
       <div className='user'>
         <div className='user-icon-box'>
           <FontAwesomeIcon icon={faUser} size='6x' className='user-icon'/>
-          <h5>{userProfile.email}</h5>
+          <h5>{user.email}</h5>
         </div>
         <div className='user-greet'>
-          <h1>{greet}, Anonymous.</h1>
+          <h1>{greet}, {user.displayName !== null ? user.displayName : 'Anonymous.'}!</h1>
           <h3>Today is going to be a better day!</h3>
         </div>
       </div>
@@ -72,8 +74,8 @@ function Profile() {
           </NavLink>
           </div>
         </div>
-        <section>
-           <Outlet />
+        <section className='user-profile-outlet'>
+           <Outlet context={ {setProfileUpdate} }/>
         </section>
       </div>
     </section>
