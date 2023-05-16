@@ -5,7 +5,9 @@ import { createUserWithEmailAndPassword,
         onAuthStateChanged,
         updateProfile,
         reload,
-        onIdTokenChanged} from 'firebase/auth'
+        onIdTokenChanged,
+        updateEmail,
+        sendEmailVerification} from 'firebase/auth'
 import { auth } from '../../firebase'
 
 
@@ -52,6 +54,18 @@ function AuthContextProvider({children}) {
     }
 
 
+    // update user email
+    function changeEmail(currentUser, newEmail){
+        return updateEmail(currentUser, newEmail)
+    }
+
+
+    // verify user email
+    function verifyEmail(currentUser){
+        return sendEmailVerification(currentUser)
+    }
+
+
 
     useEffect(() => {
         const unsuscribe = onIdTokenChanged(auth, (currentUser) => {
@@ -67,10 +81,13 @@ function AuthContextProvider({children}) {
     // values being exported to child comps
     const value = {
         user,
+        currentUSER,
         createNewUser,
         loginUser,
         logoutUser,
         updateUser,
+        changeEmail,
+        verifyEmail,
     }
 
 

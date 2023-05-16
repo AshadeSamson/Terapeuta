@@ -4,7 +4,7 @@ import { Link, Outlet, useOutletContext } from 'react-router-dom'
 
 function Settings() {
 
-  const { user, updateUser} = userAuth()
+  const { user, updateUser, currentUSER, changeEmail, verifyEmail} = userAuth()
 
   const [profile, setProfile] = useState({
     name:'',
@@ -29,23 +29,41 @@ function Settings() {
   }
 
 
-  async function updateName(e){
+  async function updateUserName(e){
     e.preventDefault();
     try {
       await updateUser(user, profile.name)
       setProfileUpdate(prev => {!prev})
-      e.target.reset()
       console.log('user profile updated')
     } catch (error) {
        const msg = error.message.toLowerCase()
        console.log(msg) 
     }
-    
   }
 
-  function updateEmail(e){
+  async function updateUserEmail(e){
     e.preventDefault();
-    console.log(profile.newEmail)
+    try {
+      await changeEmail(currentUSER, profile.newEmail)
+      setProfileUpdate(prev => {!prev})
+      console.log('user email updated')
+    } catch (error) {
+      const msg = error.message.toLowerCase()
+      console.log(msg)
+    }
+  }
+
+
+  async function verifyUserEmail(e){
+    e.preventDefault();
+    try {
+      await verifyEmail(currentUSER)
+      setProfileUpdate(prev => {!prev})
+      console.log('User is now verified')
+    } catch (error) {
+      const msg = error.message.toLowerCase()
+      console.log(msg)
+    }
   }
 
 
@@ -54,7 +72,7 @@ function Settings() {
   return (
     <div className='settings'>
 
-      <form onSubmit={updateName}>
+      <form onSubmit={updateUserName}>
         <div className='input-holder'>
           <label htmlFor="name">Update Profile Name</label>
           <input 
@@ -70,7 +88,7 @@ function Settings() {
         <button type="submit">Update Name</button>
       </form>
 
-      <form onSubmit={updateEmail}>
+      <form onSubmit={updateUserEmail}>
         <div className='input-holder'>
           <label htmlFor="new-email">Change Email</label>
           <input 
@@ -84,6 +102,21 @@ function Settings() {
             required/>
         </div>
         <button type="submit">Update Email</button>
+      </form>
+
+      <form onSubmit={verifyUserEmail}>
+        <div className='input-holder'>
+          <label htmlFor="verify-email">Verify Email</label>
+          <input 
+            type="email" 
+            name="verifyEmail" 
+            id="verify-email" 
+            className='input'
+            value={user.email}
+            readOnly
+            required/>
+        </div>
+        <button type="submit">Verify Email</button>
       </form>
 
     </div>
