@@ -320,6 +320,10 @@ button:hover{
     font-size: 1.5rem;
 }
 
+button:disabled{
+    opacity: 0.4;
+}
+
 
 
     /* DASHBOARD / PROFILE  */

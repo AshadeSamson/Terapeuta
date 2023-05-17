@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { userAuth } from './contexts/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,6 +7,10 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 function Profile() {
 
   const [profileUpdate, setProfileUpdate] = useState(false)
+
+  useEffect(() => {
+    return undefined
+  },[profileUpdate])
 
   const { user } = userAuth()
   console.log(user)
