@@ -18,7 +18,7 @@ function Settings() {
   const { setProfileUpdate } = useOutletContext()
 
 
-  // Initial State Value
+  // Initial State Value for FormData
   const profileInitialValue = {
     firstName:'',
     lastName:'',
@@ -38,7 +38,7 @@ function Settings() {
 
 
 
-  // Form inputs control
+  // FormData and Inputs control
   function profileChanges(event){
       event.preventDefault();
       const {name, value, type, checked} = event.target
@@ -170,7 +170,8 @@ function Settings() {
               required/>
           </div>
           <div className='settings-box'>
-            <button disabled={user.emailVerified === true} className='settings-button' type="submit">Verify Email</button>
+            <button disabled={user.emailVerified === true} className='settings-button' type="submit">
+              {user.emailVerified ? 'Verified' :'Verify Email'}</button>
           </div>
         </div>
         {verifyEmailError && <h5 className='error red'>{verifyEmailError}</h5>}

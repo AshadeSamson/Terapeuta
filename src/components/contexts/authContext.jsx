@@ -2,9 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
         signOut,
-        onAuthStateChanged,
         updateProfile,
-        reload,
         onIdTokenChanged,
         updateEmail,
         sendEmailVerification,
@@ -13,7 +11,7 @@ import { auth } from '../../firebase'
 
 
 
-// creating context
+// creating auth context
 const AuthContext = createContext()
 
 
@@ -74,6 +72,7 @@ function AuthContextProvider({children}) {
 
 
 
+    // observer for changes in user current state and profile changes
     useEffect(() => {
         const unsuscribe = onIdTokenChanged(auth, (currentUser) => {
             setUser(currentUser)
