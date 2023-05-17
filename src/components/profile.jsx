@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { userAuth } from './contexts/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCircleCheck, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
 function Profile() {
 
@@ -36,10 +36,18 @@ function Profile() {
       <div className='user'>
         <div className='user-icon-box'>
           <FontAwesomeIcon icon={faUser} size='6x' className='user-icon'/>
-          <h5>{user.email}</h5>
+          <div className='email-box'>
+            <h5 className='email'>{user.email}</h5>
+            <div>
+              {user.emailVerified ?
+               <FontAwesomeIcon icon={faCircleCheck} size='x' className='verify-icon'/>:
+               <FontAwesomeIcon icon={faCircleQuestion} size='x' className='unverify-icon'/>
+              }
+            </div>
+          </div>
         </div>
         <div className='user-greet'>
-          <h1>{greet}, {user.displayName !== null ? user.displayName : 'Anonymous.'}!</h1>
+          <h1>{greet}, {user.displayName !== null ? user.displayName : 'Anonymous'}.</h1>
           <h3>Today is going to be a better day!</h3>
         </div>
       </div>

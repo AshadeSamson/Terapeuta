@@ -349,10 +349,6 @@ button:disabled{
     text-align: center;
 }
 
-.user-icon-box h5{
-    margin-top: 10px;
-}
-
 .user-icon{
     color: var(--primary-color);
 }
@@ -369,6 +365,24 @@ button:disabled{
 
 .user-tools{
     margin: auto auto;
+}
+
+.email-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email{
+    margin: 0 5px 0 0;
+}
+
+.verify-icon{
+    color: green;
+}
+
+.unverify-icon{
+    color: red;
 }
 
 .profile-navbar{
@@ -548,7 +562,7 @@ button:hover{
     margin-right: 0;
 }
 
-.user-icon-box h5{
+.email-box{
     margin-bottom: 10px;
 }
 
