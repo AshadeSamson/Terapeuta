@@ -7,8 +7,11 @@ function Settings() {
   const { user, updateUser, currentUSER, changeEmail, verifyEmail} = userAuth()
 
   const [profile, setProfile] = useState({
-    name:'',
+    firstName:'',
+    lastName:'',
     newEmail:'',
+    newPassword:'',
+    newPasswordConfirm:'',
   })
 
   const { setProfileUpdate } = useOutletContext()
@@ -67,56 +70,127 @@ function Settings() {
   }
 
 
+  function updateUserPassword(e){
+    e.preventDefault();
+    if(profile.newPassword === profile.newPasswordConfirm){
+      console.log('password match')
+    }
+    else{
+      console.log('passwords must match')
+    }
+
+  }
+
+
 
 
   return (
     <div className='settings'>
 
-      <form onSubmit={updateUserName}>
-        <div className='input-holder'>
-          <label htmlFor="name">Update Profile Name</label>
-          <input 
-            type="text" 
-            placeholder="Full Name" 
-            name="name" 
-            id="name" 
-            className='input'
-            onChange={profileChanges}
-            value={profile.name}
-            required/>
+      {/* Update User Profile Name */}
+      <form  className='settings-form' onSubmit={updateUserName}>
+        <h4>Profile Info Update</h4>
+        <div className='settings-input-holder'>
+          <div className='settings-box'>
+            <input 
+              type="text" 
+              placeholder="First Name" 
+              name="firstName" 
+              className='input settings-input'
+              onChange={profileChanges}
+              value={profile.firstName}
+              required/>
+          </div>
+          <div className='settings-box'>
+            <input 
+              type="text" 
+              placeholder="Last Name" 
+              name="lastName" 
+              className='input settings-input'
+              onChange={profileChanges}
+              value={profile.lastName}
+              required/>
+          </div>
+          <div className='settings-box'>
+            <button className='settings-button' type="submit">Update Name</button>
+          </div>
         </div>
-        <button type="submit">Update Name</button>
       </form>
 
-      <form onSubmit={updateUserEmail}>
-        <div className='input-holder'>
-          <label htmlFor="new-email">Change Email</label>
-          <input 
-            type="email" 
-            placeholder="enter new email" 
-            name="newEmail" 
-            id="new-email" 
-            className='input'
-            onChange={profileChanges}
-            value={profile.newEmail}
-            required/>
+
+      {/* Verify User Email Address */}
+      <form  className='settings-form' onSubmit={verifyUserEmail}>
+        <h4>Email Verification</h4>
+        <div className='settings-input-holder'>
+          <div className='settings-box'>
+            <input 
+              type="email" 
+              name="verifyEmail" 
+              className='input settings-input verify-email'
+              value={user.email}
+              readOnly
+              required/>
+          </div>
+          <div className='settings-box'>
+            <button className='settings-button' type="submit">Verify Email</button>
+          </div>
         </div>
-        <button type="submit">Update Email</button>
       </form>
 
-      <form onSubmit={verifyUserEmail}>
-        <div className='input-holder'>
-          <label htmlFor="verify-email">Verify Email</label>
-          <input 
-            type="email" 
-            name="verifyEmail" 
-            id="verify-email" 
-            className='input'
-            value={user.email}
-            readOnly
-            required/>
+
+      {/* Update or Change User Email Address */}
+      <form className='settings-form' onSubmit={updateUserEmail}>
+        <h4>Email Address Update</h4>
+        <div className='settings-input-holder'>
+          <div>
+            <input 
+              type="email" 
+              placeholder="Enter New Email" 
+              name="newEmail" 
+              className='input settings-input'
+              onChange={profileChanges}
+              value={profile.newEmail}
+              required/>
+          </div>
+          <div>
+            <button className='settings-button' type="submit">Update Email</button>
+          </div>
         </div>
-        <button type="submit">Verify Email</button>
+      </form>
+
+
+      {/* Change User Password */}
+      <form  className='settings-form' onSubmit={updateUserPassword}>
+        <h4>Password Update</h4>
+        <div className='settings-input-holder'>
+          <div className='settings-box'>
+            <input 
+              type="password" 
+              placeholder="New Password" 
+              name="newPassword" 
+              className='input settings-input'
+              onChange={profileChanges}
+              value={profile.newPassword}
+              minLength='6'
+              maxLength='18'
+              required/>
+          </div>
+          <div className='settings-box'>
+            <input 
+              type="password" 
+              placeholder="Confirm Password" 
+              name="newPasswordConfirm" 
+              className='input settings-input'
+              onChange={profileChanges}
+              value={profile.newPasswordConfirm}
+              minLength='6'
+              maxLength='18'
+              required/>
+          </div>
+          <div className='settings-box'>
+            <button className='settings-button' type="submit">Change Password</button>
+          </div>
+        </div>
       </form>
 
     </div>

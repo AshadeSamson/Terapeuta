@@ -75,7 +75,7 @@ function Profile() {
           </div>
         </div>
         <section className='user-profile-outlet'>
-           <Outlet context={ {setProfileUpdate} }/>
+           <Outlet  context={ {setProfileUpdate} }/>
         </section>
       </div>
     </section>
