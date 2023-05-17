@@ -402,6 +402,55 @@ a.user-profile-link:not(:last-child){
     margin-right: 25px;
 }
 
+.user-profile-outlet{
+    margin: auto auto;
+    width: 80%;
+    text-align: center;
+}
+
+
+
+
+    /* SETTINGS COMPONENT */
+
+.settings-form{
+    box-shadow:  -3px 3px 5px rgba(0, 0, 0, 0.5);
+    margin: 10px auto;
+}
+
+.settings-form h4{
+    margin: 0;
+}
+
+.settings-input-holder{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 25px;
+}
+
+
+.settings-input{
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    margin: 0 10px 0 0;
+}
+
+.settings-button{
+    font-size: 1rem;
+    width: 150px;
+    height: 40px;
+    margin: 0;
+}
+
+.settings-button:hover{
+    font-size: initial;
+}
+
+.verify-email{
+    font-size: 14px;
+}
 
 
 
@@ -516,6 +565,23 @@ button:hover{
 a.user-profile-link{
     font-size: 0.75rem;
 }
+
+.user-profile-outlet{
+    margin: auto auto;
+    width: 95%;
+    text-align: center;
+}
+
+.settings-input-holder{
+    flex-direction: column;
+}
+
+.settings-input{
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+
+
 
 }
 
