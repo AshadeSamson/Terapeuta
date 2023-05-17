@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { userAuth } from './contexts/authContext';
+import errorRegex from '../fuctions/regex';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
@@ -51,10 +52,7 @@ function Login() {
             navigate('/profile', {replace: true})
           },'1000')
         }catch(e){
-          const msg = e.message.toLowerCase();
-          const regex = /(?<=\/)[^)]+(?=\))/ig;
-          const message = msg.match(regex)
-          setError(message)
+          setError(errorRegex(e.message))
         }finally{
           setAction(false)
         }

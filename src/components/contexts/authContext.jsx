@@ -7,7 +7,8 @@ import { createUserWithEmailAndPassword,
         reload,
         onIdTokenChanged,
         updateEmail,
-        sendEmailVerification} from 'firebase/auth'
+        sendEmailVerification,
+        updatePassword} from 'firebase/auth'
 import { auth } from '../../firebase'
 
 
@@ -66,6 +67,12 @@ function AuthContextProvider({children}) {
     }
 
 
+    // update user password
+    function changePassword(currentUser, newPassword){
+        return updatePassword(currentUser, newPassword)
+    }
+
+
 
     useEffect(() => {
         const unsuscribe = onIdTokenChanged(auth, (currentUser) => {
@@ -88,6 +95,7 @@ function AuthContextProvider({children}) {
         updateUser,
         changeEmail,
         verifyEmail,
+        changePassword,
     }
 
 
