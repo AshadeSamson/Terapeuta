@@ -78,7 +78,7 @@ a{
     color: var(--black);
 }
 
-a:not(:last-child){
+a.navLink:not(:last-child){
     margin-right: 25px;
 }
 
@@ -496,6 +496,10 @@ a.user-profile-link:not(:last-child){
 
 .nav-items{
     display: none;
+}
+
+a.navLink:not(:last-child){
+    margin-right: auto;
 }
 
 #collapsible{
