@@ -1,15 +1,16 @@
 import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { userAuth } from '../contexts/authContext'
 
 function Private() {
 
+    const location = useLocation()
     const { user } =  userAuth()
 
         if(user === null){
-           return <Navigate to='login'/>
+           return null;
         }
-        return <Outlet />
+        return user ? <Outlet /> : <Navigate to='login' replace state={{from: location}}/>;
       
 
 }
