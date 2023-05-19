@@ -40,8 +40,8 @@ function Profile() {
             <h5 className='email'>{user.email}</h5>
             <div>
               {user.emailVerified ?
-               <FontAwesomeIcon icon={faCircleCheck} size='x' className='verify-icon'/>:
-               <FontAwesomeIcon icon={faCircleQuestion} size='x' className='unverify-icon'/>
+               <FontAwesomeIcon icon={faCircleCheck} size='1x' className='verify-icon'/>:
+               <FontAwesomeIcon icon={faCircleQuestion} size='1x' className='unverify-icon'/>
               }
             </div>
           </div>

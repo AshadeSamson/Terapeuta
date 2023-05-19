@@ -48,12 +48,10 @@ function Login() {
         try{
           setAction(true)
           await loginUser(formDetails.email, formDetails.password);
-          setTimeout(() => {
-            navigate('/profile', {replace: true})
-          },'1000')
         }catch(e){
           setError(errorRegex(e.message))
         }finally{
+          navigate('/profile', {replace: true});
           setAction(false)
         }
     
