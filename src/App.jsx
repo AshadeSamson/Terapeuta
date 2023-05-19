@@ -15,11 +15,14 @@ import { RouterProvider,
         createRoutesFromElements, 
         Route } from "react-router-dom"
 import "./styles/app.css"
+import { userAuth } from "./components/contexts/authContext"
 
 
 
 
 function App() {
+
+  const userContext = userAuth()
 
 
   const router = createBrowserRouter(
@@ -36,7 +39,7 @@ function App() {
               <Route path="resources" element={<Resources />} />
               <Route path="settings" element={<Settings />} />
             </Route>
-            <Route path="booking" element={<Booking/>} action={bookingAction}/>
+            <Route path="booking" element={<Booking/>} action={bookingAction(userContext)}/>
           </Route>
           </Route>
     )

@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
-import { Form } from 'react-router-dom'
+import { Form, useActionData } from 'react-router-dom'
 
 
 
-export async function action({request}){
+export const action = (userContext) => async ({request}) => {
+
+  // Accessing context values
+
+  const { user } = userContext
 
   const booking = await request.formData()
   const fullName = booking.get('name')
@@ -16,13 +20,17 @@ export async function action({request}){
   const reason = booking.get('reason')
   const comments = booking.get('comments')
 
-  console.log(`name = ${fullName}, mail = ${mail}, phoneNo = ${phone}, contactMethod = ${contactMethod}, therapy Type = ${therapyType}, preferred date = ${bookDate}, time = ${time}, reason = ${reason}, extra comments = ${comments}`)
+  // `name = ${fullName}, mail = ${mail}, phoneNo = ${phone}, contactMethod = ${contactMethod}, therapy Type = ${therapyType}, preferred date = ${bookDate}, time = ${time}, reason = ${reason}, extra comments = ${comments}`
 
 
-  return null
+  return user
 }
 
 function Booking() {
+
+  const value = useActionData()
+
+  console.log(value)
 
 
   return (

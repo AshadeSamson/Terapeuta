@@ -51,13 +51,11 @@ function SignUp() {
       if(formDetails.password === formDetails.passwordConfirm){
           try{
             setAction(true)
-            await createNewUser(formDetails.email, formDetails.password);
-            setTimeout(() => {
-              navigate('/profile', {replace: true}) 
-            },'1000') 
+            await createNewUser(formDetails.email, formDetails.password); 
           }catch(e){
             setError(errorRegex(e.message))
           }finally{
+            navigate('/profile', {replace: true}); 
             setAction(false)
           }
       }else{
