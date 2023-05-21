@@ -5,32 +5,51 @@ import { Form, useActionData } from 'react-router-dom'
 
 export const action = (userContext) => async ({request}) => {
 
-  // Accessing context values
 
-  const { user } = userContext
-
+  // getting form details
   const booking = await request.formData()
-  const fullName = booking.get('name')
-  const mail = booking.get('email')
-  const phone = booking.get('phone')
-  const contactMethod = booking.get('contactMethod')
-  const therapyType = booking.get('therapyType')
-  const bookDate = booking.get('date')
-  const time = booking.get('time')
-  const reason = booking.get('reason')
-  const comments = booking.get('comments')
 
-  // `name = ${fullName}, mail = ${mail}, phoneNo = ${phone}, contactMethod = ${contactMethod}, therapy Type = ${therapyType}, preferred date = ${bookDate}, time = ${time}, reason = ${reason}, extra comments = ${comments}`
+  // Accessing context values
+  const { user, addNewBooking } = userContext
+
+  const bookingDetails = {
+    name: booking.get('name'),
+    mail: booking.get('email'),
+    phone: booking.get('phone'),
+    contactMethod: booking.get('contactMethod'),
+    therapyType: booking.get('therapyType'),
+    appointmentDate: booking.get('date'),
+    time: booking.get('time'),
+    reason: booking.get('reason'),
+    comments: booking.get('comments'),
+  }
+
+  const booked = await addNewBooking(user.uid, bookingDetails)
+
+  return booked;
+
+  
+  // const fullName = booking.get('name')
+  // const mail = booking.get('email')
+  // const phone = booking.get('phone')
+  // const contactMethod = booking.get('contactMethod')
+  // const therapyType = booking.get('therapyType')
+  // const bookDate = booking.get('date')
+  // const time = booking.get('time')
+  // const reason = booking.get('reason')
+  // const comments = booking.get('comments')
+
+  // // `name = ${fullName}, mail = ${mail}, phoneNo = ${phone}, contactMethod = ${contactMethod}, therapy Type = ${therapyType}, preferred date = ${bookDate}, time = ${time}, reason = ${reason}, extra comments = ${comments}`
 
 
-  return user
+  // return user
 }
 
 function Booking() {
 
-  const value = useActionData()
+  const ticket = useActionData();
+  (ticket && console.log(ticket));
 
-  console.log(value)
 
 
   return (

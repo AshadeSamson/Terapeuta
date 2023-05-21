@@ -6,8 +6,9 @@ import { createUserWithEmailAndPassword,
         onIdTokenChanged,
         updateEmail,
         sendEmailVerification,
-        updatePassword} from 'firebase/auth'
-import { auth } from '../../firebase'
+        updatePassword} from 'firebase/auth';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore'
+import { auth, db } from '../../firebase'
 
 
 
@@ -84,6 +85,23 @@ function AuthContextProvider({children}) {
 
 
 
+
+    // FIRESTORE AND DATABASE
+
+    // registering a new user on sign up
+
+    function addNewUser(id){
+        return setDoc(doc(db, 'users', id),{
+            userID: id
+        })
+    }
+
+    function addNewBooking(uid, bookingDetails){   
+        return addDoc(collection(db, 'users', uid, 'appointments'), bookingDetails)
+    }
+
+
+
     // values being exported to child comps
     const value = {
         user,
@@ -95,6 +113,8 @@ function AuthContextProvider({children}) {
         changeEmail,
         verifyEmail,
         changePassword,
+        addNewUser,
+        addNewBooking,
     }
 
 
