@@ -24,7 +24,7 @@ function SignUp() {
   const [error, setError] = useState(() => null)
 
   // values from context
-  const { createNewUser } = userAuth()
+  const { createNewUser, addNewUser } = userAuth()
 
 
   // fuction watching and updating changes in input values
@@ -51,12 +51,14 @@ function SignUp() {
       if(formDetails.password === formDetails.passwordConfirm){
           try{
             setAction(true)
-            await createNewUser(formDetails.email, formDetails.password); 
+            const getUser = await createNewUser(formDetails.email, formDetails.password); 
+            getUser.then(addNewUser(getUser.user.uid))  
           }catch(e){
             setError(errorRegex(e.message))
           }finally{
+            setAction(false);
             navigate('/profile', {replace: true}); 
-            setAction(false)
+            
           }
       }else{
         setError('passwords do not match')

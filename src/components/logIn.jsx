@@ -51,8 +51,9 @@ function Login() {
         }catch(e){
           setError(errorRegex(e.message))
         }finally{
-          navigate('/profile', {replace: true});
           setAction(false)
+          navigate('/profile', {replace: true});
+          
         }
     
   }
