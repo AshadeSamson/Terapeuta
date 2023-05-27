@@ -16,7 +16,7 @@ import { RouterProvider,
         Route } from "react-router-dom"
 import "./styles/app.css"
 import { userAuth } from "./components/contexts/authContext"
-import BookingTicket from "./components/bookingTicket"
+import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
 import BookingError from "./components/error-components/bookingError"
 
 
@@ -45,7 +45,9 @@ function App() {
                     element={<Booking/>} 
                     action={bookingAction(userContext)}
                     errorElement={<BookingError />}/>
-            <Route path="booking/:id" element={<BookingTicket />} />
+            <Route  path="booking/:uid/:id" 
+                    element={<BookingTicket />}
+                    loader={bookingTicketLoader(userContext)} />
           </Route>
           </Route>
     )

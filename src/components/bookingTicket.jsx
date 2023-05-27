@@ -1,10 +1,28 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom';
+
+
+export const loader = (userContext) => async ({ params }) => {
+
+  const { getNewBooking } = userContext
+
+  const ticket = await getNewBooking(params.uid, params.id)
+
+  if(ticket.exists()){
+
+      return ticket.data()
+
+  } 
+  
+
+}
 
 function BookingTicket() {
 
-    const params = useParams()
-    console.log(params)
+  const data = useLoaderData()
+  console.log(data)
+
+  
 
   return (
     <div>
