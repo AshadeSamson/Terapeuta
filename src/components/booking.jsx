@@ -32,12 +32,12 @@ export const action = (userContext) => async ({request}) => {
   const bookingID = await ticket.id
  
   // navigating to the booking ticket page
-  return redirect(`/booking/${bookingID}`);
-
-    
-  
+  return redirect(`/booking/${user.uid}/${bookingID}`);   
 
 }
+
+
+
 
 function Booking() {
 
