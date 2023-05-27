@@ -17,7 +17,7 @@ import { RouterProvider,
 import "./styles/app.css"
 import { userAuth } from "./components/contexts/authContext"
 import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
-import BookingError from "./components/error-components/bookingError"
+import RouteError from "./components/error-components/bookingError"
 
 
 
@@ -44,10 +44,11 @@ function App() {
             <Route  path="booking" 
                     element={<Booking/>} 
                     action={bookingAction(userContext)}
-                    errorElement={<BookingError />}/>
+                    errorElement={<RouteError />}/>
             <Route  path="booking/:uid/:id" 
                     element={<BookingTicket />}
-                    loader={bookingTicketLoader(userContext)} />
+                    loader={bookingTicketLoader(userContext)} 
+                    errorElement={<RouteError />}/>
           </Route>
           </Route>
     )

@@ -1,6 +1,6 @@
 import { serverTimestamp } from 'firebase/firestore'
 import React, { useState } from 'react'
-import { Form, redirect, useActionData } from 'react-router-dom'
+import { Form, redirect, useActionData, useNavigation } from 'react-router-dom'
 
 
 
@@ -40,6 +40,9 @@ export const action = (userContext) => async ({request}) => {
 
 
 function Booking() {
+
+
+  const navigation = useNavigation()
 
 
   return (
@@ -173,9 +176,9 @@ function Booking() {
         <label htmlFor="time">Preferred Time for Appointment</label>
         <select name="time" id="time" className='select' required>
           <option value="">--Select your preferred time--</option>
-          <option value="morning">Morning, 9.00 AM</option>
-          <option value="afternoon">Afternoon, 1.00 PM</option>
-          <option value="evening">Evening, 5.30 PM</option>
+          <option value="9.00 AM">Morning, 9.00 AM</option>
+          <option value="1.00 PM">Afternoon, 1.00 PM</option>
+          <option value="5.30 PM">Evening, 5.30 PM</option>
         </select>
       </div>
 
@@ -192,7 +195,12 @@ function Booking() {
         </textarea>
       </div>
 
-      <button type="submit">BOOK</button>
+      <button disabled={navigation.state === 'submitting' | 'loading'} type="submit">
+        {
+          navigation.state === 'submitting' | 'loading' ?
+          'Booking Your Session...':'BOOK'
+        }
+      </button>
 
     </Form>
    </section>
