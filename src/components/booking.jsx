@@ -1,5 +1,6 @@
+import { serverTimestamp } from 'firebase/firestore'
 import React, { useState } from 'react'
-import { Form, useActionData } from 'react-router-dom'
+import { Form, redirect, useActionData } from 'react-router-dom'
 
 
 
@@ -12,7 +13,9 @@ export const action = (userContext) => async ({request}) => {
   // Accessing context values
   const { user, addNewBooking } = userContext
 
+
   const bookingDetails = {
+    timing: serverTimestamp(),
     name: booking.get('name'),
     mail: booking.get('email'),
     phone: booking.get('phone'),
@@ -24,32 +27,19 @@ export const action = (userContext) => async ({request}) => {
     comments: booking.get('comments'),
   }
 
-  const booked = await addNewBooking(user.uid, bookingDetails)
+  // booking a new ticket and getting the ticket ID
+  const ticket = await addNewBooking(user.uid, bookingDetails)
+  const bookingID = await ticket.id
+ 
+  // navigating to the booking ticket page
+  return redirect(`/booking/${bookingID}`);
 
-  return booked;
-
+    
   
-  // const fullName = booking.get('name')
-  // const mail = booking.get('email')
-  // const phone = booking.get('phone')
-  // const contactMethod = booking.get('contactMethod')
-  // const therapyType = booking.get('therapyType')
-  // const bookDate = booking.get('date')
-  // const time = booking.get('time')
-  // const reason = booking.get('reason')
-  // const comments = booking.get('comments')
 
-  // // `name = ${fullName}, mail = ${mail}, phoneNo = ${phone}, contactMethod = ${contactMethod}, therapy Type = ${therapyType}, preferred date = ${bookDate}, time = ${time}, reason = ${reason}, extra comments = ${comments}`
-
-
-  // return user
 }
 
 function Booking() {
-
-  const ticket = useActionData();
-  (ticket && console.log(ticket));
-
 
 
   return (

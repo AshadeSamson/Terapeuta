@@ -16,6 +16,7 @@ import { RouterProvider,
         Route } from "react-router-dom"
 import "./styles/app.css"
 import { userAuth } from "./components/contexts/authContext"
+import BookingTicket from "./components/bookingTicket"
 
 
 
@@ -40,6 +41,7 @@ function App() {
               <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="booking" element={<Booking/>} action={bookingAction(userContext)}/>
+            <Route path="booking/:id" element={<BookingTicket />} />
           </Route>
           </Route>
     )
