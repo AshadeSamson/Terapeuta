@@ -202,12 +202,12 @@ a:hover{
 
 /* FORMS*/
 
-.forms{
+.forms, .sections{
     text-align: center;
     margin-top: 10%;
 }
 
-.form-header{
+.form-header, .sections-header{
     color: var(--primary-color);
     margin-bottom: 15px;
     font-size: 1.5rem;
@@ -450,6 +450,15 @@ a.user-profile-link:not(:last-child){
 .print-ticket{
     align-self: flex-end;
 }
+
+.special-text{
+    font-style: oblique;
+    color: var(--primary-color);
+}
+
+
+
+
 
     /* SETTINGS COMPONENT */
 
