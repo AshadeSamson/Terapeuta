@@ -634,6 +634,18 @@ a.user-profile-link{
     margin-bottom: 10px;
 }
 
+.ticket-box{
+    flex-direction: column;
+}
+
+.print-ticket{
+    align-self: center;
+}
+
+.ticket-slip{
+    margin-bottom: 25px;
+}
+
 
 
 }
