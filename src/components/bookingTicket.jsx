@@ -23,16 +23,16 @@ function BookingTicket() {
   
 
   return (
-    <section>
+    <section className='sections'>
 
-      <h3 className='succeed-msg'>You have booked a therapist session and here are your details:</h3>
+      <h3 className='sections-header succeed-msg'>You have booked a therapist session and here are your details:</h3>
       <div className='ticket-box'>
         <div className='ticket-slip'>
-          <h3>Client Name: {data.name}</h3>
-          <h3>Appointment Date: {data.appointmentDate}</h3>
-          <h3>Appointment Time: {data.time}</h3>
-          <h3>Location: {`123 Main Street, Suite 456, Cityville.`}</h3>
-          <h3>Contact Number: {`+(1) 023 456 789`}</h3>
+          <h3>Client Name: <span className='special-text'>{data.name}</span></h3>
+          <h3>Appointment Date: <span className='special-text'>{data.appointmentDate}</span></h3>
+          <h3>Appointment Time: <span className='special-text'>{data.time}</span></h3>
+          <h3>Location: <span className='special-text'>{`123 Main Street, Suite 456, Cityville.`}</span></h3>
+          <h3>Contact Number: <span className='special-text'>{`+(1) 023 456 789`}</span></h3>
         </div>
         <div className='print-ticket'>
           <button>Print Ticket</button>
