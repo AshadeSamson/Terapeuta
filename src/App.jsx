@@ -4,7 +4,7 @@ import Login  from "./components/logIn"
 import SignUp  from "./components/signUp"
 import Profile from "./components/profile"
 import Private from "./components/private/private"
-import Appointments from "./components/sub-components/appointments"
+import Appointments, { loader as appointmentLoader } from "./components/sub-components/appointments"
 import Billing from "./components/sub-components/billing"
 import Messages from "./components/sub-components/messages"
 import Resources from "./components/sub-components/resources"
@@ -17,7 +17,7 @@ import { RouterProvider,
 import "./styles/app.css"
 import { userAuth } from "./components/contexts/authContext"
 import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
-import RouteError from "./components/error-components/bookingError"
+import RouteError from "./components/error-components/Error"
 
 
 
@@ -35,7 +35,7 @@ function App() {
           <Route path="signup" element={<SignUp/>} />
           <Route element={<Private />}>
             <Route path="profile" element={<Profile/>}>
-              <Route index element={<Appointments />} />
+              <Route index element={<Appointments />} loader={appointmentLoader(userContext)} />
               <Route path="messages" element={<Messages />} />
               <Route path="billing" element={<Billing />} />
               <Route path="resources" element={<Resources />} />
