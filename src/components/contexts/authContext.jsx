@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword,
         updateEmail,
         sendEmailVerification,
         updatePassword} from 'firebase/auth';
-import { addDoc, collection, doc, getDoc, setDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore'
 import { auth, db } from '../../firebase'
 
 
@@ -96,12 +96,24 @@ function AuthContextProvider({children}) {
         })
     }
 
+
+    // add a new booking to the user's appointment
     function addNewBooking(uid, bookingDetails){   
         return addDoc(collection(db, 'users', uid, 'appointments'), bookingDetails)
     }
 
+
+
+    // get a newly booked appointment document
     function getNewBooking(uid, docId){
         return getDoc(doc(db, 'users', uid, 'appointments', docId ))
+    }
+
+
+    // get all booked appointments for a user
+    function getAppointments(uid) {
+        return getDocs(collection(db, 'users', uid, 'appointments'))
+        
     }
 
 
@@ -120,6 +132,7 @@ function AuthContextProvider({children}) {
         addNewUser,
         addNewBooking,
         getNewBooking,
+        getAppointments,
     }
 
 

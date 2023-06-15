@@ -6,7 +6,7 @@ function RouteError() {
     const error = useRouteError()
 
   return (
-    <div>
+    <div className='sections'>
         <h1>We are sorry! An Error Occured.</h1>
         <h3 className='error red'>{error.message}</h3>
     </div>
