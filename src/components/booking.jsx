@@ -53,13 +53,14 @@ function Booking() {
     <Form method='post' id='booking'>
 
       <div className='input-holder'>
-        <label htmlFor="name">Full Name</label>
+        <label htmlFor="name">First Name</label>
         <input 
           type="text" 
-          placeholder="Full Name" 
+          placeholder="FirstName Only" 
           name="name" 
           id="name" 
           className='input'
+          maxLength='12'
           required/>
       </div>
 
@@ -120,6 +121,7 @@ function Booking() {
           id="reason" 
           cols="30" 
           rows="10"
+          maxLength="100"
           placeholder='Why are you seeking therapy...'
           className='textarea'
           form='booking'>
@@ -192,6 +194,7 @@ function Booking() {
           rows="10"
           placeholder='Any extra info you would like to let us know...'
           className='textarea'
+          maxLength="100"
           form='booking'>
         </textarea>
       </div>
