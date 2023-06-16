@@ -504,6 +504,16 @@ a.user-profile-link:not(:last-child){
 
 
 
+    /* APPOINTMENTS */
+.appointments{
+    margin: 10px auto;
+}
+
+.no-booking{
+    margin: 25px auto;
+    color: var(--primary-color);
+}
+
 
 
 

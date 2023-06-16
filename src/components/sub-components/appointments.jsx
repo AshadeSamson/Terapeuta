@@ -22,12 +22,42 @@ export const loader = (userContext) => async () => {
 function Appointments() {
 
   const data = useLoaderData()
-  console.log(data)
   
+  const appointments = data.sort((a,b) => new Date(b.appointmentDate)  - new Date(a.appointmentDate))
+                      .map((appointment) => {
+    return (<>
+              <hr />
+              <div>
+                <div>
+                  <h6>Date</h6>
+                  <p>{appointment.appointmentDate}</p>
+                </div>
+                <div>
+                  <h6>Time</h6>
+                  <p>{appointment.time}</p>
+                </div>
+                <div>
+                  <h6>Client</h6>
+                  <p>{appointment.name}</p>
+                </div>
+                <div>
+                  <h6>Type</h6>
+                  <p>{appointment.therapyType}</p>
+                </div>
+              </div>
+            </>)
+  })
+
   
   
   return (
-    <h1>Appointments</h1>
+    <div className='appointments'>
+      <h4>Appointments</h4>
+      
+      {appointments.length > 0 ? React.Children.toArray(appointments) :
+      <h3 className='no-booking'>No Booked Appointments as of Now.</h3>}
+
+    </div>
   )
 }
 
