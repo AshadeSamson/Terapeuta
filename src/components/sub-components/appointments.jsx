@@ -26,8 +26,7 @@ function Appointments() {
   const appointments = data.sort((a,b) => new Date(b.appointmentDate)  - new Date(a.appointmentDate))
                       .map((appointment) => {
     return (<>
-              <hr />
-              <div>
+              <div className='session'>
                 <div>
                   <h6>Date</h6>
                   <p>{appointment.appointmentDate}</p>

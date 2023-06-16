@@ -509,8 +509,26 @@ a.user-profile-link:not(:last-child){
     margin: 10px auto;
 }
 
+.appointments h4{
+    margin: 10px auto;
+}
+
 .no-booking{
     margin: 25px auto;
+    color: var(--primary-color);
+}
+
+.session{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 1px;
+    margin-bottom: 5px;
+    gap: 10px;
+    box-shadow:  -1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.session p{
     color: var(--primary-color);
 }
 
