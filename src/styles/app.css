@@ -405,15 +405,16 @@ button:disabled{
 a.user-profile-link{
     color: var(--primary-bg);
     padding: 5px 5px;
+    height: 40px;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 a.user-profile-link.active{
     background-color: var(--primary-bg);
     color: var(--primary-color);
     box-shadow:  -3px 3px 5px rgba(0, 0, 0, 0.5);
-    min-height:50px;
 }
 
 a.user-profile-link:not(:last-child){
