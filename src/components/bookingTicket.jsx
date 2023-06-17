@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Suspense} from 'react'
 import { useLoaderData } from 'react-router-dom';
 
 
@@ -27,6 +27,7 @@ function BookingTicket() {
 
       <h3 className='sections-header succeed-msg'>You have booked a therapist session and here are your details:</h3>
       <div className='ticket-box'>
+        <Suspense fallback={<h1>Loading...</h1>}>
         <div className='ticket-slip'>
           <h3>Client Name: <span className='special-text'>{data.name}</span></h3>
           <h3>Appointment Date: <span className='special-text'>{data.appointmentDate}</span></h3>
@@ -34,6 +35,7 @@ function BookingTicket() {
           <h3>Location: <span className='special-text'>{`123 Main Street, Suite 456, Cityville.`}</span></h3>
           <h3>Contact Number: <span className='special-text'>{`+(1) 023 456 789`}</span></h3>
         </div>
+        </Suspense>
         <div className='print-ticket'>
           <button>Print Ticket</button>
         </div>
