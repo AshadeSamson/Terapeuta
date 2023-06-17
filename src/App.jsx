@@ -54,6 +54,8 @@ function App() {
     )
   )
 
+  console.log(import.meta.env.DEV)
+
   return(
       
         <RouterProvider router={router}/>
