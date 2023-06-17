@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useLoaderData } from 'react-router-dom';
 
 
@@ -52,10 +52,10 @@ function Appointments() {
   return (
     <div className='appointments'>
       <h4>Appointments</h4>
-      
+      <Suspense fallback={<h1>Loading...</h1>}>
       {appointments.length > 0 ? React.Children.toArray(appointments) :
       <h3 className='no-booking'>No Booked Appointments as of Now.</h3>}
-
+      </Suspense>
     </div>
   )
 }

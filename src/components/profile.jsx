@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, Suspense} from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { userAuth } from './contexts/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -33,6 +33,7 @@ function Profile() {
 
   return (
     <section className='dashboard'>
+      <Suspense fallback={<h1>Loading...</h1>}>
       <div className='user'>
         <div className='user-icon-box'>
           <FontAwesomeIcon icon={faUser} size='6x' className='user-icon'/>
@@ -90,6 +91,7 @@ function Profile() {
            <Outlet  context={ {setProfileUpdate} }/>
         </section>
       </div>
+      </Suspense>
     </section>
   )
 }
