@@ -132,7 +132,8 @@ function Settings() {
             <input 
               type="text" 
               placeholder="First Name" 
-              name="firstName" 
+              name="firstName"
+              maxLength='10' 
               className='input settings-input'
               onChange={profileChanges}
               value={profile.firstName}
@@ -142,7 +143,8 @@ function Settings() {
             <input 
               type="text" 
               placeholder="Last Name" 
-              name="lastName" 
+              name="lastName"
+              maxLength='10'  
               className='input settings-input'
               onChange={profileChanges}
               value={profile.lastName}
