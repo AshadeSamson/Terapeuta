@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { userAuth } from '../contexts/authContext';
-import { Link, Outlet, useOutletContext } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom'
 import errorRegex from '../../fuctions/regex';
 
 function Settings() {
@@ -56,7 +56,6 @@ function Settings() {
     const userName = `${profile.firstName} ${profile.lastName}`
     try {
       await updateUser(user, userName)
-      console.log('user profile updated')
     } catch (error) {
        setProfileUpdateError(errorRegex(error.message)) 
     } finally{
@@ -71,7 +70,6 @@ function Settings() {
     e.preventDefault();
     try {
       await changeEmail(currentUSER, profile.newEmail)
-      console.log('user email updated')
     } catch (error) {
       setEmailUpdateError(errorRegex(error.message))
     } finally{
@@ -87,7 +85,6 @@ function Settings() {
     e.preventDefault();
     try {
       await verifyEmail(currentUSER)
-      console.log('User is now verified')
     } catch (error) {
       setVerifyEmailError(errorRegex(error.message))
     } finally{
@@ -103,8 +100,7 @@ function Settings() {
     e.preventDefault();
     if(profile.newPassword === profile.newPasswordConfirm){
       try{
-        await changePassword(currentUSER, profile.newPassword)
-        console.log('password updated') 
+        await changePassword(currentUSER, profile.newPassword) 
       } catch(error){
         setPasswordError(errorRegex(error.message))
       } finally{
