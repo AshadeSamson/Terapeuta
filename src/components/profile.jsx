@@ -13,7 +13,6 @@ function Profile() {
   },[profileUpdate])
 
   const { user } = userAuth()
-  console.log(user)
 
   // Getting User's Time
     const day = new Date()
