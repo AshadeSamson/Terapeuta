@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { userAuth } from './contexts/authContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,8 +6,15 @@ import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 
 function Homepage() {
 
-  const { user } = userAuth()
+  const { user, isLoading } = userAuth()
 
+
+  if(!user && isLoading){
+    return(
+      <Suspense fallback={<h1>Loading...</h1>}>
+      </Suspense>
+    )
+  }
   return (
     <div>
       <section className='hero'>

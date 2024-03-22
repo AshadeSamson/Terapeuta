@@ -52,7 +52,6 @@ function Login() {
         }finally{
           setAction(false)
           navigate('/profile', {replace: true});
-          
         }
     
   }
