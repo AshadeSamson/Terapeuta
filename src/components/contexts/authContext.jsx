@@ -26,6 +26,7 @@ function AuthContextProvider({children}) {
 
     // state tracking authorized  user
     const [user, setUser] = useState(null)
+    const [isLoading, setIsLoading] = useState(true);
 
 
     // current logged in user
@@ -77,6 +78,7 @@ function AuthContextProvider({children}) {
     useEffect(() => {
         const unsuscribe = onIdTokenChanged(auth, (currentUser) => {
             setUser(currentUser)
+            setIsLoading(false)
         });
         return () => {
             unsuscribe()
@@ -121,6 +123,7 @@ function AuthContextProvider({children}) {
     // values being exported to child comps
     const value = {
         user,
+        isLoading,
         currentUSER,
         createNewUser,
         loginUser,
