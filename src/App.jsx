@@ -18,6 +18,7 @@ import "./styles/app.css"
 import { userAuth } from "./components/contexts/authContext"
 import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
 import RouteError from "./components/error-components/Error"
+import About from "./components/sub-components/about"
 
 
 
@@ -30,7 +31,8 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
           <Route path="/" element={<AppLayout />} errorElement={<RouteError />}>
-          <Route index element={<Homepage/>} />
+          <Route index element={<Homepage/>}></Route>
+          <Route path="about" element={<About/>} />
           <Route path="login" element={<Login/>} />
           <Route path="signup" element={<SignUp/>} />
           <Route element={<Private />}>
