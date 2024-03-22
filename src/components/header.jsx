@@ -63,6 +63,26 @@ function Header({mobileNav, toggleNav}) {
                 Book a session
                 </NavLink>}
 
+                {
+                user === null
+                &&
+                <NavLink 
+               to="about"
+               onClick={toggleNav} 
+               className='navLink user-out'>
+                About
+                </NavLink>}
+
+                {
+                user === null
+                &&
+                <NavLink 
+               to="features"
+               onClick={toggleNav} 
+               className='navLink user-out'>
+                Features
+                </NavLink>}
+
                {
                 user === null
                 &&
