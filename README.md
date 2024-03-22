@@ -1,20 +1,27 @@
 # Terapeuta
 
-A therapist session booking web app. At the completion of the project, Users should be able to;
-
-- Sign Up for new accounts using a valid email address
-- Login into their account with the registered email
-- View their dashboard after login
-- Update their profile information
-- Book sessions with therapist on their convenient date
+Terapeuta is a web application designed to provide online therapist support and facilitate virtual therapy sessions. Built using React.js, Firebase Auth, Firestore Database, React Router, Context API, and CSS, Terapeuta offers users a seamless experience for registering, logging in, booking sessions, and managing their profiles.
 
 
+## Features
+- User Authentication: Users can register and log in to their personal accounts securely using Firebase Auth.
+- Session Booking: Users can book therapy sessions with available therapists.
+- Profile Management: Users can update their display names, change and verify email addresses, and manage other profile settings.
 
 
+## Continuous Development
+- Virtual Sessions: Implementation of the ability to issue tickets and hold therapy sessions virtually.
+- Enhanced User Experience: Continuously improve the user interface and experience for better usability and accessibility.
 
-# Built With
-- Pure CSS
+
+## Technologies Used
 - React.js
-- React-router-dom
-- Firebase Authentication Service
-- React Context
+- Firebase Auth
+- Firestore Database
+- React Router
+- Context API
+- CSS
+
+
+## Live Site
+Check out the live version of Terapeuta (here)[https://terapeuta-2023.web.app/]
