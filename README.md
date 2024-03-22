@@ -24,4 +24,4 @@ Terapeuta is a web application designed to provide online therapist support and 
 
 
 ## Live Site
-Check out the live version of Terapeuta (here)[https://terapeuta-2023.web.app/]
+Check out the live version of Terapeuta [here](https://terapeuta-2023.web.app/)
