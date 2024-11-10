@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { userAuth } from './contexts/authContext';
 import errorRegex from '../fuctions/regex';
+import { toast } from 'react-toastify';
 
 
 
@@ -23,7 +24,7 @@ function Login() {
   const [error, setError] = useState(() => null)
 
   // values from context
-  const { loginUser } = userAuth()
+  const { loginUser, user } = userAuth()
 
   function formChanges(event){
 
@@ -47,14 +48,22 @@ function Login() {
         try{
           setAction(true)
           await loginUser(formDetails.email, formDetails.password);
+          toast.success("User login successful");
+          setTimeout(() => navigate('/profile', { replace: true }), 500);
         }catch(e){
           setError(errorRegex(e.message))
+          toast.warning("Login failed. Please check your credentials and try again");
         }finally{
           setAction(false)
-          navigate('/profile', {replace: true});
         }
-    
   }
+
+
+  useEffect(() => {
+    if (user) {
+      navigate('/profile', { replace: true });
+    }
+  }, [user, navigate]);
 
   return (
 
