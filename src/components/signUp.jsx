@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { userAuth } from './contexts/authContext';
 import errorRegex from '../fuctions/regex';
+import { toast } from 'react-toastify';
 
 
 
@@ -24,7 +25,7 @@ function SignUp() {
   const [error, setError] = useState(() => null)
 
   // values from context
-  const { createNewUser, addNewUser } = userAuth()
+  const { createNewUser, addNewUser, user } = userAuth()
 
 
   // fuction watching and updating changes in input values
@@ -49,21 +50,28 @@ function SignUp() {
       event.preventDefault();
 
       if(formDetails.password === formDetails.passwordConfirm){
+
           try{
-            setAction(true)
+            setAction(true);
             const getUser = await createNewUser(formDetails.email, formDetails.password); 
-            getUser.then(addNewUser(getUser.user.uid))  
+            await addNewUser(getUser.user.uid);  
+            toast.success("Account successfully created");
+            setTimeout(() => navigate('/profile', { replace: true }), 500);
           }catch(e){
             setError(errorRegex(e.message))
           }finally{
             setAction(false);
-            navigate('/profile', {replace: true}); 
-            
           }
       }else{
         setError('passwords do not match')
       }
     }
+
+    useEffect(() => {
+      if (user) {
+        navigate('/profile', { replace: true });
+      }
+    }, [user, navigate]);
 
 
 

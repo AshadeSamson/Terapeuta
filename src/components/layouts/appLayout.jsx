@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/ReactToastify.css'
 import Header from '../header'
+
 
 function AppLayout() {
 
@@ -21,6 +24,8 @@ function AppLayout() {
         <section className='main'>
             <Outlet />
         </section>
+        <ToastContainer 
+        position='top-center'/>
     </div>
   )
 }

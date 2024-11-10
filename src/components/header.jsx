@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars , faXmark, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { userAuth } from './contexts/authContext';
+import { toast } from 'react-toastify';
 
 function Header({mobileNav, toggleNav}) {
 
@@ -14,6 +15,7 @@ function Header({mobileNav, toggleNav}) {
     e.preventDefault()
     toggleNav();
     await logoutUser();
+    toast.success("Logout successful")
     navigate('.')
   }
 
@@ -70,17 +72,7 @@ function Header({mobileNav, toggleNav}) {
                to="about"
                onClick={toggleNav} 
                className='navLink user-out'>
-                About
-                </NavLink>}
-
-                {
-                user === null
-                &&
-                <NavLink 
-               to="features"
-               onClick={toggleNav} 
-               className='navLink user-out'>
-                Features
+                About Us
                 </NavLink>}
 
                {

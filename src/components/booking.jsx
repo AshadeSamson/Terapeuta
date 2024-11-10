@@ -1,6 +1,7 @@
 import { serverTimestamp } from 'firebase/firestore'
 import React from 'react'
 import { Form, redirect, useNavigation } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 
 
@@ -30,6 +31,8 @@ export const action = (userContext) => async ({request}) => {
   // booking a new ticket and getting the ticket ID
   const ticket = await addNewBooking(user.uid, bookingDetails)
   const bookingID = await ticket.id
+
+  toast.success("Appointment booked successfully")
  
   // navigating to the booking ticket page
   return redirect(`/booking/${user.uid}/${bookingID}`);   

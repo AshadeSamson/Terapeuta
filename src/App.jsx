@@ -31,27 +31,27 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
           <Route path="/" element={<AppLayout />} errorElement={<RouteError />}>
-          <Route index element={<Homepage/>}></Route>
-          <Route path="about" element={<About/>} />
-          <Route path="login" element={<Login/>} />
-          <Route path="signup" element={<SignUp/>} />
-          <Route element={<Private />}>
-            <Route path="profile" element={<Profile/>}>
-              <Route index element={<Appointments />} loader={appointmentLoader(userContext)} />
-              <Route path="messages" element={<Messages />} />
-              <Route path="billing" element={<Billing />} />
-              <Route path="resources" element={<Resources />} />
-              <Route path="settings" element={<Settings />} />
+            <Route index element={<Homepage/>}></Route>
+            <Route path="about" element={<About/>} />
+            <Route path="login" element={<Login/>} />
+            <Route path="signup" element={<SignUp/>} />
+            <Route element={<Private />}>
+              <Route path="profile" element={<Profile/>}>
+                <Route index element={<Appointments />} loader={appointmentLoader(userContext)} />
+                <Route path="messages" element={<Messages />} />
+                <Route path="billing" element={<Billing />} />
+                <Route path="resources" element={<Resources />} />
+                <Route path="settings" element={<Settings />} />
+              </Route>
+              <Route  path="booking" 
+                      element={<Booking/>} 
+                      action={bookingAction(userContext)}
+                      errorElement={<RouteError />}/>
+              <Route  path="booking/:uid/:id" 
+                      element={<BookingTicket />}
+                      loader={bookingTicketLoader(userContext)} 
+                      errorElement={<RouteError />}/>
             </Route>
-            <Route  path="booking" 
-                    element={<Booking/>} 
-                    action={bookingAction(userContext)}
-                    errorElement={<RouteError />}/>
-            <Route  path="booking/:uid/:id" 
-                    element={<BookingTicket />}
-                    loader={bookingTicketLoader(userContext)} 
-                    errorElement={<RouteError />}/>
-          </Route>
           </Route>
     )
   )
