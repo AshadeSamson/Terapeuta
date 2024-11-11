@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { userAuth } from '../context/authContext'
 import { useOutletContext } from 'react-router-dom'
 import errorRegex from '../utils/regex.js'
+import { toast } from 'react-toastify'
 
 function Settings() {
 
@@ -56,11 +57,12 @@ function Settings() {
     const userName = `${profile.firstName} ${profile.lastName}`
     try {
       await updateUser(user, userName)
-    } catch (error) {
-       setProfileUpdateError(errorRegex(error.message)) 
-    } finally{
       setProfile(profileInitialValue)
+      toast.success("Profile update successful")
       setProfileUpdate(prev => !prev)
+    } catch (error) {
+       setProfileUpdateError(errorRegex(error.message))
+       toast.warning("profile update failed") 
     }
   }
 
@@ -70,11 +72,12 @@ function Settings() {
     e.preventDefault();
     try {
       await changeEmail(currentUSER, profile.newEmail)
+      setProfile(profileInitialValue)
+      toast.success("Profile update successful")
+      setProfileUpdate(prev => !prev)
     } catch (error) {
       setEmailUpdateError(errorRegex(error.message))
-    } finally{
-      setProfile(profileInitialValue)
-      setProfileUpdate(prev => !prev)
+      toast.warning("profile update failed")
     }
   }
 
@@ -85,11 +88,12 @@ function Settings() {
     e.preventDefault();
     try {
       await verifyEmail(currentUSER)
+      setProfile(profileInitialValue)
+      toast.success("Check email for instructions")
+      setProfileUpdate(prev => !prev)
     } catch (error) {
       setVerifyEmailError(errorRegex(error.message))
-    } finally{
-      setProfile(profileInitialValue)
-      setProfileUpdate(prev => !prev)
+      toast.warning("Email verification failed")
     }
   }
 
@@ -100,12 +104,13 @@ function Settings() {
     e.preventDefault();
     if(profile.newPassword === profile.newPasswordConfirm){
       try{
-        await changePassword(currentUSER, profile.newPassword) 
+        await changePassword(currentUSER, profile.newPassword)
+        setProfile(profileInitialValue)
+        toast.success("Password update successful")
+        setProfileUpdate(prev => !prev) 
       } catch(error){
         setPasswordError(errorRegex(error.message))
-      } finally{
-        setProfile(profileInitialValue)
-        setProfileUpdate(prev => !prev)
+        toast.warning("profile update failed")
       }
     }
     else{

@@ -7,7 +7,7 @@ import { createUserWithEmailAndPassword,
         updateEmail,
         sendEmailVerification,
         updatePassword} from 'firebase/auth';
-import { addDoc, collection, doc, getDoc, getDocs, orderBy, setDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore'
 import { auth, db } from '../firebase'
 
 
