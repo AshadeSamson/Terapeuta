@@ -1,12 +1,14 @@
 :root{
     --primary-font:  'PT Serif', serif;
     --body-text: 'Libre Baskerville', serif;
-    --theme: rgb(247, 224, 181);
-    --spice: rgb(247, 224, 181);
     --spicex: rgb(72, 156, 134);
-    --primary-bg: rgb(255, 255, 255);
-    --primary-color: rgb(81, 73, 144);
+    --spicet: #B2ABF2;
+    --spicey: #F6AE2D;
+    --spicez: #191308;
+    --primary-bg: rgb(248, 244, 242);
+    --primary-color: #514990;
     --black: rgb(9, 8, 9);
+    --white: #FFFFFF;
 }
 
 

@@ -1,9 +1,9 @@
 @import '../app.css';
 
 .aboutContainer {
-  text-align: justify;
+  text-align: center;
   padding: 20px;
-  background-color: rgba(201, 140, 167, 0.2);
+  background-color: var(--primary-bg);
   color: var(--black);
   font-family: var(--body-text);
   line-height: 1.6;
@@ -15,6 +15,7 @@
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   margin-bottom: 15px;
+  display: inline-block;
 }
 
 .text {
@@ -22,9 +23,9 @@
 }
 
 .toggleButton {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 10px;
   border: none;
   color: var(--primary-bg);
   background-color: var(--primary-color);
@@ -33,5 +34,5 @@
 }
 
 .toggleButton:hover {
-  background-color: var(--spice);
+  background-color: var(--spicex);
 }

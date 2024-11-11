@@ -18,7 +18,7 @@ function Faqs() {
       answer: "Yes, your data is securely stored using Firebase, ensuring confidentiality and compliance with data protection standards."
     },
     {
-      question: "What types of therapy do you offer?",
+      question: "What therapy types do you offer?",
       answer: "We offer a variety of therapeutic approaches including Cognitive Behavioral Therapy (CBT), solution-focused therapy, and mindfulness-based therapy."
     }
   ];
