@@ -2,7 +2,7 @@
 
 .testimonialsSection {
     padding: 50px 20px;
-    background-color: rgba(220, 234, 239, 0.7);
+    background-color: var(--primary-bg);
     text-align: center;
 }
 
@@ -24,9 +24,9 @@
 .testimonialCard {
     background-color: var(--primary-bg);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.5);
-    border-left: 5px solid var(--theme);
+    border-radius: 15px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+    border-left: 3px solid var(--primary-color);
     transition: opacity 0.5s ease-in-out;
 }
 
@@ -55,7 +55,7 @@
 .navigation {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     margin-top: 15px;
 }
 
@@ -69,5 +69,5 @@
 }
 
 .navButton:hover {
-    color: var(--theme);
+    color: var(--spicez);
 }
