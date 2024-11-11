@@ -1,12 +1,6 @@
 import React from 'react'
 import styles from '../../assets/styles/landingPage/services.module.css'
-
-
-const servicesData = [
-  { title: 'Web Development', description: 'Build responsive and modern websites.' },
-  { title: 'App Development', description: 'Develop mobile applications for iOS and Android.' },
-  { title: 'UI/UX Design', description: 'Design user-friendly and appealing interfaces.' },
-];
+import { servicesData } from '../../services/fake-data/data';
 
 function Services(){
   

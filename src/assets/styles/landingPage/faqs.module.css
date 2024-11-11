@@ -4,8 +4,6 @@
   margin: 0 auto;
   padding: 20px;
   background-color: #5149900d;
-  border-radius: 8px;
-  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
 .heading {
@@ -47,7 +45,7 @@
 
 .answer {
   font-size: 1rem;
-  color: var(--black);
+  color: var(--spicez);
   margin-top: 10px;
   line-height: 1.5;
 }

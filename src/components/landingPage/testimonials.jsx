@@ -1,24 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../../assets/styles/landingPage/testimonials.module.css'
+import { testimonialsData } from '../../services/fake-data/data';
 
-
-const testimonialsData = [
-  {
-    quote: "This platform has changed my life. The therapists are so understanding and helpful!",
-    name: "Sarah W.",
-    role: "Client",
-  },
-  {
-    quote: "The booking process is so easy, and I feel supported throughout my sessions.",
-    name: "James P.",
-    role: "Client",
-  },
-  {
-    quote: "I love the professional approach and the care I receive here.",
-    name: "Emily R.",
-    role: "Client",
-  },
-];
 
 function Testimonials(){
   

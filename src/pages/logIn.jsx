@@ -52,7 +52,7 @@ function Login() {
           setTimeout(() => navigate('/profile', { replace: true }), 500);
         }catch(e){
           setError(errorRegex(e.message))
-          toast.warning("Login failed. Please check your credentials and try again");
+          toast.warning("Login failed. Please check your credentials or connection and try again");
         }finally{
           setAction(false)
         }
