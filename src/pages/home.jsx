@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 import { userAuth } from '../context/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
-import About from '../components/about'
+import Services from '../components/landingPage/services';
+import Testimonials from '../components/landingPage/testimonials';
+import AboutUs from '../components/landingPage/aboutUs';
+import Contact from '../components/landingPage/contact';
+import Faqs from '../components/landingPage/faqs';
 
 function Homepage() {
 
@@ -28,20 +32,11 @@ function Homepage() {
         }
       </section>
 
-      <About />
-
-      <section className='contact'>
-      <div className='section-heading'><h1>Contact</h1></div>
-        <p className='first-line'>To get in touch with us, you can:</p>
-        <hr />
-        <ul>
-          <li>Call us at +1-234-567-890</li>
-          <li>Email us at infothe@terapeuta.ty</li>
-        </ul>
-        <hr />
-        <p>Our friendly and knowledgeable staff will respond to your inquiry as soon as possible, typically within 24-48 hours.</p>
-        <p>We look forward to hearing from you and supporting you in your mental health journey.</p>
-      </section>
+      <AboutUs />
+      <Services />
+      <Testimonials />
+      <Contact />
+      <Faqs />
 
       <section className='copyright'>
         <h1><FontAwesomeIcon icon={faCopyright} size='1x'/> Copyright 2023 Terapeuta</h1>

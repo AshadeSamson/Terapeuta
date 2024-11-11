@@ -1,0 +1,37 @@
+@import '../app.css';
+
+.aboutContainer {
+  text-align: justify;
+  padding: 20px;
+  background-color: rgba(201, 140, 167, 0.2);
+  color: var(--black);
+  font-family: var(--body-text);
+  line-height: 1.6;
+  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.heading {
+  font-size: 2rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.text {
+  margin-bottom: 15px;
+}
+
+.toggleButton {
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  color: var(--primary-bg);
+  background-color: var(--primary-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggleButton:hover {
+  background-color: var(--spice);
+}
