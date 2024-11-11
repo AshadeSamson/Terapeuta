@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { userAuth } from './contexts/authContext';
+import { userAuth } from '../context/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
-import About from './sub-components/about';
+import About from '../components/about'
 
 function Homepage() {
 

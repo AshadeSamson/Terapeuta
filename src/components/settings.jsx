@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { userAuth } from '../contexts/authContext';
+import { userAuth } from '../context/authContext'
 import { useOutletContext } from 'react-router-dom'
-import errorRegex from '../../fuctions/regex';
+import errorRegex from '../utils/regex.js'
 
 function Settings() {
 

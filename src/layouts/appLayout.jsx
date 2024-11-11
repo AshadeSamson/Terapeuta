@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css'
-import Header from '../header'
+import Header from '../components/header'
 
 
 function AppLayout() {

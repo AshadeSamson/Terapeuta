@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { userAuth } from '../contexts/authContext'
+import { userAuth } from '../../context/authContext'
 
 function Private() {
 

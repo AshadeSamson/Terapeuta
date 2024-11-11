@@ -1,24 +1,24 @@
-import AppLayout from "./components/layouts/appLayout"
-import Homepage from "./components/home"
-import Login  from "./components/logIn"
-import SignUp  from "./components/signUp"
-import Profile from "./components/profile"
+import AppLayout from "./layouts/appLayout"
+import Homepage from "./pages/home"
+import Login  from "./pages/logIn"
+import SignUp  from "./pages/signUp"
+import Profile from "./pages/profile"
 import Private from "./components/private/private"
-import Appointments, { loader as appointmentLoader } from "./components/sub-components/appointments"
-import Billing from "./components/sub-components/billing"
-import Messages from "./components/sub-components/messages"
-import Resources from "./components/sub-components/resources"
-import Settings from "./components/sub-components/settings"
-import Booking ,{ action as bookingAction } from "./components/booking"
+import Appointments, { loader as appointmentLoader } from "./components/appointments"
+import Billing from "./components/billing"
+import Messages from "./components/messages"
+import Resources from "./components/resources"
+import Settings from "./components/settings"
+import Booking ,{ action as bookingAction } from "./pages/booking"
 import { RouterProvider, 
         createBrowserRouter, 
         createRoutesFromElements, 
         Route } from "react-router-dom"
-import "./styles/app.css"
-import { userAuth } from "./components/contexts/authContext"
+import "./assets/styles/app.css"
+import { userAuth } from "./context/authContext"
 import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
 import RouteError from "./components/error-components/Error"
-import About from "./components/sub-components/about"
+import About from "./components/about"
 
 
 

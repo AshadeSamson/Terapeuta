@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/landingPage/hero.module.css'
+import styles from '../../assets/styles/landingPage/hero.module.css'
 
 function Hero() {
   return (
