@@ -158,7 +158,7 @@ a:hover{
 .about{
     text-align: justify;
     padding: 10px 15px;
-    background-color: rgba(201, 140, 167, 0.5)
+    background-color: var(--spicet)
 }
 
 

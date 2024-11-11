@@ -1,27 +1,9 @@
 import React, { useState } from 'react'
 import styles from '../../assets/styles/landingPage/faqs.module.css'
+import { faqs } from '../../services/fake-data/data';
 
 function Faqs() {
   const [activeIndex, setActiveIndex] = useState(null);
-
-  const faqs = [
-    {
-      question: "What is Terapeuta?",
-      answer: "Terapeuta is a web application designed to connect clients with qualified therapists, providing professional therapy services to support mental health and wellness goals."
-    },
-    {
-      question: "How can I book a session?",
-      answer: "You can book a session by creating an account, logging in, and selecting a therapist of your choice. From there, you can choose an available time slot and confirm your booking."
-    },
-    {
-      question: "Is my information secure?",
-      answer: "Yes, your data is securely stored using Firebase, ensuring confidentiality and compliance with data protection standards."
-    },
-    {
-      question: "What therapy types do you offer?",
-      answer: "We offer a variety of therapeutic approaches including Cognitive Behavioral Therapy (CBT), solution-focused therapy, and mindfulness-based therapy."
-    }
-  ];
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);

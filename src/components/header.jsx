@@ -84,16 +84,7 @@ function Header({mobileNav, toggleNav}) {
                className='navLink user-out'>
                 Login
                 </NavLink>}
-
-               {
-                user === null
-                &&
-                <NavLink 
-               to="signup"
-               onClick={toggleNav} 
-               className='navLink user-out'>
-                SignUp
-                </NavLink>}
+                
         
                {
                 user !== null

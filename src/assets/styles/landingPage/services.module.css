@@ -1,7 +1,7 @@
 
 .servicesSection {
     padding: 2rem;
-    background-color: var(--spicey);
+    background-color: var(--spicet);
     color: var(--black);
     text-align: center;
   }
@@ -45,7 +45,7 @@
   }
   
   .serviceDescription {
-    font-size: 1rem;
+    font-size: .85rem;
     color: var(--spicex);
     line-height: 1.5;
   }
