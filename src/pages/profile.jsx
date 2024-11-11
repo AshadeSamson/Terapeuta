@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Suspense} from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { userAuth } from './contexts/authContext'
+import { userAuth } from '../context/authContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faCircleCheck, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 

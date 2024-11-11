@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { userAuth } from './contexts/authContext';
-import errorRegex from '../fuctions/regex';
+import { userAuth } from '../context/authContext'
+import errorRegex from '../utils/regex.js'
 import { toast } from 'react-toastify';
 
 

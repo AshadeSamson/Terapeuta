@@ -1,8 +1,8 @@
-import React ,{ useState , useEffect} from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars , faXmark, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { userAuth } from './contexts/authContext';
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { userAuth } from '../context/authContext'
 import { toast } from 'react-toastify';
 
 function Header({mobileNav, toggleNav}) {

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/landingPage/testimonials.module.css'
+import styles from '../../assets/styles/landingPage/testimonials.module.css'
 
 function Testimonials() {
   return (
