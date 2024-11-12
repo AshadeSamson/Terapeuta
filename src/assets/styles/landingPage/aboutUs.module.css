@@ -22,6 +22,10 @@
   text-align: justify;
 }
 
+.paragraph {
+  margin-bottom: 16px;
+}
+
 .toggleButton {
   font-size: 1rem;
   font-weight: bold;
