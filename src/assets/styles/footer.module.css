@@ -1,0 +1,70 @@
+/* Scoped to Footer Component */
+.footer {
+    background-color: var(--black);
+    color: var(--primary-bg);
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .footerContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .linksSection, .contactSection, .socialSection {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer h4 {
+    font-family: var(--primary-font);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--spice);
+  }
+  
+  .footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer ul li {
+    margin: 5px 0;
+  }
+  
+  .footer a {
+    color: var(--primary-bg);
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    color: var(--spice);
+    text-decoration: underline;
+  }
+  
+  .socialSection .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .socialIcons a {
+    color: var(--primary-bg);
+    font-size: 1rem;
+  }
+  
+  .socialIcons a:hover {
+    color: var(--spice);
+  }
+  
+  .footer .copyright {
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: var(--primary-bg);
+  }
+  

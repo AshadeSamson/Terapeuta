@@ -48,5 +48,6 @@
     font-size: .85rem;
     color: var(--spicex);
     line-height: 1.5;
+    text-align: justify;
   }
   
