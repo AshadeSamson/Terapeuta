@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
-import { userAuth } from '../context/authContext'
+import { useApp } from '../context/appContext'
 import Services from '../components/landingPage/services';
 import Testimonials from '../components/landingPage/testimonials';
 import AboutUs from '../components/landingPage/aboutUs';
@@ -11,7 +11,7 @@ import Faqs from '../components/landingPage/faqs';
 
 function Homepage() {
 
-  const { user, isLoading } = userAuth()
+  const { user, isLoading } = useApp()
   const location = useLocation();
 
   useEffect(() => {

@@ -2,12 +2,12 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars , faXmark, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { userAuth } from '../context/authContext'
+import { useApp } from '../context/appContext'
 import { toast } from 'react-toastify';
 
 function Header({mobileNav, toggleNav}) {
 
-  const { user, logoutUser } = userAuth()
+  const { user, logoutUser } = useApp()
   const navigate = useNavigate()
 
 

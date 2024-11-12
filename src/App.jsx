@@ -15,7 +15,7 @@ import { RouterProvider,
         createRoutesFromElements, 
         Route } from "react-router-dom"
 import "./assets/styles/app.css"
-import { userAuth } from "./context/authContext"
+import { useApp } from "./context/appContext"
 import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
 import RouteError from "./components/error-components/Error"
 import About from "./components/about"
@@ -25,7 +25,7 @@ import About from "./components/about"
 
 function App() {
 
-  const userContext = userAuth()
+  const userContext = useApp()
 
 
   const router = createBrowserRouter(

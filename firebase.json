@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "terapeuta-2023",
     "public": "dist",
     "ignore": [
       "firebase.json",

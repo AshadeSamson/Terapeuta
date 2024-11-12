@@ -13,16 +13,16 @@ import { auth, db } from '../firebase'
 
 
 // creating auth context
-const AuthContext = createContext()
+const AppContext = createContext()
 
 
 // function to serve context to child comps
-export function userAuth(){
-    return useContext(AuthContext)
+export function useApp(){
+    return useContext(AppContext)
 }
 
 
-function AuthContextProvider({children}) {
+function AppContextProvider({children}) {
 
     // state tracking authorized  user
     const [user, setUser] = useState(null)
@@ -140,10 +140,10 @@ function AuthContextProvider({children}) {
 
 
   return (
-    <AuthContext.Provider value={value}>
+    <AppContext.Provider value={value}>
         {children}
-    </AuthContext.Provider>
+    </AppContext.Provider>
   )
 }
 
-export default AuthContextProvider
+export default AppContextProvider

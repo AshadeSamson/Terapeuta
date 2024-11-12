@@ -1,6 +1,6 @@
 import React, {useEffect, useState, Suspense} from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { userAuth } from '../context/authContext'
+import { useApp } from '../context/appContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faCircleCheck, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 
@@ -12,7 +12,7 @@ function Profile() {
     return undefined
   },[profileUpdate])
 
-  const { user } = userAuth()
+  const { user } = useApp()
 
   // Getting User's Time
     const day = new Date()

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { userAuth } from '../context/authContext'
+import { useApp } from '../context/appContext'
 import { useOutletContext } from 'react-router-dom'
 import errorRegex from '../utils/regex.js'
 import { toast } from 'react-toastify'
@@ -7,13 +7,13 @@ import { toast } from 'react-toastify'
 function Settings() {
 
 
-  // Values and Functions from authentication context
+  // Values and Functions from application context
   const { user, 
           updateUser, 
           currentUSER, 
           changeEmail, 
           verifyEmail, 
-          changePassword} = userAuth()
+          changePassword} = useApp()
 
    // Props from outlet context 
   const { setProfileUpdate } = useOutletContext()

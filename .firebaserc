@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "terapeuta-2023"
-  }
+  },
+  "targets": {
+    "terapeuta-2023": {
+      "hosting": {
+        "terapeuta-2023": [
+          "terapeuta-2023"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
