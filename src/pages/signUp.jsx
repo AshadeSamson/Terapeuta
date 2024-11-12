@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { userAuth } from '../context/authContext'
+import { useApp } from '../context/appContext'
 import errorRegex from '../utils/regex.js'
 import { toast } from 'react-toastify';
 
@@ -25,7 +25,7 @@ function SignUp() {
   const [error, setError] = useState(() => null)
 
   // values from context
-  const { createNewUser, addNewUser, user } = userAuth()
+  const { createNewUser, addNewUser, user } = useApp()
 
 
   // fuction watching and updating changes in input values

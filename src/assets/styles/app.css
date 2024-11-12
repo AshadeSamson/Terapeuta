@@ -1,11 +1,10 @@
 :root{
     --primary-font:  'PT Serif', serif;
     --body-text: 'Libre Baskerville', serif;
-    --spicex: rgb(72, 156, 134);
+    --spicex: #489c86;
     --spicet: #B2ABF2;
-    --spicey: #F6AE2D;
     --spicez: #191308;
-    --primary-bg: rgb(248, 244, 242);
+    --primary-bg: #f8f4f2;
     --primary-color: #514990;
     --black: #191308;
     --white: #FFFFFF;
@@ -17,7 +16,7 @@
 
 html {
     scroll-behavior: smooth;
-  }
+}
   
 
 body{
@@ -162,9 +161,9 @@ a:hover{
 
 .about{
     text-align: justify;
-    padding: 10px 15px 25px;
+    padding: 10px 15px 50px;
     background-color: var(--spicet);
-    height: 100dvh;
+    
 }
 
 

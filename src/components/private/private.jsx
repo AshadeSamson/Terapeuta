@@ -1,11 +1,11 @@
 import React from 'react'
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { userAuth } from '../../context/authContext'
+import { useApp } from '../../context/appContext'
 
 function Private() {
 
     const location = useLocation()
-    const { user } =  userAuth()
+    const { user } =  useApp()
 
         if(user === null){
            return null;
