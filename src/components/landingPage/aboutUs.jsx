@@ -7,12 +7,21 @@ function AboutUs() {
   const [isExpanded, setIsExpanded] = useState(false);
   const previewText = text.slice(0, 500);
 
+  const paragraphs = text.split('\n').filter(paragraph => paragraph.trim() !== '');
+
+
   return (
     <div className={styles.aboutContainer}>
       <h2 className={styles.heading}>About Us</h2>
-      <p className={styles.text}>
-        {isExpanded ? text : `${previewText}...`}
-      </p>
+      <div className={styles.text}>
+        {isExpanded
+          ? paragraphs.map((paragraph, index) => (
+              <p key={index} className={styles.paragraph}>
+                {paragraph}
+              </p>
+            ))
+          : `${previewText}...`}
+      </div>
       <button className={styles.toggleButton} onClick={() => setIsExpanded(!isExpanded)}>
         {isExpanded ? 'Read Less' : 'Read More'}
       </button>
