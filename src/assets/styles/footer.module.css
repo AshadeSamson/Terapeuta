@@ -11,6 +11,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
+    row-gap: 50px;
     max-width: 1000px;
     margin: auto;
   }
@@ -19,10 +20,16 @@
     flex: 1;
     min-width: 200px;
   }
+
+
+  .contactSection p, .linksSection ul li a{
+    font-size: var(--Text-Four);
+    line-height: 1.5;
+  }
   
   .footer h4 {
     font-family: var(--primary-font);
-    font-size: 1.2rem;
+    font-size: var(--Text-Two);
     margin-bottom: 10px;
     color: var(--spice);
   }
@@ -55,7 +62,7 @@
   
   .socialIcons a {
     color: var(--primary-bg);
-    font-size: 1rem;
+    font-size: var(--Text-Four);
   }
   
   .socialIcons a:hover {
@@ -64,7 +71,7 @@
   
   .footer .copyright {
     margin-top: 50px;
-    font-size: 0.9rem;
+    font-size: var(--Text-Five);
     color: var(--primary-bg);
   }
   

@@ -8,6 +8,7 @@
   
   .heading {
     font-size: 2rem;
+    font-style: oblique;
     color: var(--spicez);
     font-family: var(--primary-font);
     margin-bottom: 1.5rem;
