@@ -8,6 +8,11 @@
     --primary-color: #514990;
     --black: #191308;
     --white: #FFFFFF;
+    --Text-One: 2rem;
+    --Text-Two: 1.5rem;
+    --Text-Three: 1.2rem;
+    --Text-Four: 1rem;
+    --Text-Five: calc(0.75rem + 2.5px);
 }
 
 
@@ -80,7 +85,7 @@ li{
 }
 
 a{
-    font-size: 1.2rem;
+    font-size: var(--Text-Three);
     text-decoration: none;
     color: var(--black);
 }
@@ -148,12 +153,12 @@ a:hover{
 }
 
 .hero-caption{
-    font-size: 2rem;
+    font-size: var(--Text-One);
     color: rgba(220, 234, 239, 0.9);
 }
 
 .section-heading h1{
-    font-size: 2rem;
+    font-size: var(--Text-One);
     display: inline-block;
     color: var(--primary-color);
     border-bottom: 2px var(--primary-color) solid;
@@ -169,7 +174,7 @@ a:hover{
 
 .about p, .contact p{
     margin-top: 15px;
-    font-family: var(--body-text);
+    font-family: var(--primary-font);
     line-height: 1.5;
     color: var(--black);
 }
@@ -177,19 +182,6 @@ a:hover{
     margin-bottom: 10px;
 }
 
-
-.contact ul{
-    padding: 10px;
-}
-
-.contact li{
-    font-family: var(--body-text);
-    list-style-type: square;
-    margin-left: 20px;
-    color: var(--primary-color);
-    font-weight: bolder;
-    padding: 2.5px;
-}
 
 .copyright{
     background-color: var(--primary-color);
@@ -222,7 +214,7 @@ a:hover{
 .form-header, .sections-header{
     color: var(--primary-color);
     margin-bottom: 15px;
-    font-size: 1.5rem;
+    font-size: var(--Text-Two);
 }
 
 div.input-holder{
@@ -291,7 +283,7 @@ div.radio-holder{
 
 label,legend{
     color: var(--black);
-    font-size: 1.2rem;
+    font-size: var(--Text-Three);
     margin-bottom: 5px;
 }
 
@@ -321,7 +313,7 @@ button{
     height: 50px;
     border: 1px solid var(--primary-color);
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: var(--Text-Four);
     font-weight: 700;
     background-color: var(--primary-color);
     color: var(--primary-bg);
@@ -329,7 +321,7 @@ button{
 }
 
 button:hover{
-    font-size: 1.5rem;
+    font-size: var(--Text-Three);
 }
 
 button:disabled{
@@ -367,12 +359,12 @@ button:disabled{
 }
 
 .user-greet h1{
-    font-size: 2rem;
+    font-size: var(--Text-One);
     margin-bottom: 10%;
 }
 
 .user-greet h3{
-    font-size: 1.1rem;
+    font-size: var(--Text-Four);
     color: var(--primary-color);
 }
 
@@ -501,7 +493,7 @@ a.user-profile-link:not(:last-child){
 }
 
 .settings-button{
-    font-size: 1rem;
+    font-size: var(--Text-Four);
     width: 150px;
     height: 40px;
     margin: 0;
@@ -613,7 +605,7 @@ a.active{
 }
 
 button:hover{
-    font-size: 1.2rem;
+    font-size: var(--Text-Four);
 }
 
 .hero{
@@ -627,7 +619,7 @@ button:hover{
 }
 
 .hero-caption{
-    font-size: 1.5rem;
+    font-size: var(--Text-Two);
 }
 
 .section-heading h1{

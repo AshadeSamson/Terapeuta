@@ -11,6 +11,7 @@
 
 .heading {
   font-size: 2rem;
+  font-style: oblique;
   color: var(--primary-color);
   border-bottom: 2px solid var(--primary-color);
   margin-bottom: 20px;
