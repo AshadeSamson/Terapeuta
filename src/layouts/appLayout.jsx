@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css'
 import Header from '../components/header'
+import Footer from '../components/footer';
 
 
 function AppLayout() {
@@ -26,6 +27,7 @@ function AppLayout() {
         </section>
         <ToastContainer 
         position='top-center'/>
+        <Footer />
     </div>
   )
 }

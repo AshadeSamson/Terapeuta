@@ -1,17 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 import { userAuth } from '../context/authContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopyright } from '@fortawesome/free-solid-svg-icons';
 import Services from '../components/landingPage/services';
 import Testimonials from '../components/landingPage/testimonials';
 import AboutUs from '../components/landingPage/aboutUs';
 import Contact from '../components/landingPage/contact';
 import Faqs from '../components/landingPage/faqs';
 
+
 function Homepage() {
 
   const { user, isLoading } = userAuth()
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.sectionId) {
+      scroller.scrollTo(location.state.sectionId, {
+        smooth: true,
+        duration: 500,
+        // offset: -70,
+      });
+    }
+  }, [location.state]);
 
   return (
     <div>
@@ -32,17 +43,15 @@ function Homepage() {
         }
       </section>
 
-      <AboutUs />
-      <Services />
-      <Testimonials />
-      <Contact />
-      <Faqs />
+      <section id="about"><AboutUs /></section>
 
-      <section className='copyright'>
-        <h1><FontAwesomeIcon icon={faCopyright} size='1x'/> Copyright 2023 Terapeuta</h1>
-      </section>
+      <section id="services"><Services /></section>
 
+      <section><Testimonials /></section>
 
+      <section id="contact"><Contact /></section>
+
+      <section id="faqs"><Faqs /></section>
     </div>
   )
 }

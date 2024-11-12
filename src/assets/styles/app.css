@@ -7,13 +7,18 @@
     --spicez: #191308;
     --primary-bg: rgb(248, 244, 242);
     --primary-color: #514990;
-    --black: rgb(9, 8, 9);
+    --black: #191308;
     --white: #FFFFFF;
 }
 
 
 
 /* Global */
+
+html {
+    scroll-behavior: smooth;
+  }
+  
 
 body{
     font-family: var(--primary-font);
@@ -157,8 +162,9 @@ a:hover{
 
 .about{
     text-align: justify;
-    padding: 10px 15px;
-    background-color: var(--spicet)
+    padding: 10px 15px 25px;
+    background-color: var(--spicet);
+    height: 100dvh;
 }
 
 
@@ -208,6 +214,10 @@ a:hover{
 .forms, .sections{
     text-align: center;
     margin-top: 10%;
+}
+
+.forms {
+    margin-bottom: 50px;
 }
 
 .form-header, .sections-header{
@@ -334,6 +344,7 @@ button:disabled{
 .dashboard{
     text-align: center;
     margin-top: 8%;
+    margin-bottom: 100px;
 }
 
 .user{
