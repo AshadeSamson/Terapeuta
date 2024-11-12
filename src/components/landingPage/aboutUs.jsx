@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '../../assets/styles/landingPage/aboutUs.module.css'
 import { text } from '../../services/fake-data/data';
 
+
 function AboutUs() {
 
   const [isExpanded, setIsExpanded] = useState(false);

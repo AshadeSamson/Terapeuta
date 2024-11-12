@@ -2,6 +2,8 @@ import React from 'react'
 import styles from '../assets/styles/footer.module.css'
 import { Link as ScrollLink } from 'react-scroll';
 import { useNavigate } from 'react-router-dom';
+import { IconContext } from 'react-icons';
+import {FaFacebookSquare, FaInstagramSquare, FaLinkedin} from 'react-icons/fa'
 
 function Footer() {
 
@@ -47,9 +49,11 @@ function Footer() {
             <div className={styles.socialSection}>
               <h4>Connect with Us</h4>
               <div className={styles.socialIcons}>
-                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <IconContext.Provider value={{size: "1.5rem"}}>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookSquare /></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagramSquare /> </a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                </IconContext.Provider>
               </div>
             </div>
           </div>
