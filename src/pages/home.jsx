@@ -7,7 +7,8 @@ import Testimonials from '../components/landingPage/testimonials';
 import AboutUs from '../components/landingPage/aboutUs';
 import Contact from '../components/landingPage/contact';
 import Faqs from '../components/landingPage/faqs';
-import Hero from '../components/landingPage/hero'
+import Hero from '../components/landingPage/hero';
+import CTA from '../components/landingPage/cta';
 
 
 function Homepage() {
@@ -35,22 +36,7 @@ function Homepage() {
 
       <section><Testimonials /></section>
 
-      <section className='hero'>
-        <div className='hero-text'>
-          <h1 className='hero-caption'>
-            {user !== null ? 'Transform Your Life: Discover a Happier and Healthier You with Expert Therapy Sessions' : 'Find Balance and Fulfillment: Discover the Power of Therapy for a Better Life'}
-          </h1>
-        </div>
-        {
-          user !== null ? 
-          <Link to='booking'>
-          <button>Book a session</button>
-          </Link> : 
-          <Link to='signup'>
-          <button>Get started here</button>
-          </Link>
-        }
-      </section>
+      <CTA user={user}/>
 
       <section id="contact"><Contact /></section>
 
