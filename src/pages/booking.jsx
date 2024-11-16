@@ -137,32 +137,32 @@ function Booking() {
           <div className="radio-holder">
           <input 
             type="radio" 
-            value="individual" 
+            value="cognitive-behaviour" 
             name="therapyType" 
-            id="individual"
+            id="cognitive"
             className='radio'
             required />
-          <label htmlFor="individual">Individual</label>
+          <label htmlFor="cognitive">Cognitive Behaviour</label>
           </div>
           <div className="radio-holder">
           <input 
             type="radio" 
-            value="couples" 
+            value="mindfulness-based" 
             name="therapyType" 
-            id="couples"
+            id="mindfulness"
             className='radio'
             required />
-          <label htmlFor="couples">Couples</label>
+          <label htmlFor="mindfulness">Mindfulness-Based</label>
           </div>
           <div className="radio-holder">
           <input 
             type="radio" 
-            value="family" 
+            value="career & life coaching" 
             name="therapyType" 
-            id="family"
+            id="careerLife"
             className='radio'
             required />
-          <label htmlFor="family">Family</label>
+          <label htmlFor="careerLife">Career & Life Coaching</label>
           </div>
         </fieldset>
       </div>
