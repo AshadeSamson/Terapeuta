@@ -24,4 +24,4 @@
 
 
 ## Live Site
-Check out the live version of Terapeuta **[here](https://terapeuta.us.to/)**
+Check out the live version of Terapeuta **[here](https://terapeuta2023.netlify.app/)**
