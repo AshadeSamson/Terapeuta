@@ -1,0 +1,113 @@
+/* Use a consistent prefix (hero-) for all class names */
+.ctaContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #5149900d;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 2rem;
+  }
+  
+  .ctaText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+  
+  .ctaHeading {
+    font-size: 3rem;
+    font-style: oblique;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  
+  .ctaParagraph p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .ctaButton {
+    padding: 0.8rem 1.5rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .ctaImage {
+    flex: 1;
+    text-align: center;
+    width: 100%; 
+    height: 600px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden; 
+  }
+  
+  .ctaImage img {
+    max-width: 100%;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 767.9px) {
+    .ctaContainer {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  
+    .ctaText {
+      order: 1;
+      text-align: center;
+    }
+  
+    .ctaImage {
+      order: 2;
+    }
+  
+    .ctaHeading {
+      font-size: 2rem;
+    }
+  
+    .ctaParagraph p {
+      font-size: 1rem;
+    }
+  
+    .ctaButton {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .ctaHeading {
+      font-size: 1.8rem;
+    }
+  
+    .ctaParagraph p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+  
+    .ctaButton {
+      font-size: 0.8rem;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+  

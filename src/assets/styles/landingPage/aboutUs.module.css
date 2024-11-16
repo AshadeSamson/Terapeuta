@@ -21,6 +21,8 @@
 .text {
   margin-bottom: 15px;
   text-align: justify;
+  font-style: oblique;
+  color: #303030;
 }
 
 .paragraph {
