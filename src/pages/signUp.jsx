@@ -56,7 +56,7 @@ function SignUp() {
             const getUser = await createNewUser(formDetails.email, formDetails.password); 
             await addNewUser(getUser.user.uid);  
             toast.success("Account successfully created");
-            setTimeout(() => navigate('/profile', { replace: true }), 500);
+            setTimeout(() => navigate('/profile', { replace: true }), 200);
           }catch(e){
             setError(errorRegex(e.message))
           }finally{
