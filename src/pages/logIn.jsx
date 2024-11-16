@@ -49,7 +49,7 @@ function Login() {
           setAction(true)
           await loginUser(formDetails.email, formDetails.password);
           toast.success("User login successful");
-          setTimeout(() => navigate('/profile', { replace: true }), 500);
+          setTimeout(() => navigate('/profile', { replace: true }), 200);
         }catch(e){
           setError(errorRegex(e.message))
           toast.warning("Login failed. Please check your credentials or connection and try again");
@@ -108,6 +108,10 @@ function Login() {
 
         <button disabled={action === true} type="submit">{action ? 'LOGGING IN...' : 'LOG IN'}</button>
 
+        <div className='optional'>
+          <p>Forgotten password? <Link to="/signup">Click here</Link></p>
+        </div>
+        <br />
         <div className='optional'>
           <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
         </div>
