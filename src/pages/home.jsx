@@ -7,6 +7,7 @@ import Testimonials from '../components/landingPage/testimonials';
 import AboutUs from '../components/landingPage/aboutUs';
 import Contact from '../components/landingPage/contact';
 import Faqs from '../components/landingPage/faqs';
+import Hero from '../components/landingPage/hero'
 
 
 function Homepage() {
@@ -19,13 +20,21 @@ function Homepage() {
       scroller.scrollTo(location.state.sectionId, {
         smooth: true,
         duration: 500,
-        // offset: -70,
       });
     }
   }, [location.state]);
 
   return (
     <div>
+
+      <Hero user={user}/>
+
+      <section id="about"><AboutUs /></section>
+
+      <section id="services"><Services /></section>
+
+      <section><Testimonials /></section>
+
       <section className='hero'>
         <div className='hero-text'>
           <h1 className='hero-caption'>
@@ -42,12 +51,6 @@ function Homepage() {
           </Link>
         }
       </section>
-
-      <section id="about"><AboutUs /></section>
-
-      <section id="services"><Services /></section>
-
-      <section><Testimonials /></section>
 
       <section id="contact"><Contact /></section>
 
