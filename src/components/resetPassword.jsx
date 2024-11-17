@@ -27,7 +27,6 @@ function ResetPasswordModal({ isOpen, onClose }) {
     }catch(e){
       setError(errorRegex(e.message))
       toast.warning("Error Resetting Password");
-
       setTimeout(() => {
         setError(null);
         setEmail(''); 
