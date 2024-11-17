@@ -1,16 +1,40 @@
 import React, { useState } from 'react';
 import styles from '../assets/styles/resetPassword.module.css';
+import { useApp } from '../context/appContext';
+import errorRegex from '../utils/regex';
+import { toast } from 'react-toastify';
 
 function ResetPasswordModal({ isOpen, onClose }) {
   
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState(() => null)
+
+  const [action, setAction] = useState(false)
+
+  const { resetPassword } = useApp()
+
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('Reset Password Data:', { email });
+    try{
+      setAction(true)
+      await resetPassword(email);
+      toast.success("Check Mail Inbox for Instructions");
+      onClose();
+    }catch(e){
+      setError(errorRegex(e.message))
+      toast.warning("Error Resetting Password");
 
-    onClose();
+      setTimeout(() => {
+        setError(null);
+        setEmail(''); 
+      }, 3000);
+    }finally{
+      setAction(false)
+    }
   };
 
   if (!isOpen) return null; 
@@ -26,6 +50,7 @@ function ResetPasswordModal({ isOpen, onClose }) {
           <label htmlFor="email" className={styles.label}>
             Email Address
           </label>
+          {error && <h5 className='error red'>{error}</h5>}
           <input
             id="email"
             type="email"
@@ -35,7 +60,7 @@ function ResetPasswordModal({ isOpen, onClose }) {
             required
           />
           <div>
-            <button type="submit" className={styles.submitButton}>
+            <button disabled={action === true} type="submit" className={styles.submitButton}>
               Reset Password
             </button>
           </div>
