@@ -6,7 +6,8 @@ import { createUserWithEmailAndPassword,
         onIdTokenChanged,
         updateEmail,
         sendEmailVerification,
-        updatePassword} from 'firebase/auth';
+        updatePassword,
+        sendPasswordResetEmail} from 'firebase/auth';
 import { addDoc, collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore'
 import { auth, db } from '../firebase'
 
@@ -73,6 +74,10 @@ function AppContextProvider({children}) {
     }
 
 
+    // reset user password
+    function resetPassword(userEmail){
+        return sendPasswordResetEmail(auth, userEmail)
+    }
 
     // observer for changes in user current state and profile changes
     useEffect(() => {
@@ -132,6 +137,7 @@ function AppContextProvider({children}) {
         changeEmail,
         verifyEmail,
         changePassword,
+        resetPassword,
         addNewUser,
         addNewBooking,
         getNewBooking,

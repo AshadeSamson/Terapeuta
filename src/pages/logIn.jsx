@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/appContext'
 import errorRegex from '../utils/regex.js'
 import { toast } from 'react-toastify';
+import ResetPasswordModal from '../components/resetPassword.jsx';
 
 
 
@@ -26,6 +27,12 @@ function Login() {
   // values from context
   const { loginUser, user } = useApp()
 
+  // modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  // handle form changes
   function formChanges(event){
 
     event.preventDefault();
@@ -64,6 +71,8 @@ function Login() {
       navigate('/profile', { replace: true });
     }
   }, [user, navigate]);
+
+
 
   return (
 
@@ -109,14 +118,14 @@ function Login() {
         <button disabled={action === true} type="submit">{action ? 'LOGGING IN...' : 'LOG IN'}</button>
 
         <div className='optional'>
-          <p>Forgotten password? <Link to="/signup">Click here</Link></p>
+          <p>Forgotten password? <Link onClick={openModal}>Click here</Link></p>
         </div>
         <br />
         <div className='optional'>
           <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
         </div>
-
     </form>
+    <ResetPasswordModal isOpen={isModalOpen} onClose={closeModal}/>
 </section>
 
   )
