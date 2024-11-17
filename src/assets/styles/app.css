@@ -290,7 +290,7 @@ button{
     background-color: var(--primary-color);
     color: var(--primary-bg);
     margin-bottom: 25px;
-    opacity: 0.65;
+    opacity: 0.7;
 }
 
 button:hover{
@@ -561,6 +561,10 @@ a{
 a.active{
     color: var(--primary-color);
     font-weight: 700;
+}
+
+button{
+    opacity: 0.95;
 }
 
 
