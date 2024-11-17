@@ -49,7 +49,25 @@ body{
 }
 
 
+/* TOASTIFY NOTIFICATIONS */
 
+.Toastify__toast {
+    padding: 5px !important;
+    font-family: var(--primary-font) !important;
+    font-size: 14px !important;
+    background: var(--white) !important;
+    color: var(--black) !important;
+    border-radius: 10px !important;
+  }
+  
+
+  .Toastify__toast-body {
+    padding: 5px !important;
+    text-align: left;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    line-height: 1.5 !important;
+  }
 
 /* HEADER COMPONENT*/
 nav{
