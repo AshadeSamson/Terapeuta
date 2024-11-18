@@ -34,7 +34,7 @@ function Homepage() {
 
       <section id="services"><Services /></section>
 
-      <section><Testimonials /></section>
+      <section id="testimonials"><Testimonials /></section>
 
       <CTA user={user}/>
 

@@ -1,17 +1,9 @@
 import React, { useState } from 'react'
 import styles from '../../assets/styles/landingPage/aboutUs.module.css'
 import { text } from '../../services/fake-data/data';
-import { animated } from '@react-spring/web';
-import { useAnimation } from '../../hooks/useAnimation';
 
 
 function AboutUs() {
-
-  // Animations details
-  const [ref, animation] = useAnimation(
-    { opacity: 0, transform: 'rotate(20deg)' },
-    { opacity: 1, transform: 'rotate(0deg)' }
-  );
 
   const [isExpanded, setIsExpanded] = useState(false);
   const previewText = text.slice(0, 500);
@@ -20,7 +12,6 @@ function AboutUs() {
 
 
   return (
-    <animated.section ref={ref} style={animation} id="about">
       <div className={styles.aboutContainer}>
         <h2 className={styles.heading}>About Us</h2>
         <div className={styles.text}>
@@ -36,7 +27,6 @@ function AboutUs() {
           {isExpanded ? 'Read Less' : 'Read More'}
         </button>
       </div>
-    </animated.section>
   )
 }
 
