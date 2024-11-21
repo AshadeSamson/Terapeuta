@@ -290,7 +290,7 @@ button{
     background-color: var(--primary-color);
     color: var(--primary-bg);
     margin-bottom: 25px;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 button:hover{
