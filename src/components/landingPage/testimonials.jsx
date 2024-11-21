@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from '../../assets/styles/landingPage/testimonials.module.css'
 import { testimonialsData } from '../../services/fake-data/data';
+import Animated from '../animations/animated';
 
 
 function Testimonials(){
@@ -19,6 +20,7 @@ function Testimonials(){
 
   return (
     <section className={styles.testimonialsSection}>
+      <Animated y={true} className={styles.testimonialsSection}>
       <h2 className={styles.heading}>What Our Clients Say</h2>
       <div className={styles.slider}>
         <div
@@ -38,6 +40,7 @@ function Testimonials(){
           </button>
         </div>
       </div>
+      </Animated>
     </section>
   );
 };
