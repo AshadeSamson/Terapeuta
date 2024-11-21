@@ -1,6 +1,10 @@
 @import '../app.css';
 
 .aboutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   padding: 20px;
   background-color: var(--primary-bg);
