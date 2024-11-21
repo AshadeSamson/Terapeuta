@@ -1,11 +1,13 @@
 import React from 'react'
 import styles from '../../assets/styles/landingPage/services.module.css'
 import { servicesData } from '../../services/fake-data/data';
+import Animated from '../animations/animated';
 
 function Services(){
   
   return (
     <section className={styles.servicesSection}>
+      <Animated className={styles.servicesSection}>
       <h2 className={styles.heading}>Our Services</h2>
       <div className={styles.servicesContainer}>
         {servicesData.map((service, index) => (
@@ -15,6 +17,7 @@ function Services(){
           </div>
         ))}
       </div>
+      </Animated>
     </section>
   )
 };
