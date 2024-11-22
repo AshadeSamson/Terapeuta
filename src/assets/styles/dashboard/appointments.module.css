@@ -1,0 +1,102 @@
+/* Appointments Container */
+.appointmentsContainer {
+  margin: 10px auto;
+  max-width: 95%; 
+  text-align: center;
+}
+
+.appointmentsContainer h4 {
+  margin: 10px auto;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+/* No Booking Message */
+.noBooking {
+  margin: 25px auto;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: var(--Text-Three);
+}
+
+/* Table Styles */
+.appointmentsTable {
+  width: 100%; 
+  border-collapse: collapse;
+  margin: 10px auto;
+  box-shadow: -1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Table Headers and Cells */
+.appointmentsTable th,
+.appointmentsTable td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: var(--Text-Four);
+}
+
+.appointmentsTable th {
+  background-color: #f4f4f4;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.appointmentsTable tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.appointmentsTable td {
+  color: var(--primary-color);
+}
+
+/* Delete Button */
+.deleteButton {
+  color: var(--primary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.deleteButton:hover {
+  color: darkred;
+}
+
+/* Responsive Design */
+
+/* Tablet Screens */
+@media (max-width: 768px) {
+  .appointmentsContainer {
+    max-width: 95%; 
+  }
+
+  .appointmentsTable th,
+  .appointmentsTable td {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  .deleteButton {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 480px) {
+  .appointmentsTable th,
+  .appointmentsTable td {
+    padding: 6px;
+    font-size: 0.7rem;
+  }
+
+  .deleteButton {
+    padding: 3px 6px;
+    font-size: 0.65rem;
+  }
+
+  .noBooking {
+    font-size: 1rem;
+  }
+}
