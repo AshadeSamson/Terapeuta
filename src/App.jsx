@@ -4,7 +4,7 @@ import Login  from "./pages/logIn"
 import SignUp  from "./pages/signUp"
 import Profile from "./pages/profile"
 import Private from "./components/private/private"
-import Appointments, { loader as appointmentLoader } from "./components/appointments"
+// import Appointments, { loader as appointmentLoader } from "./components/appointments"
 import Billing from "./components/billing"
 import Messages from "./components/messages"
 import Resources from "./components/resources"
@@ -19,6 +19,7 @@ import { useApp } from "./context/appContext"
 import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
 import RouteError from "./components/error-components/Error"
 import About from "./components/about"
+import Appointments, { loader as appointmentLoader } from "./components/dashboard/appointments"
 
 
 
