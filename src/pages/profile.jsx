@@ -47,7 +47,7 @@ function Profile() {
           </div>
         </div>
         <div className='user-greet'>
-          <h1>{greet}, {user.displayName !== null ? user.displayName : 'Anonymous'}.</h1>
+          <h1>{greet}, {user.displayName !== null ? user.displayName.split(" ")[0] : 'Anonymous'}.</h1>
           <h3>Today is going to be a better day!</h3>
         </div>
       </div>
