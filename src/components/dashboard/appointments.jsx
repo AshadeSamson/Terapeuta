@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
+import Pagination from '../utilities/pagination'
 import styles from '../../assets/styles/dashboard/appointments.module.css'
 import { IconContext } from 'react-icons'
 import { FaDeleteLeft } from 'react-icons/fa6'
@@ -23,7 +24,22 @@ export const loader = (userContext) => async () => {
 }
 
 function Appointments() {
+
   const data = useLoaderData();
+
+  // Sort appointments by date
+  const appointments = data.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate));
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [appointmentsPerPage] = useState(5);
+
+  const indexOfLastAppointment = currentPage * appointmentsPerPage;
+  const indexOfFirstAppointment = indexOfLastAppointment - appointmentsPerPage;
+  const currentAppointments = appointments.slice(indexOfFirstAppointment, indexOfLastAppointment);
+
+  // Change page
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   // Delete handler
   const handleDelete = async (id) => {
@@ -36,13 +52,13 @@ function Appointments() {
     }
   };
 
-  // Sort appointments by date
-  const appointments = data.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate));
+
 
   return (
     <div className={styles.appointmentsContainer}>
       <h4>Appointments</h4>
         {appointments.length > 0 ? (
+          <>
           <table className={styles.appointmentsTable}>
             <thead>
               <tr>
@@ -54,7 +70,7 @@ function Appointments() {
               </tr>
             </thead>
             <tbody>
-              {appointments.map((appointment) => (
+              {currentAppointments.map((appointment) => (
                 <tr key={appointment.id}>
                   <td>{appointment.appointmentDate}</td>
                   <td>{appointment.time}</td>
@@ -70,6 +86,12 @@ function Appointments() {
               ))}
             </tbody>
           </table>
+          <Pagination
+            appointmentsPerPage={appointmentsPerPage}
+            totalAppointments={appointments.length}
+            paginate={paginate}
+          />
+          </>
         ) : (
           <h3 className={styles.noBooking}>No Booked Appointments as of Now.</h3>
         )}
