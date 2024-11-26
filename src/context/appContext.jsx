@@ -8,7 +8,7 @@ import { createUserWithEmailAndPassword,
         sendEmailVerification,
         updatePassword,
         sendPasswordResetEmail} from 'firebase/auth';
-import { addDoc, collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, setDoc, deleteDoc } from 'firebase/firestore'
 import { auth, db } from '../firebase'
 
 
@@ -117,6 +117,12 @@ function AppContextProvider({children}) {
     }
 
 
+    // delete a booked appointment document
+    function deleteBooking(uid, docId){
+        return deleteDoc(doc(db, 'users', uid, 'appointments', docId ))
+    }
+
+
     // get all booked appointments for a user
     function getAppointments(uid) {
         return getDocs(collection(db, 'users', uid, 'appointments'))
@@ -141,6 +147,7 @@ function AppContextProvider({children}) {
         addNewUser,
         addNewBooking,
         getNewBooking,
+        deleteBooking,
         getAppointments,
     }
 
