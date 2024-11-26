@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLoaderData } from 'react-router-dom'
+import { useApp } from '../../context/appContext'
 import Pagination from '../utilities/pagination'
+import { toast } from 'react-toastify'
 import styles from '../../assets/styles/dashboard/appointments.module.css'
 import { IconContext } from 'react-icons'
 import { FaDeleteLeft } from 'react-icons/fa6'
@@ -26,9 +28,10 @@ export const loader = (userContext) => async () => {
 function Appointments() {
 
   const data = useLoaderData();
+  const { user, deleteBooking, getAppointments } = useApp()
 
   // Sort appointments by date
-  const appointments = data.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate));
+  const [appointments, setAppointments] = useState(data.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate)));
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,15 +44,32 @@ function Appointments() {
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
-  // Delete handler
-  const handleDelete = async (id) => {
+  // refresh data
+  async function fetchAppointments() {
     try {
-      // Logic to delete the appointment
-      console.log(`Deleting appointment with ID: ${id}`);
-      // Optionally refresh or update state here
-    } catch (error) {
-      console.error('Error deleting appointment:', error);
+      const result = await getAppointments(user.uid);
+      const updatedAppointments = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setAppointments(
+        updatedAppointments.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate))
+      );
+    } catch (e) {
+      toast.error(`Failed to fetch appointments`);
     }
+  }
+
+
+  // Appointment Delete handler
+  async function handleDelete(id) {
+    const confirmDelete = window.confirm("Are you sure you want to delete this appointment?");
+    if(confirmDelete){
+    try {
+      await deleteBooking(user.uid, id)
+      toast.success("Appointment deleted successfully");
+      fetchAppointments();
+    } catch (e) {
+      toast.warning(`Appointment not deleted: ${e.message}`);
+    }
+  }
   };
 
 
