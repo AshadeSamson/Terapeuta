@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars , faXmark, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
@@ -9,6 +9,12 @@ function Header({mobileNav, toggleNav}) {
 
   const { user, logoutUser } = useApp()
   const navigate = useNavigate()
+
+  const [submenuOpen, setSubmenuOpen] = useState(false);
+
+  function toggleSubmenu() {
+    setSubmenuOpen((prev) => !prev);
+  }
 
 
   async function logout(e){
@@ -74,6 +80,25 @@ function Header({mobileNav, toggleNav}) {
                className='navLink user-out'>
                 About Us
                 </NavLink>}
+
+              <div className="navLink submenu-container">
+                <NavLink onClick={toggleSubmenu} className="submenu-trigger">
+                  AI Therapist &#x25BC;
+                </NavLink>
+                {submenuOpen && (
+                  <div className="submenu">
+                    <NavLink to="/" onClick={toggleNav} className="submenu-item">
+                      C.B.T Chat
+                    </NavLink>
+                    <NavLink to="/" onClick={toggleNav} className="submenu-item">
+                      Mindfulness Chat
+                    </NavLink>
+                    <NavLink to="/" onClick={toggleNav} className="submenu-item">
+                      Career & Life
+                    </NavLink>
+                  </div>
+                )}
+              </div>
 
                {
                 user === null
