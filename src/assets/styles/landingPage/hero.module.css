@@ -27,7 +27,7 @@
   .heroParagraph p {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #555;
+    color: var(--ash);
     margin-bottom: 1.5rem;
   }
   
