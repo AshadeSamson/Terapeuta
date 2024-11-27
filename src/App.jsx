@@ -4,7 +4,6 @@ import Login  from "./pages/logIn"
 import SignUp  from "./pages/signUp"
 import Profile from "./pages/profile"
 import Private from "./components/private/private"
-// import Appointments, { loader as appointmentLoader } from "./components/appointments"
 import Billing from "./components/billing"
 import Messages from "./components/messages"
 import Resources from "./components/resources"
@@ -20,6 +19,7 @@ import BookingTicket, { loader as bookingTicketLoader } from "./components/booki
 import RouteError from "./components/error-components/Error"
 import About from "./components/about"
 import Appointments, { loader as appointmentLoader } from "./components/dashboard/appointments"
+import ComingSoon from "./components/utilities/comingSoon"
 
 
 
@@ -44,6 +44,7 @@ function App() {
                 <Route path="resources" element={<Resources />} />
                 <Route path="settings" element={<Settings />} />
               </Route>
+              <Route path="comingsoon" element={<ComingSoon />} />
               <Route  path="booking" 
                       element={<Booking/>} 
                       action={bookingAction(userContext)}

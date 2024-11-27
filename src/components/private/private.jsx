@@ -8,7 +8,7 @@ function Private() {
     const { user } =  useApp()
 
         if(user === null){
-           return null;
+           return <Navigate to='login' replace state={{from: location}}/>;
         }
         return user ? <Outlet /> : <Navigate to='login' replace state={{from: location}}/>;
       

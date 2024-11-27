@@ -530,6 +530,10 @@ a.navLink:not(:last-child){
     margin-right: auto;
 }
 
+a.submenu-trigger {
+    color: inherit;
+}
+
 #collapsible{
     position: absolute;
     top: 100px;

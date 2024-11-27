@@ -82,18 +82,18 @@ function Header({mobileNav, toggleNav}) {
                 </NavLink>}
 
               <div className="navLink submenu-container">
-                <NavLink onClick={toggleSubmenu} className="submenu-trigger">
-                  AI Therapist &#x25BC;
-                </NavLink>
+                <a onClick={toggleSubmenu} className="submenu-trigger">
+                  AI Therapist { submenuOpen ? '▲' : '▼'}
+                </a>
                 {submenuOpen && (
                   <div className="submenu">
-                    <NavLink to="/" onClick={toggleNav} className="submenu-item">
+                    <NavLink to="comingsoon" onClick={toggleNav} className="submenu-item">
                       C.B.T Chat
                     </NavLink>
-                    <NavLink to="/" onClick={toggleNav} className="submenu-item">
+                    <NavLink to="comingsoon" onClick={toggleNav} className="submenu-item">
                       Mindfulness Chat
                     </NavLink>
-                    <NavLink to="/" onClick={toggleNav} className="submenu-item">
+                    <NavLink to="comingsoon" onClick={toggleNav} className="submenu-item">
                       Career & Life
                     </NavLink>
                   </div>
