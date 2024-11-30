@@ -12,7 +12,7 @@ export const action = (userContext) => async ({request}) => {
   const booking = await request.formData()
 
   // Accessing context values
-  const { user, addNewBooking } = userContext
+  const { user, addNewBooking, globalAddNewBooking } = userContext
 
 
   const bookingDetails = {
@@ -28,15 +28,30 @@ export const action = (userContext) => async ({request}) => {
     comments: booking.get('comments'),
   }
 
-  // booking a new ticket and getting the ticket ID
-  const ticket = await addNewBooking(user.uid, bookingDetails)
-  const bookingID = await ticket.id
+  try {
+    // Booking a new ticket and getting the ticket ID
+    const ticket = await addNewBooking(user.uid, bookingDetails);
+    const bookingID = ticket.id;
 
-  toast.success("Appointment booked successfully")
- 
-  // navigating to the booking ticket page
-  return redirect(`/booking/${user.uid}/${bookingID}`);   
+    // Prepare data for global collection
+    const details = {
+      ...bookingDetails,
+      userID: user.uid,
+      appointmentID: bookingID,
+    };
 
+    // Add booking to global collection
+    await globalAddNewBooking(details);
+
+    toast.success("Appointment booked successfully");
+
+    // Navigate to the booking ticket page
+    return redirect(`/booking/${user.uid}/${bookingID}`);
+
+  } catch (error) {
+    toast.error("Failed to book appointment. Please try again.");
+    return null; 
+  }
 }
 
 
