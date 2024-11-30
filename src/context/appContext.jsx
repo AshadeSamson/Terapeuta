@@ -110,6 +110,12 @@ function AppContextProvider({children}) {
     }
 
 
+    // add a new booking to the global appointment collection
+    function globalAddNewBooking(bookingDetails){   
+        return addDoc(collection(db, 'appointments'), bookingDetails)
+    }
+
+
 
     // get a newly booked appointment document
     function getNewBooking(uid, docId){
@@ -146,6 +152,7 @@ function AppContextProvider({children}) {
         resetPassword,
         addNewUser,
         addNewBooking,
+        globalAddNewBooking,
         getNewBooking,
         deleteBooking,
         getAppointments,
