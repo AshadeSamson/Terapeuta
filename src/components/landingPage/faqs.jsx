@@ -6,7 +6,7 @@ import Animated from '../animations/animated';
 function Faqs() {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  const toggleFAQ = (index) => {
+  function toggleFAQ(index) {
     setActiveIndex(activeIndex === index ? null : index);
   };
 

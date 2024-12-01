@@ -9,8 +9,8 @@ function Footer() {
 
   const navigate = useNavigate();
 
-  const handleNavigation = (sectionId) => {
-    navigate('/', { state: { sectionId } }); 
+  function handleNavigation(sectionId){
+    return navigate('/', { state: { sectionId } }); 
   };
 
 
