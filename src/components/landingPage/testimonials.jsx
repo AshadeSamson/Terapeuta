@@ -8,11 +8,11 @@ function Testimonials(){
   
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
+  function nextSlide() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
   };
 
-  const prevSlide = () => {
+  function prevSlide() {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? testimonialsData.length - 1 : prevIndex - 1
     );
