@@ -16,7 +16,7 @@ function ResetPasswordModal({ isOpen, onClose }) {
 
 
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e){
     e.preventDefault();
 
     try{
@@ -24,6 +24,7 @@ function ResetPasswordModal({ isOpen, onClose }) {
       await resetPassword(email);
       toast.success("Check Mail Inbox for Instructions");
       onClose();
+
     }catch(e){
       setError(errorRegex(e.message))
       toast.warning("Error Resetting Password");
@@ -31,6 +32,7 @@ function ResetPasswordModal({ isOpen, onClose }) {
         setError(null);
         setEmail(''); 
       }, 3000);
+      
     }finally{
       setAction(false)
     }

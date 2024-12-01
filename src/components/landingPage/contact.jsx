@@ -10,7 +10,7 @@ function Contact() {
         message: ''
       });
     
-      const handleChange = (e) => {
+      function handleChange(e) {
         const { name, value } = e.target;
         setFormData((prevData) => ({
           ...prevData,
@@ -18,7 +18,7 @@ function Contact() {
         }));
       };
     
-      const handleSubmit = (e) => {
+      function handleSubmit(e) {
         e.preventDefault();
         console.log('Form submitted:', formData);
       };
