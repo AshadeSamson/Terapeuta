@@ -188,7 +188,9 @@ function Booking() {
           type="date" 
           name="date" 
           id="date"
-          min={new Date().toISOString().split('T')[0]} 
+          min={new Date(new Date().setDate(new Date().getDate() + 7))
+            .toISOString()
+            .split("T")[0]} 
           className='input'
           required/>
       </div>
