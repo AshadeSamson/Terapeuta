@@ -8,7 +8,7 @@ import { createUserWithEmailAndPassword,
         sendEmailVerification,
         updatePassword,
         sendPasswordResetEmail} from 'firebase/auth';
-import { addDoc, collection, doc, getDoc, getDocs, setDoc, deleteDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, setDoc, deleteDoc, query, where } from 'firebase/firestore'
 import { auth, db } from '../firebase'
 
 
@@ -116,6 +116,21 @@ function AppContextProvider({children}) {
     }
 
 
+    // delete a booked appointment document globally
+    async function globalDeleteBooking(appointmentID) {
+
+        const appointmentsRef = collection(db, 'appointments');
+        const q = await query(appointmentsRef, where('appointmentID', '==', appointmentID));
+        
+        const querySnapshot = await getDocs(q);
+        
+        querySnapshot.forEach(async (document) => {
+            await deleteDoc(doc(db, 'appointments', document.id));
+        });
+
+        return true;
+      }
+
 
     // get a newly booked appointment document
     function getNewBooking(uid, docId){
@@ -126,7 +141,7 @@ function AppContextProvider({children}) {
     // delete a booked appointment document
     function deleteBooking(uid, docId){
         return deleteDoc(doc(db, 'users', uid, 'appointments', docId ))
-    }
+    } 
 
 
     // get all booked appointments for a user
@@ -153,6 +168,7 @@ function AppContextProvider({children}) {
         addNewUser,
         addNewBooking,
         globalAddNewBooking,
+        globalDeleteBooking,
         getNewBooking,
         deleteBooking,
         getAppointments,

@@ -28,7 +28,7 @@ export const loader = (userContext) => async () => {
 function Appointments() {
 
   const data = useLoaderData();
-  const { user, deleteBooking, getAppointments } = useApp()
+  const { user, deleteBooking, getAppointments, globalDeleteBooking } = useApp()
 
   // Sort appointments by date
   const [appointments, setAppointments] = useState(data.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate)));
@@ -60,13 +60,19 @@ function Appointments() {
 
   // Appointment Delete handler
   async function handleDelete(id) {
-    const confirmDelete = window.confirm("Are you sure you want to delete this appointment?");
+    const confirmDelete = window.confirm("Are you sure you want to cancel this appointment?");
     if(confirmDelete){
     try {
-      await deleteBooking(user.uid, id)
+
+      await Promise.all([
+        deleteBooking(user.uid, id), // Local deletion
+        globalDeleteBooking(id)     // Global deletion
+    ]);
+
       toast.success("Appointment deleted successfully");
       fetchAppointments();
     } catch (e) {
+      
       toast.warning(`Appointment not deleted: ${e.message}`);
     }
   }
