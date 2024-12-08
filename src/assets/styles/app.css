@@ -439,35 +439,6 @@ a.user-profile-link:not(:last-child){
 
 
 
-    /* BOOKING TICKET COMPONENT */
-
-.ticket-box{
-    display: flex;
-    justify-content: space-between;
-}
-
-.ticket-slip{
-    text-align: left;
-    border: 2px solid var(--primary-color);
-    padding: 10px;
-}
-
-.ticket-slip h3{
-    padding: 5px 0;
-}
-
-.print-ticket{
-    align-self: flex-end;
-}
-
-.special-text{
-    font-style: oblique;
-    color: var(--primary-color);
-}
-
-
-
-
 
     /* SETTINGS COMPONENT */
 
