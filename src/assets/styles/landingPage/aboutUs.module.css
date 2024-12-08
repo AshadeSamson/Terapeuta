@@ -10,6 +10,7 @@
   justify-content: center;
 }
 
+
 .aboutUs {
   padding: 20px;
   color: var(--white);
@@ -18,6 +19,7 @@
   display: flex;
   justify-content: center;
 }
+
 
 .heading {
   font-size: 2rem;
@@ -38,6 +40,7 @@
   max-width: 1200px; 
   margin-top: 10px;
 }
+
 
 .headline h2 {
   font-size: 4rem;
