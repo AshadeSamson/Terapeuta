@@ -1,10 +1,11 @@
 import React from 'react'
+import AboutUs from '../components/landingPage/aboutUs'
 
 
 function About() {
   return (
     <section className='about'>
-    <div className='section-heading'><h1>About</h1></div>
+    <AboutUs aboutPage={true} />
     <div className='section-body'>
       <p>Welcome to Terapeuta, a trusted source for professional therapy services. Our team of experienced therapists is dedicated to providing compassionate and effective care to help you achieve your mental health and wellness goals.</p>
       <p>At Terapeuta, we understand that life can be challenging, and everyone experiences struggles at some point. We provide a safe and supportive environment for our clients to explore their thoughts and feelings, and we offer personalized treatment plans to meet each client's unique needs.</p>

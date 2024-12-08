@@ -183,7 +183,7 @@ a:hover{
 .about{
     text-align: justify;
     padding: 10px 15px 50px;
-    background-color: var(--spicet);
+    background: linear-gradient(135deg, var(--spicet), var(--primary-color));
     
 }
 
@@ -192,8 +192,10 @@ a:hover{
     margin-top: 15px;
     font-family: var(--primary-font);
     line-height: 1.5;
+    font-weight: 400;
     color: var(--black);
 }
+
 .first-line{
     margin-bottom: 10px;
 }
