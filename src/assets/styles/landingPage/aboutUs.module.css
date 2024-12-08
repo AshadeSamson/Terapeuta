@@ -10,6 +10,17 @@
   justify-content: center;
 }
 
+
+.aboutUs {
+  padding: 20px;
+  color: var(--white);
+  font-family: var(--primary-font);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+}
+
+
 .heading {
   font-size: 2rem;
   font-style: oblique;
@@ -28,6 +39,14 @@
   flex-wrap: wrap;
   max-width: 1200px; 
   margin-top: 10px;
+}
+
+
+.headline h2 {
+  font-size: 4rem;
+  font-weight: bolder;
+  margin: 0;
+  border-bottom: 5px solid var(--white);
 }
 
 .text {
@@ -61,8 +80,6 @@
 
 .image {
   flex: 1;
-  /* display: flex;
-  justify-content: left; */
 }
 
 .aboutImage {

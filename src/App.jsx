@@ -17,7 +17,7 @@ import "./assets/styles/app.css"
 import { useApp } from "./context/appContext"
 import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
 import RouteError from "./components/error-components/Error"
-import About from "./components/about"
+import About from "./pages/about"
 import Appointments, { loader as appointmentLoader } from "./components/dashboard/appointments"
 import ComingSoon from "./components/utilities/comingSoon"
 
