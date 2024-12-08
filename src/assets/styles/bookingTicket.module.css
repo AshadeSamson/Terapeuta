@@ -1,0 +1,75 @@
+.ticketSection {
+    padding: 20px;
+    background-color: var(--primary-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ticketWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--white);
+    border: 1px solid var(--ash);
+    border-radius: 8px;
+    box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .ticketDetails {
+    flex: 1;
+    margin-right: 15px;
+    text-align: left;
+  }
+  
+  .ticketDetails h3 {
+    font-size: var(--Text-Three);
+    margin-bottom: 10px;
+    color: var(--black);
+  }
+  
+  .specialText {
+    font-style: italic;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .printTicket {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px; 
+    height: 45px; 
+    background-color: var(--primary-color); 
+    color: var(--white);
+    border: none; 
+    border-radius: 8px; 
+    font-size: var(--Text-Five); 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .printTicket:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px); 
+    color: var(--white);
+  }
+  
+  .printTicket:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .contactSection {
+    margin-top: 20px;
+    font-size: var(--Text-Four);
+    line-height: 1.6;
+    color: var(--ash);
+    text-align: justify;
+  }
+  
