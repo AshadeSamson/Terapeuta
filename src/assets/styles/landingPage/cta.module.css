@@ -74,12 +74,12 @@
     }
   
     .ctaText {
-      order: 1;
+      order: 2;
       text-align: center;
     }
   
     .ctaImage {
-      order: 2;
+      order: 1;
     }
   
     .ctaHeading {
