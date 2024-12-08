@@ -1,54 +1,73 @@
-import React, {Suspense} from 'react'
+import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import TicketLayout from './utilities/ticketLayout';
+import styles from '../assets/styles/bookingTicket.module.css'
+
 
 
 export const loader = (userContext) => async ({ params }) => {
-
-  const { getNewBooking } = userContext
-
-  const ticket = await getNewBooking(params.uid, params.id)
-
-  return ticket.data()
-  
-
-}
-
+  const { getNewBooking } = userContext;
+  const ticket = await getNewBooking(params.uid, params.id);
+  return ticket.data();
+};
 
 
 
 function BookingTicket() {
 
-  const data = useLoaderData()
-
-  
+  const data = useLoaderData();
 
   return (
-    <section className='sections'>
+    <section className={`sections ${styles.ticketSection}`}>
+      <h3 className="sections-header succeed-msg">Therapist Appointment Details</h3>
 
-      <h3 className='sections-header succeed-msg'>You have booked a therapist session and here are your details:</h3>
-      <div className='ticket-box'>
-        <Suspense fallback={<h1>Loading...</h1>}>
-        <div className='ticket-slip'>
-          <h3>Client Name: <span className='special-text'>{data.name}</span></h3>
-          <h3>Appointment Date: <span className='special-text'>{data.appointmentDate}</span></h3>
-          <h3>Appointment Time: <span className='special-text'>{data.time}</span></h3>
-          <h3>Location: <span className='special-text'>{`123 Main Street, Suite 456, Cityville.`}</span></h3>
-          <h3>Contact Number: <span className='special-text'>{`+(1) 023 456 789`}</span></h3>
+      <div className={styles.ticketWrapper}>
+        <div className={styles.ticketDetails}>
+          <h3>
+            Client Name: <span className={styles.specialText}>{data.name}</span>
+          </h3>
+          <h3>
+            Appointment Date: <span className={styles.specialText}>{data.appointmentDate}</span>
+          </h3>
+          <h3>
+            Appointment Time: <span className={styles.specialText}>{data.time}</span>
+          </h3>
+          <h3>
+            Location: <span className={styles.specialText}>123 Main Street, Suite 456, Cityville.</span>
+          </h3>
+          <h3>
+            Contact Number: <span className={styles.specialText}>+(1) 023 456 789</span>
+          </h3>
         </div>
-        </Suspense>
-        <div className='print-ticket'>
-          <button>Print Ticket</button>
+
+        <div className={styles.printTicket}>
+          <PDFDownloadLink
+            document={<TicketLayout data={data} />}
+            fileName="appointment.pdf"
+            className={styles.printTicket}
+          >
+            {({ loading }) => (loading ? 'Generating PDF...' : 'Download Ticket')}
+          </PDFDownloadLink>
         </div>
       </div>
-      
-      <div className='contact'>
-        <p>Please arrive 10 minutes prior to your scheduled appointment time. If you need to cancel or reschedule your appointment, please contact us at least 24 hours in advance.</p>
-        <p>We look forward to seeing you soon. If you have any questions or concerns, please feel free to reach out to us.</p>
-        <p>Thank you, <br/><strong>The Terapeuta Team</strong></p>
+
+      <div className={styles.contactSection}>
+        <p>
+          Please arrive 10 minutes prior to your scheduled appointment time. If you need to cancel or reschedule your
+          appointment, please contact us at least 24 hours in advance.
+        </p>
+        <p>
+          We look forward to seeing you soon. If you have any questions or concerns, please feel free to reach out to
+          us.
+        </p>
+        <p>
+          Thank you, <br />
+          <strong>The Terapeuta Team</strong>
+        </p>
       </div>
-        
     </section>
-  )
+  );
 }
 
-export default BookingTicket
+export default BookingTicket;
