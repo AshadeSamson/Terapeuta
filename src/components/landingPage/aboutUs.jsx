@@ -5,6 +5,7 @@ import Animated from '../animations/animated';
 import aboutImg from '../../assets/images/about.webp';
 import { Link } from 'react-router-dom';  
 
+
 function AboutUs({ aboutPage }) {
 
   const previewText = text.slice(0, 500);
@@ -15,10 +16,12 @@ function AboutUs({ aboutPage }) {
       <Animated y={true} className={aboutPage ? styles.aboutUs : styles.aboutContainer}>
         { !aboutPage && <h2 className={styles.heading}>About Us</h2>}
 
+
         <div className={styles.contentWrapper}>
           <div className={styles.image}>
             <img src={aboutImg} alt="About Us" className={styles.aboutImage} />
           </div>
+
 
           { aboutPage &&           
           <div className={styles.headline}>
@@ -39,6 +42,7 @@ function AboutUs({ aboutPage }) {
               Read More
             </Link>
           </div>}
+
         </div>
       </Animated>
     </div>
