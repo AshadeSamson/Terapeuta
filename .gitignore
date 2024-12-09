@@ -9,6 +9,7 @@ lerna-debug.log*
 
 
 .firebase/*
+calendar-service-api.json
 node_modules
 dist
 dist-ssr
