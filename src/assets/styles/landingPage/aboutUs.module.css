@@ -98,4 +98,8 @@
     margin-top: 20px;
     padding-right: 0;
   }
+
+  .headline h2 {
+    font-size: 2rem;
+  }
 }
