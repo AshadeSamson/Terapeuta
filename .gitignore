@@ -12,6 +12,7 @@ lerna-debug.log*
 calendar-service-api.json
 node_modules
 dist
+calendar-api/
 dist-ssr
 *.local
 .env
