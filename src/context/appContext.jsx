@@ -152,6 +152,22 @@ function AppContextProvider({children}) {
 
 
 
+    // RESOURCES ( BOOKS & ARTICLES)
+    
+    // fetch all resources
+    async function getResources(category) {
+                
+        const resourcesRef = collection(db, "resources");
+
+        const q = await query(resourcesRef, where("category", "==", category));
+
+        const querySnapshot = await getDocs(q);
+
+        return querySnapshot;
+    }
+
+
+
     // values being exported to child comps
     const value = {
         user,
@@ -172,6 +188,7 @@ function AppContextProvider({children}) {
         getNewBooking,
         deleteBooking,
         getAppointments,
+        getResources,
     }
 
 

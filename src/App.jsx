@@ -6,7 +6,7 @@ import Profile from "./pages/profile"
 import Private from "./components/private/private"
 import Billing from "./components/billing"
 import Messages from "./components/messages"
-import Resources from "./components/resources"
+import Resources from "./components/dashboard/resources"
 import Settings from "./components/settings"
 import Booking ,{ action as bookingAction } from "./pages/booking"
 import { RouterProvider, 
