@@ -1,0 +1,88 @@
+.resources {
+    padding: 20px;
+    background-color: var(--primary-bg);
+    color: var(--primary-color);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+.resources h4 {
+    margin: 10px auto;
+    text-align: center;
+    color: var(--primary-color)
+}
+  
+  .categoryButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .categoryButtons button {
+    padding: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--ash);
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .categoryButtons button:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .categoryButtons .active {
+    background-color: var(--primary-color);
+  }
+  
+  .resourceList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .resourceItem {
+    padding: 15px 15px 0;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resourceItem h3 {
+    margin: 0 0 5px;
+    color: var(--primary-bg);
+  }
+  
+  .resourceItem p {
+    margin: 0 0 10px;
+  }
+
+  .recommended {
+    font-size: var(--Text-Five);
+    color: var(--ash);
+  }
+
+  .description {
+    font-size: var(--Text-Five);
+    text-align: left;
+    opacity: 0.7;
+  }
+  
+  .resourceItem button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--ash);
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    scale: 85%;
+  }
+  
+  .resourceItem button:hover {
+    background-color: var(--spicex);
+  }
+  
