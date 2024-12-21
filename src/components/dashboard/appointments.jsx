@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useLoaderData } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useLoaderData, useNavigation } from 'react-router-dom'
 import { useApp } from '../../context/appContext'
 import Pagination from '../utilities/pagination'
 import { toast } from 'react-toastify'
@@ -28,6 +28,9 @@ export const loader = (userContext) => async () => {
 function Appointments() {
 
   const data = useLoaderData();
+  const navigation = useNavigation()
+  const pageIsLoading = navigation.state === "loading";
+
   const { user, deleteBooking, getAppointments, globalDeleteBooking } = useApp()
 
   // Sort appointments by date
@@ -82,6 +85,12 @@ function Appointments() {
 
   return (
     <div className={styles.appointmentsContainer}>
+      { pageIsLoading ? (
+        <div className="loading-screen">
+          <h2>Fetching Appointments...</h2>
+        </div>
+      ) : (
+      <>
       <h4>Appointments</h4>
         {appointments.length > 0 ? (
           <>
@@ -121,6 +130,8 @@ function Appointments() {
         ) : (
           <h3 className={styles.noBooking}>No Booked Appointments as of Now.</h3>
         )}
+        </>
+      )}
     </div>
   );
 }
