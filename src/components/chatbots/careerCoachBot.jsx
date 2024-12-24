@@ -3,7 +3,8 @@ import Chatbot from './chatbot'
 
 function CareerCoachBot() {
   return (
-    <Chatbot />
+    <Chatbot 
+    headline={"Career Coaching AI Chatbot"}/>
   )
 }
 

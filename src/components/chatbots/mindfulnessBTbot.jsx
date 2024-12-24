@@ -3,7 +3,8 @@ import Chatbot from './chatbot'
 
 function MindfulnessBTBot() {
   return (
-    <Chatbot />
+    <Chatbot 
+    headline={"Mindfulness-Based AI Therapist"}/>
   )
 }
 

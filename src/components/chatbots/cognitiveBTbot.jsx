@@ -3,7 +3,8 @@ import Chatbot from './chatbot'
 
 function CognitiveBTBot() {
   return (
-    <Chatbot />
+    <Chatbot 
+    headline={"Cognitive Behaviour AI Therapist"}/>
   )
 }
 
