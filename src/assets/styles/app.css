@@ -8,12 +8,18 @@
     --primary-color: #514990;
     --black: #191308;
     --white: #FFFFFF;
+    --lavender: #E8E6F9;
     --ash: #555;
+    --grey: #ddd;
     --Text-One: 2rem;
     --Text-Two: 1.5rem;
     --Text-Three: 1.2rem;
     --Text-Four: 1rem;
     --Text-Five: calc(0.75rem + 2.5px);
+    --header-height: 60px;
+    --footer-height: 75px;
+    --header-height-mobile: 50px;
+    --footer-height-mobile: 100px;
 }
 
 
