@@ -87,7 +87,7 @@ function Header({mobileNav, toggleNav}) {
                 </a>
                 {submenuOpen && (
                   <div className="submenu">
-                    <NavLink to="comingsoon" onClick={toggleNav} className="submenu-item">
+                    <NavLink to="chatai" onClick={toggleNav} className="submenu-item">
                       C.B.T Chat
                     </NavLink>
                     <NavLink to="comingsoon" onClick={toggleNav} className="submenu-item">
