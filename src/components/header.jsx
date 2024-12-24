@@ -87,13 +87,13 @@ function Header({mobileNav, toggleNav}) {
                 </a>
                 {submenuOpen && (
                   <div className="submenu">
-                    <NavLink to="chatai" onClick={toggleNav} className="submenu-item">
+                    <NavLink to="cbtchat" onClick={toggleNav} className="submenu-item">
                       C.B.T Chat
                     </NavLink>
-                    <NavLink to="comingsoon" onClick={toggleNav} className="submenu-item">
+                    <NavLink to="mindchat" onClick={toggleNav} className="submenu-item">
                       Mindfulness Chat
                     </NavLink>
-                    <NavLink to="comingsoon" onClick={toggleNav} className="submenu-item">
+                    <NavLink to="careerchat" onClick={toggleNav} className="submenu-item">
                       Career & Life
                     </NavLink>
                   </div>
