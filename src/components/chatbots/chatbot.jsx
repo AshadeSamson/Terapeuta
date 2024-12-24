@@ -3,7 +3,7 @@ import styles from "../../assets/styles/chatbots/chatbot.module.css";
 
 
 
-function Chatbot() {
+function Chatbot({ headline }) {
     const [thoughtValue, setThoughtValue] = useState("");
     const [messages, setMessages] = useState([
         {
@@ -45,7 +45,7 @@ function Chatbot() {
 
     return (
         <section className={styles.chatArea}>
-            <h1 className={styles.ChatHeadline}>Terapeuta AI Chatbot</h1>
+            <h1 className={styles.ChatHeadline}>{headline}</h1>
 
             <div className={styles.messagesContainer}>
                 {messages.map((message, index) => (
