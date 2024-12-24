@@ -20,6 +20,7 @@ import RouteError from "./components/error-components/Error"
 import About from "./pages/about"
 import Appointments, { loader as appointmentLoader } from "./components/dashboard/appointments"
 import ComingSoon from "./components/utilities/comingSoon"
+import Chatbot from "./components/chatbots/chatbot"
 
 
 
@@ -45,6 +46,7 @@ function App() {
                 <Route path="settings" element={<Settings />} />
               </Route>
               <Route path="comingsoon" element={<ComingSoon />} />
+              <Route path="chatai" element={<Chatbot />} />
               <Route  path="booking" 
                       element={<Booking/>} 
                       action={bookingAction(userContext)}
