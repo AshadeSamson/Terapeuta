@@ -56,7 +56,7 @@ function Login() {
           setAction(true)
           await loginUser(formDetails.email, formDetails.password);
           toast.success("User login successful");
-          setTimeout(() => navigate('/profile', { replace: true }), 200);
+          setTimeout(() => navigate('/profile', { replace: true }), 100);
         }catch(e){
           setError(errorRegex(e.message))
           toast.warning("Login failed. Please check your credentials or connection and try again");
