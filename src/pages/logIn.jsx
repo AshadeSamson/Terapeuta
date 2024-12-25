@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useApp } from '../context/appContext'
 import errorRegex from '../utils/regex.js'
 import { toast } from 'react-toastify';
@@ -12,6 +12,7 @@ import ResetPasswordModal from '../components/resetPassword.jsx';
 function Login() {
 
   const navigate = useNavigate()
+  const location = useLocation()
 
   const [formDetails, setFormDetails] = useState({
     email:'',
@@ -31,6 +32,24 @@ function Login() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  // Redirect message state
+  const [redirectMessage, setRedirectMessage] = useState(false);
+
+  // Check if the user was redirected to the login page
+  useEffect(() => {
+    if (location.state && location.state.from) {
+      setRedirectMessage(true);
+
+      // Auto-clear the message after 5 seconds
+      const timer = setTimeout(() => {
+        setRedirectMessage(false);
+      }, 3000);
+
+      // Cleanup the timer on component unmount
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
 
   // handle form changes
   function formChanges(event){
@@ -56,7 +75,8 @@ function Login() {
           setAction(true)
           await loginUser(formDetails.email, formDetails.password);
           toast.success("User login successful");
-          setTimeout(() => navigate('/profile', { replace: true }), 100);
+          const redirectPath = location.state?.from?.pathname || '/profile';
+          setTimeout(() => navigate(redirectPath, { replace: true }), 100);
         }catch(e){
           setError(errorRegex(e.message))
           toast.warning("Login failed. Please check your credentials or connection and try again");
@@ -66,17 +86,25 @@ function Login() {
   }
 
 
+  // If the user is already logged in, redirect to profile or the last visited route
   useEffect(() => {
     if (user) {
-      navigate('/profile', { replace: true });
+      const redirectPath = location.state?.from?.pathname || '/profile';
+      navigate(redirectPath, { replace: true });
     }
-  }, [user, navigate]);
+  }, [user, navigate, location]);
 
 
 
   return (
 
 <section className='forms'>
+
+    {redirectMessage && (
+          <p className="info-message">
+            You must log in to access the page you were trying to visit.
+          </p>
+    )}
 
     <h1 className='form-header'>Log-in to Your Account</h1>
 
