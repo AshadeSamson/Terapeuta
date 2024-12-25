@@ -338,6 +338,17 @@ button:disabled{
     opacity: 0.4;
 }
 
+.info-message{
+    color: var(--spicex);
+    background-color: var(--grey);
+    border: 0 solid var(--grey);
+    border-radius: 8px;
+    padding: 10px;
+    width: 50%;
+    margin: 0 auto 15px;
+    box-shadow:  -1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
 
 
     /* DASHBOARD / PROFILE  */
@@ -552,6 +563,11 @@ button{
 #collapsible .navLink:not(:last-child){
     border-bottom: 1px solid var(--primary-bg);
 }
+
+.info-message{
+    width: 90%;
+}
+
 
 
 .hero-text{
