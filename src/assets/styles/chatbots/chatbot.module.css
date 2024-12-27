@@ -139,6 +139,12 @@
   .messageInput input[type="submit"]:hover {
     background-color: #403580;
   }
+
+  .typingIndicator {
+    animation: fade 1.5s infinite;
+    color: var(--primary-bg); 
+    font-style: italic;
+}
   
   /* Responsive Design */
   @media (max-width: 768px) {
@@ -162,3 +168,14 @@
     }
   }
   
+
+  @keyframes fade {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
