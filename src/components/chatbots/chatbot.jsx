@@ -4,12 +4,12 @@ import styles from "../../assets/styles/chatbots/chatbot.module.css";
 
 
 
-function Chatbot({ headline }) {
+function Chatbot({ headline, servicePrompt }) {
     const [thoughtValue, setThoughtValue] = useState("");
     const [messages, setMessages] = useState([
         {
             role: "system",
-            content: "You are a therapist assistant for career and life clients who needs focused sessions on personal and professional development. Help them work on setting and achieving career goals, improving self-confidence, and navigating life transitions",
+            content: servicePrompt,
         },
     ]);
     const [error, setError] = useState(null);
