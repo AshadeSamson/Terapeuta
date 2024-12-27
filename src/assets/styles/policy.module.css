@@ -1,0 +1,54 @@
+@import './app.css';
+
+.policy {
+  padding: 20px;
+  color: var(--white);
+  font-family: var(--primary-font);
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+}
+
+.policyContentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px; 
+  margin-top: 10px;
+}
+
+
+.headline h2 {
+  font-size: 4rem;
+  font-weight: bolder;
+  margin: 0;
+  border-bottom: 5px solid var(--white);
+}
+
+.image {
+  flex: 1;
+}
+
+.policyImage {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+@media (max-width: 767.9px) {
+  .policyContentWrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image {
+    margin-top: 20px;
+    padding-right: 0;
+  }
+
+  .headline h2 {
+    font-size: 2rem;
+  }
+}

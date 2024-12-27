@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../assets/styles/footer.module.css'
 import { Link as ScrollLink } from 'react-scroll';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 import {FaFacebookSquare, FaInstagramSquare, FaLinkedin} from 'react-icons/fa'
 
@@ -36,6 +36,8 @@ function Footer() {
                 smooth={true}
                 duration={500}
                 onClick={() => handleNavigation('contact')}>Contact Us</ScrollLink></li>
+                <li><Link                 to="privacypolicy"
+                >Privacy Policy</Link></li>
               </ul>
             </div>
     
