@@ -14,7 +14,7 @@ export async function chatAI(messages){
     const response = await client.path("/chat/completions").post({
         body: {
             messages: messages,
-            model: "Meta-Llama-3.1-405B-Instruct",
+            model: "Meta-Llama-3.1-8B-Instruct",
             temperature: 0.5,
             max_tokens: 2048,
             top_p: 0.2
