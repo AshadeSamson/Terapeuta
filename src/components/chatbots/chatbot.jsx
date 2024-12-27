@@ -13,6 +13,7 @@ function Chatbot({ headline, servicePrompt }) {
         },
     ]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     async function sendNewMessage(e) {
         e.preventDefault();
@@ -29,12 +30,14 @@ function Chatbot({ headline, servicePrompt }) {
             };
 
             setMessages((prevList) => [...prevList, newMessage]);
+            setThoughtValue("");
+            setLoading(true); 
             const response = await chatAI(messages)
-            setMessages((prevMsgs) => [...prevMsgs, response])
-            setThoughtValue(""); 
-            setError(null); 
+            setMessages((prevMsgs) => [...prevMsgs, response])  
         } catch (error) {
             setError(error.message);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -58,6 +61,11 @@ function Chatbot({ headline, servicePrompt }) {
                         {message.content}
                     </p>
                 ))}
+                {loading && (
+                    <p className={`${styles.message} ${styles.aiMessage} ${styles.typingIndicator}`}>
+                        AI Therapist is typing...
+                    </p>
+                )}
             </div>
 
             {error && <p className={styles.errorMessage}>{error}</p>}
