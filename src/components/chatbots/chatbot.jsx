@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { chatAI } from "../../services/fake-data/chatCompletion";
 import styles from "../../assets/styles/chatbots/chatbot.module.css";
 
 
@@ -7,17 +8,13 @@ function Chatbot({ headline }) {
     const [thoughtValue, setThoughtValue] = useState("");
     const [messages, setMessages] = useState([
         {
-            messageText: "sample user message for therapy support",
-            sender: "user",
-        },
-        {
-            messageText: "sample AI response for the user message",
-            sender: "ai",
+            role: "system",
+            content: "You are a therapist assistant for career and life clients who needs focused sessions on personal and professional development. Help them work on setting and achieving career goals, improving self-confidence, and navigating life transitions",
         },
     ]);
     const [error, setError] = useState(null);
 
-    function sendNewMessage(e) {
+    async function sendNewMessage(e) {
         e.preventDefault();
 
         if (!thoughtValue.trim()) {
@@ -27,11 +24,13 @@ function Chatbot({ headline }) {
 
         try {
             const newMessage = {
-                messageText: thoughtValue.trim(),
-                sender: "user",
+                role: "user",
+                content: thoughtValue.trim(),
             };
 
             setMessages((prevList) => [...prevList, newMessage]);
+            const response = await chatAI(messages)
+            setMessages((prevMsgs) => [...prevMsgs, response])
             setThoughtValue(""); 
             setError(null); 
         } catch (error) {
@@ -39,9 +38,9 @@ function Chatbot({ headline }) {
         }
     }
 
-    useEffect(() => {
-        console.log("Messages updated:", messages);
-    }, [messages]);
+    // useEffect(() => {
+    //     console.log("Messages updated:", messages);
+    // }, [messages]);
 
     return (
         <section className={styles.chatArea}>
@@ -52,12 +51,12 @@ function Chatbot({ headline }) {
                     <p
                         key={index}
                         className={`${styles.message} ${
-                            message.sender === "user"
+                            message.role === "user"
                                 ? styles.userMessage
                                 : styles.aiMessage
                         }`}
                     >
-                        {message.messageText}
+                        {message.content}
                     </p>
                 ))}
             </div>
