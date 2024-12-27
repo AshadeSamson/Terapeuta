@@ -1,24 +1,31 @@
-import OpenAI from "openai";
+import ModelClient from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
 
 const apiKey = import.meta.env.VITE_APP_OPENAI_KEY
 
 export async function chatAI(messages){
 
-    const client = new OpenAI({
-        baseURL: "https://models.inference.ai.azure.com",
-        apiKey: apiKey,
-        dangerouslyAllowBrowser: true,
-      });
+    const client = new ModelClient(
+        "https://models.inference.ai.azure.com",
+        new AzureKeyCredential(apiKey),
+    );
 
-    const response = await client.chat.completions.create({
-      messages: messages,
-      model: "gpt-4o-mini",
-      temperature: 0.3,
-      max_tokens: 1500,
-      top_p: 1
+
+    const response = await client.path("/chat/completions").post({
+        body: {
+            messages: messages,
+            model: "Meta-Llama-3.1-405B-Instruct",
+            temperature: 0.5,
+            max_tokens: 2048,
+            top_p: 0.2
+        }
     });
 
-    const object = response.choices[0].message
+    if (response.status !== "200") {
+        throw response.body.error;
+    }
+
+    const object = response.body.choices[0].message
 
     return object
 }
