@@ -38,16 +38,15 @@ function Chatbot({ headline, servicePrompt }) {
         }
     }
 
-    // useEffect(() => {
-    //     console.log("Messages updated:", messages);
-    // }, [messages]);
 
     return (
         <section className={styles.chatArea}>
             <h1 className={styles.ChatHeadline}>{headline}</h1>
 
             <div className={styles.messagesContainer}>
-                {messages.map((message, index) => (
+                {messages
+                .filter((message) => message.role !== "system")
+                .map((message, index) => (
                     <p
                         key={index}
                         className={`${styles.message} ${
