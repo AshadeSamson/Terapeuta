@@ -1,27 +1,45 @@
+
 # Terapeuta
 
-**Terapeuta** is a web application designed to **provide online therapist support** and facilitate **virtual therapy sessions**. Built using React.js, Firebase Auth, Firestore Database, React Router, Context API, and CSS, Terapeuta offers users a seamless experience for registering, logging in, booking sessions, and managing their profiles.
-
+Terapeuta is an innovative web application designed to make mental health support and therapy accessible, user-friendly, and secure. Built with modern tools like React.js, Vite, and Firebase, the platform offers a seamless experience for booking therapy sessions, accessing resources, and interacting with an AI-powered therapist.
 
 ## Features
-- **User Authentication**: Users can register and log in to their personal accounts securely using Firebase Auth.
-- **Session Booking**: Users can book therapy sessions with available therapists.
-- **Profile Management**: Users can update their display names, change and verify email addresses, and manage other profile settings.
+ - Secure Account Management:
+    - Users can register, log in, and manage their profiles with Firebase Authentication.
+    - Sensitive information is handled with top-tier security practices.
+
+- Session Management:
+    - Easily book, reschedule, and cancel therapy sessions.
+    - Receive session details via notifications and downloadable PDFs.
+
+- AI-Powered Chatbot:
+    - Interact with a conversational assistant trained in therapeutic techniques.
+    - Provides guidance and support in various areas like anxiety management, mindfulness, and career coaching.
+
+- Resources Access:
+    - Users can access a library of curated articles, exercises, and mindfulness practices.
 
 
-## Continuous Development
-- **Virtual Sessions**: Implementation of the ability to issue tickets and hold therapy sessions virtually.
-- **Enhanced User Experience**: Continuously improve the user interface and experience for better usability and accessibility.
+- Interactive UI:
+    - Smooth scrolling and animations enhance the user experience.
+    - Responsive design ensures usability across devices.
 
 
-## Technologies Used
+## Tech Stack
+
+### Frontend
 - React.js
-- Firebase Auth
-- Firestore Database
-- React Router
-- Context API
-- CSS
+- Vite
+
+### Backend
+- Firebase
+
+### AI & Natural Language Processing
+- Llama 3
+- Azure AI SDKs
 
 
-## Live Site
-Check out the live version of Terapeuta **[here](https://terapeuta2023.netlify.app/)**
+## License
+
+This project is licensed under the [MIT License](https://github.com/AshadeSamson/Terapeuta?tab=MIT-1-ov-file#readme)
+
