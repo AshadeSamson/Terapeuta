@@ -186,14 +186,14 @@ a:hover{
     border-bottom: 2px var(--primary-color) solid;
 }
 
-.about{
+.about, .policy{
     text-align: justify;
     padding: 10px 15px 50px;
     background: linear-gradient(135deg, var(--spicet), var(--primary-color));
 }
 
 
-.about p, .contact p{
+.about p, .contact p, .policy p{
     margin-top: 15px;
     font-family: var(--primary-font);
     line-height: 1.5;

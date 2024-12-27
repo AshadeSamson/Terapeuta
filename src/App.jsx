@@ -23,6 +23,7 @@ import ComingSoon from "./components/utilities/comingSoon"
 import CareerCoachBot from "./components/chatbots/careerCoachBot"
 import CognitiveBTBot from "./components/chatbots/cognitiveBTbot"
 import MindfulnessBTBot from "./components/chatbots/mindfulnessBTbot"
+import Policy from "./pages/policy"
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path="about" element={<About/>} />
             <Route path="login" element={<Login/>} />
             <Route path="signup" element={<SignUp/>} />
+            <Route path="privacypolicy" element={<Policy/>} />
             <Route element={<Private />}>
               <Route path="profile" element={<Profile/>}>
                 <Route index element={<Appointments />} loader={appointmentLoader(userContext)} />
