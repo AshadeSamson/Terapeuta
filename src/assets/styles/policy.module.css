@@ -38,31 +38,31 @@
   border-radius: 10px;
 }
 
-
-/* Body container that holds the whole policy */
 .bodyContainer {
-  padding: 20px;
-  max-width: 1200px;
+  padding: 25px;
   margin: 0 auto;
-  background-color: #f9f9f9;
 }
 
-/* Section styling */
 .section {
   margin-bottom: 30px;
+  padding: 10px;
 }
 
 .sectionTitle {
-  font-size: 1.5rem;
+  font-size: var(--Text-Two);
   font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--primary-bg);
 }
 
 .sectionContent {
-  font-size: 1rem;
+  font-size: var(--Text-Four);
   line-height: 1.6;
-  color: #555;
+  color: var(--black);
+}
+
+.sectionContent, .sectionList, .subsection {
+  margin-left: 2rem;
 }
 
 /* Subsection styling */
@@ -74,23 +74,23 @@
   font-size: 1.25rem;
   font-weight: semi-bold;
   margin-bottom: 8px;
-  color: #444;
+  color: var(--ash);
 }
 
 .subsectionContent {
   font-size: 1rem;
   line-height: 1.6;
-  color: #666;
+  color: var(--black);
 }
 
 /* List styling */
-.list {
+.list, .sectionList {
   padding-left: 20px;
 }
 
 .listItem {
-  font-size: 1rem;
-  color: #444;
+  font-size: var(--Text-Four);
+  color: var(--black);
   list-style-type: disc;
   margin-bottom: 5px;
 }
@@ -121,6 +121,10 @@
     padding: 15px;
   }
 
+  .section {
+    padding: 5px;
+  }
+
   .sectionTitle {
     font-size: 1.25rem;
   }
@@ -128,7 +132,7 @@
   .sectionContent,
   .subsectionContent,
   .listItem {
-    font-size: 0.9rem;
+    font-size: var(--Text-Four);
   }
 
   .subsectionTitle {
