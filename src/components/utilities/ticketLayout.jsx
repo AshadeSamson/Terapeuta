@@ -54,15 +54,18 @@ function TicketLayout({ data }) {
                 <Text style={styles.label}>Appointment Time: </Text>{data.time}
                 </Text>
                 <Text style={styles.text}>
-                <Text style={styles.label}>Location: </Text>123 Main Street, Suite 456, Cityville
+                <Text style={styles.label}>Session Link: </Text>{data.sessionLink}
                 </Text>
                 <Text style={styles.text}>
-                <Text style={styles.label}>Contact Number: </Text>+(1) 023 456 789
+                <Text style={styles.label}>Google Meet ID: </Text>{data.sessionId}
+                </Text>
+                <Text style={styles.text}>
+                <Text style={styles.label}>Contact Number: </Text>+1 (718) 252-9311
                 </Text>
             </View>
 
             <View style={styles.section}>
-                <Text>Please arrive 10 minutes prior to your scheduled appointment time.</Text>
+                <Text>This ticket contains the details of your scheduled therapy session. The link and ID to the virtual space is provided.</Text>
                 <Text>If you need to cancel or reschedule, contact us at least 24 hours in advance.</Text>
                 <Text>Thank you!</Text>
             </View>
