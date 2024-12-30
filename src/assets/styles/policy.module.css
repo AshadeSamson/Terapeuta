@@ -1,5 +1,6 @@
-@import './app.css';
+@import '../styles/app.css';
 
+/* Main Policy Section */
 .policy {
   padding: 20px;
   color: var(--white);
@@ -7,6 +8,7 @@
   line-height: 1.6;
   display: flex;
   justify-content: center;
+  background-color: var(--secondary-bg);
 }
 
 .policyContentWrapper {
@@ -15,10 +17,9 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  max-width: 1200px; 
+  max-width: 1200px;
   margin-top: 10px;
 }
-
 
 .headline h2 {
   font-size: 4rem;
@@ -37,6 +38,66 @@
   border-radius: 10px;
 }
 
+
+/* Body container that holds the whole policy */
+.bodyContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+}
+
+/* Section styling */
+.section {
+  margin-bottom: 30px;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.sectionContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Subsection styling */
+.subsection {
+  margin-top: 20px;
+}
+
+.subsectionTitle {
+  font-size: 1.25rem;
+  font-weight: semi-bold;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.subsectionContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* List styling */
+.list {
+  padding-left: 20px;
+}
+
+.listItem {
+  font-size: 1rem;
+  color: #444;
+  list-style-type: disc;
+  margin-bottom: 5px;
+}
+
+
+
+/* Responsive Design */
 @media (max-width: 767.9px) {
   .policyContentWrapper {
     flex-direction: column;
@@ -50,5 +111,57 @@
 
   .headline h2 {
     font-size: 2rem;
+  }
+
+  .policySection {
+    margin-bottom: 15px;
+  }
+
+  .bodyContainer {
+    padding: 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .sectionContent,
+  .subsectionContent,
+  .listItem {
+    font-size: 0.9rem;
+  }
+
+  .subsectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .list {
+    padding-left: 15px;
+  }
+
+}
+
+
+@media screen and (max-width: 480px) {
+  .bodyContainer {
+    padding: 10px;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .sectionContent,
+  .subsectionContent,
+  .listItem {
+    font-size: 0.85rem;
+  }
+
+  .subsectionTitle {
+    font-size: 1rem;
+  }
+
+  .list {
+    padding-left: 10px;
   }
 }
