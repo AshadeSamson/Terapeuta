@@ -17,6 +17,7 @@ function SignUp() {
     email:'',
     password:'',
     passwordConfirm:'',
+    agreement: false,
   })
   
   const [action, setAction] = useState(false)
@@ -48,6 +49,11 @@ function SignUp() {
     async function handleSignUp(event){
 
       event.preventDefault();
+
+      if (!formDetails.agreement) {
+        setError('You must agree to the privacy policy to sign up.');
+        return; 
+      }
 
       if(formDetails.password === formDetails.passwordConfirm){
 
@@ -125,6 +131,19 @@ function SignUp() {
           required
           minLength='6'
           maxLength='18' />
+        </div>
+
+        <div className='optional agreed'>
+          <p>I have read and agreed to the <Link to="/privacypolicy">Privacy Policy</Link>
+          </p>
+          <input 
+              type="checkbox" 
+              checked={formDetails.agreement} 
+              name="agreement" 
+              id="agreement"
+              className='agreement' 
+              onChange={formChanges}
+              required />
         </div>
 
         <button type="submit">{action ? 'SIGNING UP...' : 'SIGN UP'}</button>
