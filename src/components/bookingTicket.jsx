@@ -34,10 +34,13 @@ function BookingTicket() {
             Appointment Time: <span className={styles.specialText}>{data.time}</span>
           </h3>
           <h3>
-            Location: <span className={styles.specialText}>123 Main Street, Suite 456, Cityville.</span>
+            Session Link: <span className={styles.specialText}>{data.sessionLink}</span>
           </h3>
           <h3>
-            Contact Number: <span className={styles.specialText}>+(1) 023 456 789</span>
+            Google Meet ID: <span className={styles.specialText}>{data.sessionId}</span>
+          </h3>
+          <h3>
+            Contact Number: <span className={styles.specialText}>+1 (718) 252-9311</span>
           </h3>
         </div>
 
@@ -54,7 +57,7 @@ function BookingTicket() {
 
       <div className={styles.contactSection}>
         <p>
-          Please arrive 10 minutes prior to your scheduled appointment time. If you need to cancel or reschedule your
+          Please note that the scheduled appointment is virtual. The link and ID to the virtual space is provided in the ticket. If you need to cancel or reschedule your
           appointment, please contact us at least 24 hours in advance.
         </p>
         <p>
