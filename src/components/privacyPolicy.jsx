@@ -14,6 +14,16 @@ function PrivacyPolicyContainer() {
           {/* Render section content */}
           {section.content && <p className={styles.sectionContent}>{section.content}</p>}
 
+            {/* Render section list */}
+            {section.list && section.list.length > 0 &&           
+            <ul className={styles.sectionList}>
+                    {section.list.map((item, listIndex) => (
+                      <li key={listIndex} className={styles.listItem}>
+                        {item}
+                      </li>
+                    ))}
+            </ul>}
+
           {/* Render subsections if they exist */}
           {section.subsections &&
             section.subsections.length > 0 &&

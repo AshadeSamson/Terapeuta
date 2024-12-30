@@ -1,6 +1,6 @@
 {
   "title": "Privacy Policy for Terapeuta",
-  "effectiveDate": "[Insert Date]",
+  "effectiveDate": "December, 2024",
   "sections": [
     {
       "title": "1. Information We Collect",
@@ -41,24 +41,20 @@
     },
     {
       "title": "2. How We Use Your Information",
-      "content": [
-        "To Provide Services:",
+      "list": [
         "Facilitate account creation and authentication.",
         "Enable secure booking, management, and cancellation of therapy sessions.",
-        "Chatbot Interaction:",
         "Provide therapeutic responses and resources through the AI chatbot.",
         "Continuously improve chatbot accuracy and contextual understanding.",
-        "Platform Improvements:",
         "Analyze usage trends to enhance our services.",
         "Debug errors and improve technical performance.",
-        "Communication:",
         "Send booking confirmations, notifications, and updates.",
         "Respond to support requests."
       ]
     },
     {
       "title": "3. How We Protect Your Information",
-      "content": [
+      "list": [
         "Encryption: All data transmitted between your device and our servers is encrypted using industry-standard protocols (e.g., HTTPS).",
         "Access Controls: Only authorized personnel have access to user data.",
         "Secure Storage: Sensitive data, such as passwords, is encrypted and securely stored.",
@@ -75,9 +71,9 @@
     },
     {
       "title": "5. Retention of Data",
-      "content": [
+      "list": [
         "Personal Data: We retain your personal data for as long as your account remains active or as required to fulfill the purposes outlined in this policy.",
-        "Chat Data: Conversations with the AI chatbot are temporarily stored and anonymized for quality improvement and are deleted after [insert timeframe, e.g., 30 days]."
+        "Chat Data: Conversations with the AI chatbot are temporarily stored and anonymized for quality improvement and are deleted after 30days"
       ]
     },
     {
@@ -115,8 +111,8 @@
       "title": "11. Contact Us",
       "content": "If you have any questions or concerns about this Privacy Policy or how your data is handled, please contact us at:",
       "list": [
-        "Email: [Insert Contact Email]",
-        "Address: [Insert Company Address]"
+        "Email: support@terapeuta.com",
+        "Address: 1408 Avenue J, Suite 101, Brooklyn, NY"
       ]
     }
   ]
