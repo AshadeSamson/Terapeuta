@@ -2,6 +2,7 @@ import { serverTimestamp } from 'firebase/firestore'
 import React from 'react'
 import { Form, redirect, useNavigation } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { getRandomNumber } from '../utils/randomNumber'
 
 
 
@@ -12,8 +13,11 @@ export const action = (userContext) => async ({request}) => {
   const booking = await request.formData()
 
   // Accessing context values
-  const { user, addNewBooking, globalAddNewBooking } = userContext
+  const { user, addNewBooking, globalAddNewBooking, getLinks } = userContext
 
+  // getting session links available
+  const virtualSessions = await getLinks()
+  const sessionData = virtualSessions[getRandomNumber()]
 
   const bookingDetails = {
     timing: serverTimestamp(),
@@ -26,6 +30,8 @@ export const action = (userContext) => async ({request}) => {
     time: booking.get('time'),
     reason: booking.get('reason'),
     comments: booking.get('comments'),
+    sessionLink: sessionData.sessionLink,
+    sessionId: sessionData.sessionId,
   }
 
   try {

@@ -290,13 +290,17 @@ div.radio-holder{
     margin-bottom: 5px;
 }
 
+label.agreementText{
+    font-weight: medium;
+}
+
 label,legend{
     color: var(--black);
     font-size: var(--Text-Three);
     margin-bottom: 5px;
 }
 
-label:not(.radio + label),legend{
+label:not(.radio),legend{
     font-weight: bold;
 }
 
@@ -356,6 +360,8 @@ button:disabled{
     align-items: center;
     gap: 5px;
 }
+
+
 
 
 

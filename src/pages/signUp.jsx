@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 
 
+
 function SignUp() {
 
   const navigate = useNavigate()
@@ -134,9 +135,7 @@ function SignUp() {
         </div>
 
         <div className='optional agreed'>
-          <p>I have read and agreed to the <Link to="/privacypolicy">Privacy Policy</Link>
-          </p>
-          <input 
+        <input 
               type="checkbox" 
               checked={formDetails.agreement} 
               name="agreement" 
@@ -144,6 +143,8 @@ function SignUp() {
               className='agreement' 
               onChange={formChanges}
               required />
+          <p>I have read and agreed to the <Link to="/privacypolicy">Privacy Policy</Link>
+          </p>
         </div>
 
         <button type="submit">{action ? 'SIGNING UP...' : 'SIGN UP'}</button>
