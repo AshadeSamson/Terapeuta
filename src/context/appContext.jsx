@@ -151,6 +151,15 @@ function AppContextProvider({children}) {
     }
 
 
+    // VIRTUAL SESSIONS LINKS
+    async function getLinks(){
+        const data = await getDocs(collection(db, "virtualSessionLinks"))
+        const links = await data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+
+        return links
+    }
+
+
 
     // RESOURCES ( BOOKS & ARTICLES)
     
@@ -189,6 +198,7 @@ function AppContextProvider({children}) {
         deleteBooking,
         getAppointments,
         getResources,
+        getLinks,
     }
 
 
