@@ -26,12 +26,14 @@
   
   .ticketDetails h3 {
     font-size: var(--Text-Three);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: var(--black);
+    font-family: var(--primary-font);
+    font-style: italic;
   }
   
   .specialText {
-    font-style: italic;
+    font-style: normal;
     font-weight: bold;
     color: var(--primary-color);
   }
@@ -48,7 +50,6 @@
     border-radius: 8px; 
     font-size: var(--Text-Five); 
     font-weight: 600; 
-    text-transform: uppercase; 
     cursor: pointer; 
     transition: all 0.3s ease; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
@@ -72,4 +73,17 @@
     color: var(--ash);
     text-align: justify;
   }
+
+  .ticketParagraph {
+    margin-bottom: 20px;
+  }
   
+
+@media (max-width: 767.9px) {
+
+  .ticketDetails h3 {
+    font-size: var(--Text-Four);
+  }
+
+
+}

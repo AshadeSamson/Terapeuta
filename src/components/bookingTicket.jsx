@@ -34,7 +34,7 @@ function BookingTicket() {
             Appointment Time: <span className={styles.specialText}>{data.time}</span>
           </h3>
           <h3>
-            Session Link: <span className={styles.specialText}>{data.sessionLink}</span>
+            Session Link: <span className={styles.specialText}><a className={styles.specialText} href={data.sessionLink} target="_blank" rel="noopener noreferrer">{data.sessionLink}</a></span>
           </h3>
           <h3>
             Google Meet ID: <span className={styles.specialText}>{data.sessionId}</span>
@@ -56,15 +56,15 @@ function BookingTicket() {
       </div>
 
       <div className={styles.contactSection}>
-        <p>
+        <p className={styles.ticketParagraph}>
           Please note that the scheduled appointment is virtual. The link and ID to the virtual space is provided in the ticket. If you need to cancel or reschedule your
           appointment, please contact us at least 24 hours in advance.
         </p>
-        <p>
+        <p className={styles.ticketParagraph}>
           We look forward to seeing you soon. If you have any questions or concerns, please feel free to reach out to
           us.
         </p>
-        <p>
+        <p className={styles.ticketParagraph}>
           Thank you, <br />
           <strong>The Terapeuta Team</strong>
         </p>
