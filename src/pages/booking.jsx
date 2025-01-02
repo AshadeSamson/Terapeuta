@@ -196,7 +196,10 @@ function Booking() {
           id="date"
           min={new Date(new Date().setDate(new Date().getDate() + 7))
             .toISOString()
-            .split("T")[0]} 
+            .split("T")[0]}
+          max={new Date(new Date().setDate(new Date().getDate() + 28))
+            .toISOString()
+            .split("T")[0]}  
           className='input'
           required/>
       </div>
