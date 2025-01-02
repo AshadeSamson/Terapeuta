@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { chatAI } from "../../services/fake-data/chatCompletion";
+import { chatAI } from "../../services/chatCompletion";
 import styles from "../../assets/styles/chatbots/chatbot.module.css";
 
 
