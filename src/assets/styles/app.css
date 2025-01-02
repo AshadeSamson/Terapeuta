@@ -435,8 +435,8 @@ button:disabled{
 
 .profile-nav{
     display: flex;
+    justify-content: center;
     align-items: center;
-    width: 100%;
     background-color: var(--black);
     margin-top: 5px;
     box-shadow:  -3px 3px 5px rgba(0, 0, 0, 0.5);
@@ -617,6 +617,8 @@ button{
 .profile-nav{
     overflow-x: scroll;
     overflow-y: hidden;
+    justify-content: start;
+
 }
 
 a.user-profile-link{
