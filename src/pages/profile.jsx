@@ -61,11 +61,11 @@ function Profile() {
             Appointments
           </NavLink>
 
-          <NavLink
+          {/* <NavLink
           to='messages'
           className='navlink user-profile-link'>
             Notifications
-          </NavLink>
+          </NavLink> */}
 
           <NavLink
           to='billing'
