@@ -38,6 +38,10 @@
     color: var(--primary-color);
   }
   
+  a.specialText {
+    all: unset;
+  }
+  
   .printTicket {
     display: inline-flex;
     align-items: center;
