@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLoaderData, useNavigation } from 'react-router-dom'
+import { useLoaderData, useNavigation, Link } from 'react-router-dom'
 import { useApp } from '../../context/appContext'
 import Pagination from '../utilities/pagination'
 import { toast } from 'react-toastify'
@@ -107,10 +107,23 @@ function Appointments() {
             <tbody>
               {currentAppointments.map((appointment) => (
                 <tr key={appointment.id}>
-                  <td>{appointment.appointmentDate}</td>
-                  <td>{appointment.time}</td>
-                  <td>{appointment.name}</td>
-                  <td>{appointment.therapyType}</td>
+                  <td>
+                  <Link className={styles.appointmentLinks} to={`/booking/${user.uid}/${appointment.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>{appointment.appointmentDate}
+                  </Link>
+                  </td>
+                  <td>
+                  <Link className={styles.appointmentLinks} to={`/booking/${user.uid}/${appointment.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>{appointment.time}
+                  </Link>
+                  </td>
+                  <td>
+                  <Link className={styles.appointmentLinks} to={`/booking/${user.uid}/${appointment.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>{appointment.name}
+                  </Link>
+                  </td>
+                  <td>
+                  <Link className={styles.appointmentLinks} to={`/booking/${user.uid}/${appointment.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>{appointment.therapyType}
+                  </Link>
+                  </td>
+                  
                   <td>
                   <IconContext.Provider value={{size: "2rem"}}>
                   <a onClick={() => handleDelete(appointment.id)}><FaDeleteLeft className={styles.deleteButton}/></a>
