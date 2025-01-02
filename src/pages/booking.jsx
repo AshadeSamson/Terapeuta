@@ -17,7 +17,7 @@ export const action = (userContext) => async ({request}) => {
 
   // getting session links available
   const virtualSessions = await getLinks()
-  const sessionData = virtualSessions[getRandomNumber()]
+  const sessionData = await virtualSessions[getRandomNumber()]
 
   const bookingDetails = {
     timing: serverTimestamp(),
