@@ -7,12 +7,11 @@
   }
   
   .heading {
-    font-size: 2rem;
+    font-size: 3rem;
     font-style: oblique;
     color: var(--spicez);
     font-family: var(--primary-font);
     margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--spicez);
     display: inline-block;
   }
   
@@ -58,3 +57,8 @@
     text-align: justify;
   }
   
+
+  @media (max-width: 767.9px) {
+
+
+  }

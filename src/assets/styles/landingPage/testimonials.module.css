@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif&family=Libre+Baskerville&display=swap');
 
 .testimonialsSection {
+    height: 550px;
     padding: 50px 20px;
     background-color: var(--primary-bg);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .heading {
     font-family: var(--primary-font);
     font-style: oblique;
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 20px;
 }
@@ -54,7 +59,7 @@
 
 .navigation {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 10px;
     margin-top: 15px;
 }
@@ -71,3 +76,11 @@
 .navButton:hover {
     color: var(--spicez);
 }
+
+
+@media (max-width: 767.9px) {
+    .testimonialsSection {
+        height: auto;
+    }
+  }
+  

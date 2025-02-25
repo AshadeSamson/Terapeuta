@@ -2,6 +2,7 @@
 
 .aboutContainer {
   padding: 20px;
+  height: 550px;
   background-color: var(--primary-bg);
   color: var(--black);
   font-family: var(--primary-font);
@@ -22,13 +23,11 @@
 
 
 .heading {
-  font-size: 2rem;
+  font-size: 3rem;
   font-style: oblique;
   color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
   margin-bottom: 15px;
-  display: inline-block;
-  text-align: center;
+  text-align: left;
 }
 
 .contentWrapper {
@@ -61,22 +60,10 @@
 }
 
 .readMoreLink {
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin-top: 10px;
-  display: inline-block;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  width: 220px !important;
+  transition: all 0.3s;                                  
 }
 
-.readMoreLink:hover {
-  background-color: var(--primary-color);
-  color: var(--white);
-}
 
 .image {
   flex: 1;
@@ -101,5 +88,9 @@
 
   .headline h2 {
     font-size: 2rem;
+  }
+
+  .aboutContainer {
+    height: unset;
   }
 }
