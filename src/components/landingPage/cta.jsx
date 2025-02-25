@@ -20,7 +20,7 @@ function CTA({user}) {
           Take the first step towards a fulfilling career and a balanced life. Our personalized coaching sessions empower you to overcome challenges, set clear goals, and achieve meaningful growth.
           </p>
         </div>
-        <div><Link to={user !== null ? 'booking' : 'signup'}><button className={styles.ctaButton}>{ user !== null ? 'Book An Interaction ' : 'Transform Your Career!'}</button></Link></div>
+        <div><Link to={user !== null ? 'booking' : 'signup'}><button className={`button ${styles.ctaButton}`}>{ user !== null ? 'Book An Interaction ' : 'Transform Your Career!'}</button></Link></div>
       </Animated>
     </div>
   </div>

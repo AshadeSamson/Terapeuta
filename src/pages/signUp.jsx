@@ -147,7 +147,7 @@ function SignUp() {
           </p>
         </div>
 
-        <button type="submit">{action ? 'SIGNING UP...' : 'SIGN UP'}</button>
+        <button className='button' type="submit">{action ? 'SIGNING UP...' : 'SIGN UP'}</button>
 
         <div className='optional'>
           <p>Already have an account? <Link to="/login">Login</Link></p>

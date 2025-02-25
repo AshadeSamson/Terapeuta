@@ -228,7 +228,7 @@ function Booking() {
         </textarea>
       </div>
 
-      <button disabled={navigation.state === 'submitting' | 'loading'} type="submit">
+      <button className='button' disabled={navigation.state === 'submitting' | 'loading'} type="submit">
         {
           navigation.state === 'submitting' | 'loading' ?
           'Booking Your Session...':'BOOK'
