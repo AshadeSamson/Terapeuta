@@ -38,8 +38,8 @@ function AboutUs({ aboutPage }) {
             ) : (
               <p>{previewText}...</p>
             )}
-            <Link to="about" className={styles.readMoreLink}>
-              Read More
+            <Link to="about">
+              <button className={`button ${styles.readMoreLink}`}>Learn More</button>
             </Link>
           </div>}
 

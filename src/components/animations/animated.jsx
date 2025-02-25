@@ -24,7 +24,7 @@ function Animated({ children, x, y}) {
     <motion.div
         initial={initialAnimation}
         whileInView={whileInViewAnimation}
-        viewport={{ once: false, amount: .5 }}
+        viewport={{ once: true, amount: .5 }}
         style={{
             display: 'inline-block', 
             width: '100%',
