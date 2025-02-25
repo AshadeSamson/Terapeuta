@@ -76,7 +76,7 @@ function Contact() {
                   required
                 />
               </div>
-              <button type="submit" className={styles.submitButton}>Send Message</button>
+              <button type="submit" className={`button ${styles.submitButton}`}>Send Message</button>
             </form>
           </Animated>
         </div>

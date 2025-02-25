@@ -23,6 +23,7 @@
     padding: 10px 5px;
     border: none;
     border-radius: 5px;
+    width: 150px !important;
     background-color: var(--ash);
     color: var(--white);
     cursor: pointer;

@@ -152,7 +152,7 @@ function Settings() {
               required/>
           </div>
           <div className='settings-box'>
-            <button className='settings-button' type="submit">Update Name</button>
+            <button className='button settings-button' type="submit">Update Name</button>
           </div>
         </div>
         {profileUpdateError && <h5 className='error red'>{profileUpdateError}</h5>}
@@ -173,7 +173,7 @@ function Settings() {
               required/>
           </div>
           <div className='settings-box'>
-            <button disabled={user.emailVerified === true} className='settings-button' type="submit">
+            <button disabled={user.emailVerified === true} className='button settings-button' type="submit">
               {user.emailVerified ? 'Verified' :'Verify Email'}</button>
           </div>
         </div>
@@ -196,7 +196,7 @@ function Settings() {
               required/>
           </div>
           <div>
-            <button className='settings-button' type="submit">Update Email</button>
+            <button className='button settings-button' type="submit">Update Email</button>
           </div>
         </div>
         {emailUpdateError && <h5 className='error red'>{emailUpdateError}</h5>}
@@ -232,7 +232,7 @@ function Settings() {
               required/>
           </div>
           <div className='settings-box'>
-            <button className='settings-button' type="submit">Change Password</button>
+            <button className='button settings-button' type="submit">Change Password</button>
           </div>
         </div>
         {passwordError && <h5 className='error red'>{passwordError}</h5>}

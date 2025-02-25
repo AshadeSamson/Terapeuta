@@ -240,8 +240,9 @@ div.input-holder{
 .input{
     width: 300px;
     max-width: 400px;
-    height: 40px;
-    border: 1px solid var(--black);
+    height: 50px;
+    border: 2px solid var(--black);
+    border-radius: 5px;
     padding: 15px;
     cursor: pointer;
     font-size: 18px;
@@ -251,6 +252,7 @@ div.input-holder{
 .input:focus{
     outline: none;
     border: none;
+    border-radius: 0;
     border-bottom: 2.5px solid var(--primary-color);
 }
 
@@ -258,7 +260,8 @@ div.input-holder{
     width: 300px;
     max-width: 400px;
     aspect-ratio: 2 / 1;
-    border: 1px solid var(--black);
+    border: 2px solid var(--black);
+    border-radius: 5px;
     padding: 15px;
     cursor: pointer;
     font-size: 12px;
@@ -312,7 +315,8 @@ label:not(.radio),legend{
     width: 300px;
     max-width: 400px;
     height: 40px;
-    border: 1px solid var(--black);
+    border: 2px solid var(--black);
+    border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
     background-color: var(--primary-bg);
@@ -324,22 +328,22 @@ label:not(.radio),legend{
     justify-content: center;
 }
 
-button{
+.button{
     width: 280px;
     max-width: 400px;
     height: 50px;
     border: 1px solid var(--primary-color);
+    border-radius: 7px;
     cursor: pointer;
     font-size: var(--Text-Four);
     font-weight: 700;
     background-color: var(--primary-color);
     color: var(--primary-bg);
     margin-bottom: 25px;
-    opacity: 0.8;
 }
 
-button:hover{
-    opacity: 1;
+.button:hover{
+    background-color: var(--black);
 }
 
 button:disabled{
@@ -347,10 +351,9 @@ button:disabled{
 }
 
 .info-message{
-    color: var(--spicex);
-    background-color: var(--grey);
-    border: 0 solid var(--grey);
-    border-radius: 8px;
+    color: var(--white);
+    background-color: var(--black);
+    border-radius: 5px;
     padding: 10px;
     width: 50%;
     margin: 0 auto 15px;
@@ -503,10 +506,10 @@ a.user-profile-link:not(:last-child){
 }
 
 .settings-button{
-    font-size: var(--Text-Four);
-    width: 150px;
-    height: 40px;
-    margin: 0;
+    font-size: var(--Text-Four) !important;
+    width: 150px !important;
+    height: 40px !important;
+    margin: 0  !important;
 }
 
 .settings-button:hover{

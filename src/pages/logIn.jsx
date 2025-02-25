@@ -143,7 +143,7 @@ function Login() {
         </div>
 
 
-        <button disabled={action === true} type="submit">{action ? 'LOGGING IN...' : 'LOG IN'}</button>
+        <button className='button' disabled={action === true} type="submit">{action ? 'LOGGING IN...' : 'LOG IN'}</button>
 
         <div className='optional'>
           <p>Forgotten password? <Link onClick={openModal}>Click here</Link></p>

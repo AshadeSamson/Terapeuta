@@ -41,13 +41,13 @@ function Resources() {
       {/* Category Buttons */}
       <div className={styles.categoryButtons}>
         <button
-          className={selectedCategory === "Books" ? styles.active : ""}
+          className={`button ${selectedCategory === "Books" ? styles.active : ""}`}
           onClick={() => setSelectedCategory("Books")}
         >
           Books
         </button>
         <button
-          className={selectedCategory === "Articles" ? styles.active : ""}
+          className={`button ${selectedCategory === "Articles" ? styles.active : ""}`}
           onClick={() => setSelectedCategory("Articles")}
         >
           Articles
