@@ -554,8 +554,9 @@ a.submenu-trigger {
     text-align: left;
     z-index: 100;
     padding:  0 0;
-    background-color: var(--black);
-    box-shadow:  -5px 5px 5px rgba(0, 0, 0, 0.5)
+    background-color: var(--primary-bg);
+    color: var(--black);
+    box-shadow:  -2px 2px 5px 1px rgba(0, 0, 0, 0.5)
 }
 
 a{
@@ -576,13 +577,13 @@ button{
 #collapsible .navLink{
     display: block;
     width: 100%;
-    color: var(--primary-bg);
+    color: var(--primary-color);
     font-weight: 700;
     padding: 25px 25px 15px 25px;
 }
 
 #collapsible .navLink:not(:last-child){
-    border-bottom: 1px solid var(--primary-bg);
+    border-bottom: 1px solid var(--primary-color);
 }
 
 .info-message{
