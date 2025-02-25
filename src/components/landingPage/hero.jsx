@@ -20,7 +20,7 @@ function Hero({ user }) {
         </div>
         <div>
           <Link to={user !== null ? 'booking' : 'signup'}>
-              <button className={`button ${styles.heroButton}`}>{ user !== null ? 'Book A Session' : 'Get Started Here'}</button>
+              <button className={`button ${styles.heroButton}`}>{ user !== null ? 'Book A Session' : 'Get Started Here'}<FontAwesomeIcon icon="fa-brands fa-medrt" size='lg' /></button>
           </Link></div>
         </Animated>
       </div>
