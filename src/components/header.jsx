@@ -30,10 +30,15 @@ function Header({mobileNav, toggleNav}) {
     <div>
         <nav>
 
-            <div className='nav-logo'>
-                <h1 className='logo'>Terapeuta</h1>
-                <p>...your therapist</p>
-            </div>
+            
+              <div className='nav-logo'>
+              <Link className='logo-link' to=".">
+                  <h1 className='logo'>Terapeuta</h1>
+                  <p>...your therapist</p>
+              </Link>
+              </div>
+
+
 
 
             <div className='bars-con'>
@@ -44,12 +49,12 @@ function Header({mobileNav, toggleNav}) {
 
               <div className='nav-items' id={mobileNav ? 'collapsible' : ''}>
 
-                <NavLink 
+                {/* <NavLink 
                to="."
                onClick={toggleNav} 
                className='navLink homepage'>
                 Home
-                </NavLink>
+                </NavLink> */}
 
                 {
                 user !== null

@@ -17,7 +17,7 @@ export const loader = (userContext) => async () => {
     return null;
   }
 
-  const appointments = await getAppointments(user.uid)
+  const appointments =  await getAppointments(user.uid)
   const data = appointments.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
   
   return data

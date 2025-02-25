@@ -99,8 +99,12 @@ nav{
     display: flex;
     align-items: center;
     padding: 10px;
-    border: 1px solid var(--black);
-    box-shadow:  -3px 3px 5px rgba(0, 0, 0, 0.5)
+    border-radius: 5px;
+    box-shadow:  -1px 1px 5px rgba(0, 0, 0, 0.5)
+}
+
+a.logo-link{
+    all: unset;
 }
 
 
