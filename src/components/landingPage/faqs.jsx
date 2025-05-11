@@ -13,7 +13,10 @@ function Faqs() {
   return (
     <div className={styles.faqContainer}>
       <Animated y={true}>
-        <h2 className={styles.heading}>Frequently Asked Questions</h2>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionSubtitle}>FAQs</h2>
+          <h3 className={styles.sectionTitle}>Frequently Asked Questions</h3>
+        </div>
         <div className={styles.faqList}>
           {faqs.map((faq, index) => (
             <div key={index} className={styles.faqItem}>
@@ -21,7 +24,7 @@ function Faqs() {
                 className={styles.question} 
                 onClick={() => toggleFAQ(index)}
               >
-                {faq.question}
+                <p>{faq.question}</p>
                 <span className={styles.icon}>
                   {activeIndex === index ? '-' : '+'}
                 </span>

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 import { useApp } from '../context/appContext'
 import Services from '../components/landingPage/services';
 import Testimonials from '../components/landingPage/testimonials';
-import AboutUs from '../components/landingPage/aboutUs';
+import HowItWorks from '../components/landingPage/howItWorks';
 import Contact from '../components/landingPage/contact';
 import Faqs from '../components/landingPage/faqs';
 import Hero from '../components/landingPage/hero';
-import CTA from '../components/landingPage/cta';
+import ChatbotFeature from '../components/landingPage/chatFeature';
 
 
 function Homepage() {
@@ -30,13 +30,13 @@ function Homepage() {
 
       <Hero user={user}/>
 
-      <section id="about"><AboutUs /></section>
-
       <section id="services"><Services /></section>
 
-      <section id="testimonials"><Testimonials /></section>
+      <section id="about"><HowItWorks /></section>
 
-      <CTA user={user}/>
+      <section id="chatfeature"><ChatbotFeature /></section>
+
+      <section id="testimonials"><Testimonials /></section>
 
       <section id="contact"><Contact /></section>
 

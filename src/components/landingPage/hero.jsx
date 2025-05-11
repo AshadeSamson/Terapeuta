@@ -1,11 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Link as ScrollLink } from 'react-scroll';
 import styles from '../../assets/styles/landingPage/hero.module.css'
 import heroImg from '../../assets/images/terapeuta.gif'
 import Animated from '../animations/animated'
 
 
 function Hero({ user }) {
+
+
+  return (
+    <div className={styles.hero}>
+    <div className={styles.heroContainer}>
+      <h1 className={styles.heroTitle}>
+        Your Journey to Mental Wellness Starts Here
+      </h1>
+      <p className={styles.heroSubtitle}>
+      Expert-led therapy tailored to your unique needs. At Terapeuta, we’re here to guide you toward healing, growth, and lasting wellness in a supportive and inclusive environment.
+      </p>
+      <div className={styles.heroButtons}>
+        <Link to={user !== null ? 'booking' : 'signup'} className={`button ${styles.primaryButton}`}>{ user !== null ? 'Book A Session' : 'Get Started Here'}</Link>
+        <Link to="#services" className={`button ${styles.secondaryButton}`}>Learn More</Link>
+      </div>
+    </div>
+  </div>
+  )
   return (
     <div className={styles.heroContainer}>
       <div className={styles.heroText}>
