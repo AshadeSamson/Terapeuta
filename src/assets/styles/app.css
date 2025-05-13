@@ -1,6 +1,6 @@
 :root{
-    --primary-font:  'PT Serif', serif;
-    --body-text: 'Libre Baskerville', serif;
+    --primary-font:  "Inter", sans-serif;
+    --body-text: "Inter", sans-serif;
     --spicex: #489c86;
     --spicet: #B2ABF2;
     --spicez: #191308;
