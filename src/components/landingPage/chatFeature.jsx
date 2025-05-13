@@ -24,7 +24,7 @@ function ChatbotFeature() {
                   <FaRobot />
                 </div>
                 <div>
-                  <h3 className={styles.chatbotName}>MindEase AI Assistant</h3>
+                  <h3 className={styles.chatbotName}>Terapeuta AI Therapist</h3>
                   <p className={styles.chatbotStatus}>Online now</p>
                 </div>
               </div>
