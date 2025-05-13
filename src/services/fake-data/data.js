@@ -8,6 +8,10 @@ export const faqs = [
       answer: "You can book a session by creating an account, logging in, and selecting a therapist of your choice. From there, you can choose an available time slot and confirm your booking."
     },
     {
+      question: "Is the AI chatbot a replacement for therapy?",
+      answer: "No, our AI chatbot is designed to complement your therapy, not replace it. It helps reinforce techniques between sessions, provides psychoeducation, and offers guided exercises. For clinical concerns, we always recommend working with a licensed therapist."
+    },
+    {
       question: "Is my information secure?",
       answer: "Yes, your data is securely stored using Firebase, ensuring confidentiality and compliance with data protection standards."
     },

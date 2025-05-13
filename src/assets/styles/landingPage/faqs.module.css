@@ -14,6 +14,28 @@
   margin-bottom: 20px;
 }
 
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionSubtitle {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sectionTitle {
+  margin-top: 0.5rem;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1.2;
+  font-family: var(--primary-font);
+}
+
 .faqList {
   display: flex;
   flex-direction: column;
@@ -33,6 +55,10 @@
   justify-content: space-between;
   align-items: center;
   transition: color 0.3s;
+}
+
+.question p {
+  text-align: left;
 }
 
 .question:hover {

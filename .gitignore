@@ -16,6 +16,7 @@ calendar-api/
 dist-ssr
 *.local
 .env
+src/components/private/new.html
 
 # Editor directories and files
 .vscode/*

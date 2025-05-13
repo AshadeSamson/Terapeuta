@@ -1,71 +1,141 @@
 @import '../app.css';
 
-.contactContainer {
-  padding: 20px;
-  background-color: var(--spicet);
-  color: var(--black);
-  box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  text-align: center;
+.signup {
+  padding: 3rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
-.heading {
-  font-size: 2rem;
-  font-style: oblique;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  font-family: var(--primary-font);
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--lavender);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.buttonContainer {
+  margin-top: 1rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--white);
   color: var(--primary-color);
-  border-bottom: 2px solid var(--primary-color);
-  margin-bottom: 20px;
-  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--lavender);
+}
+
+.formContainer {
+  margin-top: 2rem;
+}
+
+.formWrapper {
+  background-color: var(--white);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 1.5rem;
+}
+
+.formTitle {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 1.5rem;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .formGroup {
-  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.label {
-  font-size: 1rem;
-  color: var(--spicez);
-  margin-bottom: 5px;
+.formLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 0.5rem;
 }
 
-.input, .textarea {
-  width: 100%;
-  padding: 10px;
-  background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  font-size: 1rem;
-  transition: border-color 0.3s;
+.formInput {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--grey);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
 }
 
-.input:focus, .textarea:focus {
-  border-color: var(--primary-color);
+.formInput:focus {
   outline: none;
-}
-
-.textarea {
-  resize: vertical;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(81, 73, 144, 0.2);
 }
 
 .submitButton {
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  color: var(--primary-bg);
+  width: 100%;
+  padding: 0.75rem;
   background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: var(--spicex);
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+  
+  .formContainer {
+    margin-top: 0;
+  }
+  
+  .signup {
+    padding: 5rem 1rem;
+  }
 }
 
 

@@ -1,0 +1,82 @@
+.howItWorks {
+    padding: 3rem 1rem;
+    background-color: var(--primary-bg);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sectionHeader {
+    text-align: left;
+    margin-bottom: 3rem;
+  }
+  
+  .sectionSubtitle {
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .sectionTitle {
+    margin-top: 0.5rem;
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.2;
+    font-family: var(--primary-font);
+  }
+  
+  .stepsContainer {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .step {
+    position: relative;
+    text-align: left;
+  }
+  
+  .stepNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.375rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .stepTitle {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--black);
+  }
+  
+  .stepDescription {
+    margin-top: 0.5rem;
+    color: var(--ash);
+    line-height: 1.6;
+  }
+  
+  @media (min-width: 768px) {
+    .stepsContainer {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+    }
+
+    .sectionHeader {
+      text-align: center;
+    }
+    
+    .howItWorks {
+      padding: 5rem 1rem;
+    }
+  }

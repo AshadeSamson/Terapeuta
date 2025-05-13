@@ -44,7 +44,7 @@ body{
 }
 
 #root{
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto auto;
     text-align: center;
     background-color: var(--primary-bg);
@@ -331,15 +331,16 @@ label:not(.radio),legend{
 .button{
     width: 280px;
     max-width: 400px;
+    border: none;
     height: 50px;
-    border: 1px solid var(--primary-color);
     border-radius: 7px;
     cursor: pointer;
     font-size: var(--Text-Four);
-    font-weight: 700;
+    font-weight: 500;
     background-color: var(--primary-color);
     color: var(--primary-bg);
     margin-bottom: 25px;
+    outline: none;
 }
 
 .button:hover{
