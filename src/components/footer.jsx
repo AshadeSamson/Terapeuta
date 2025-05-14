@@ -20,10 +20,11 @@ function Footer() {
             <div className={styles.linksSection}>
               <h4>Quick Links</h4>
               <ul>
-                <li><ScrollLink                 to="about"
+              <li><Link  to="about">About Us</Link></li>
+                <li><ScrollLink                 to="howItWorks"
                 smooth={true}
                 duration={500}
-                onClick={() => handleNavigation('about')}>About Us</ScrollLink></li>
+                onClick={() => handleNavigation('howItWorks')}>How It Works</ScrollLink></li>
                 <li><ScrollLink                 to="services"
                 smooth={true}
                 duration={500}

@@ -4,6 +4,7 @@ import { faBars , faXmark, faRightFromBracket } from '@fortawesome/free-solid-sv
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useApp } from '../context/appContext'
 import { toast } from 'react-toastify';
+import { Link as ScrollLink } from 'react-scroll';
 
 function Header({mobileNav, toggleNav}) {
 
@@ -26,9 +27,13 @@ function Header({mobileNav, toggleNav}) {
   }
 
 
+  function handleNavigation(sectionId){
+    return navigate('/', { state: { sectionId } }); 
+  };
+
+
   return (
-    <div>
-        <nav>
+        <nav className='main-header'>
 
             
               <div className='nav-logo'>
@@ -49,12 +54,31 @@ function Header({mobileNav, toggleNav}) {
 
               <div className='nav-items' id={mobileNav ? 'collapsible' : ''}>
 
-                {/* <NavLink 
-               to="."
-               onClick={toggleNav} 
-               className='navLink homepage'>
-                Home
-                </NavLink> */}
+    
+                <ScrollLink
+                  className='navLink' 
+                  to="services"
+                  smooth={true}
+                  duration={500}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavigation('services'); 
+                    setTimeout(() => toggleNav(), 200);}}>
+                    Services
+                </ScrollLink>
+
+              
+                <ScrollLink
+                  className='navLink'                 
+                  to="howItWorks"
+                  smooth={true}
+                  duration={500}
+                  onClick={(e) => {
+                      e.preventDefault();
+                      handleNavigation('howItWorks'); 
+                      setTimeout(() => toggleNav(), 200);}}>
+                          How It Works
+                  </ScrollLink>
 
                 {
                 user !== null
@@ -86,10 +110,18 @@ function Header({mobileNav, toggleNav}) {
                 About Us
                 </NavLink>}
 
-              <div className="navLink submenu-container">
-                <a onClick={toggleSubmenu} className="submenu-trigger">
+            
+                <NavLink 
+               to="cbtchat"
+               onClick={toggleNav} 
+               className='navLink'>
+                AI Therapist
+                </NavLink>
+
+              {/* <Link className="navLink submenu-container">
+                <Link onClick={toggleSubmenu} className="specialNavLink submenu-trigger">
                   AI Therapist { submenuOpen ? '▲' : '▼'}
-                </a>
+                </Link>
                 {submenuOpen && (
                   <div className="submenu">
                     <NavLink to="cbtchat" onClick={toggleNav} className="submenu-item">
@@ -103,7 +135,7 @@ function Header({mobileNav, toggleNav}) {
                     </NavLink>
                   </div>
                 )}
-              </div>
+              </Link> */}
 
                {
                 user === null
@@ -111,8 +143,8 @@ function Header({mobileNav, toggleNav}) {
                 <NavLink 
                to="login"
                onClick={toggleNav} 
-               className='navLink user-out'>
-                Login
+               className='navLink user-out btnNavLink'>
+                Get Started
                 </NavLink>}
                 
         
@@ -128,7 +160,6 @@ function Header({mobileNav, toggleNav}) {
               </div>
             </div>
         </nav>
-    </div>
   )
 }
 

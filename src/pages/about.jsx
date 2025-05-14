@@ -4,7 +4,7 @@ import AboutUs from '../components/landingPage/aboutUs'
 
 function About() {
   return (
-    <section className='about'>
+    <section className='about' id='aboutUs'>
     <AboutUs aboutPage={true} />
     <div className='section-body'>
       <p>Welcome to Terapeuta, a trusted source for professional therapy services. Our team of experienced therapists is dedicated to providing compassionate and effective care to help you achieve your mental health and wellness goals.</p>

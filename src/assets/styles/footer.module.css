@@ -23,13 +23,13 @@
 
 
   .contactSection p, .linksSection ul li a{
-    font-size: var(--Text-Four);
+    font-size: var(--Text-Five);
     line-height: 1.5;
   }
   
   .footer h4 {
     font-family: var(--primary-font);
-    font-size: var(--Text-Two);
+    font-size: var(--Text-Four);
     margin-bottom: 10px;
     color: var(--spice);
   }
@@ -71,7 +71,7 @@
   
   .footer .copyright {
     margin-top: 50px;
-    font-size: var(--Text-Five);
+    font-size: calc(var(--Text-Five) - 3px);
     color: var(--primary-bg);
   }
   
