@@ -33,7 +33,7 @@
 .sectionDescription {
   max-width: 36rem;
   margin: 1rem auto 0;
-  font-size: 1.125rem;
+  font-size: var(--Text-Four);
   color: var(--ash);
   line-height: 1.6;
 }
@@ -73,7 +73,7 @@
 }
 
 .serviceTitle {
-  font-size: 1.125rem;
+  font-size: calc(var(--Text-Four) + 0.125rem);
   font-weight: 500;
   color: var(--black);
   margin-bottom: 0.5rem;
@@ -83,6 +83,7 @@
   color: var(--ash);
   margin-bottom: 1rem;
   line-height: 1.6;
+  font-size: var(--Text-Four);
 }
 
 .serviceBenefits {
@@ -92,6 +93,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  font-size: var(--Text-Four);
 }
 
 .benefitItem {

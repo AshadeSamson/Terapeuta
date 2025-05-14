@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../../assets/styles/landingPage/chatFeature.module.css';
 import { FaRobot } from 'react-icons/fa';
 
@@ -13,7 +14,7 @@ function ChatbotFeature() {
             Our intelligent chatbot provides 24/7 support, helping you practice techniques and track progress between therapy sessions.
           </p>
           <div className={styles.buttonContainer}>
-            <a href="#signup" className={styles.button}>Try the Chatbot</a>
+            <Link to="cbtchat" className={styles.ctabutton}>Try the Chatbot</Link>
           </div>
         </div>
         <div className={styles.chatbotDemo}>
@@ -48,7 +49,7 @@ function ChatbotFeature() {
             </div>
             <div className={styles.chatbotInput}>
               <input type="text" placeholder="Type your message..." className={styles.inputField} />
-              <button className={styles.sendButton}>Send</button>
+              <button  disabled className={styles.sendButton}>Send</button>
             </div>
           </div>
         </div>

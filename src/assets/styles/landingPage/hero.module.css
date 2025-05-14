@@ -24,9 +24,9 @@
 }
 
 .heroSubtitle {
-  max-width: 36rem;
+  max-width: 30rem;
   margin: 0 auto;
-  font-size: 1.25rem;
+  font-size: var(--Text-Four);
   color: var(--lavender);
   margin-bottom: 2.5rem;
   line-height: 1.5;
@@ -39,21 +39,28 @@
 }
 
 .primaryButton {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.375rem;
+  font-size: var(--Text-Four);
+  font-weight: 500;
+  background-color: var(--white);
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
   font-weight: 500;
   background-color: var(--white) !important;
   color: var(--primary-color) !important;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  margin-bottom: 0 !important;
 }
 
 .primaryButton:hover {
   background-color: var(--lavender) !important;
+  font-weight: 500 !important;
 }
 
 .secondaryButton {
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 0.375rem;
+  font-size: var(--Text-Four);
   font-weight: 500;
   background-color: rgba(255, 255, 255, 0.3) !important;
   color: var(--black) !important;
@@ -62,7 +69,8 @@
 }
 
 .secondaryButton:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  font-weight: 500 !important;
 }
 
 @media (max-width: 768px) {
