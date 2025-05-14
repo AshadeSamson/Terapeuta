@@ -32,7 +32,7 @@ function Homepage() {
 
       <section id="services"><Services /></section>
 
-      <section id="about"><HowItWorks /></section>
+      <section id="howItWorks"><HowItWorks /></section>
 
       <section id="chatfeature"><ChatbotFeature /></section>
 
