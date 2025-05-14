@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import styles from '../../assets/styles/landingPage/contact.module.css'
-import Animated from '../animations/animated';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -32,12 +32,12 @@ function Contact() {
                 Take the first step toward better mental health today. Our team is here to support you every step of the way.
               </p>
               <div className={styles.buttonContainer}>
-                <a href="#" className={styles.button}>Book Free Consultation</a>
+                <Link to="signup" className={styles.contactbutton}>Sign Up Now</Link>
               </div>
             </div>
-            <div className={styles.formContainer}>
+            <div className={styles.formContainer} id='consultation'>
               <div className={styles.formWrapper}>
-                <h3 className={styles.formTitle}>Sign Up Now</h3>
+                <h3 className={styles.formTitle}>Book Free Consultation</h3>
                 <form className={styles.form}>
                   <div className={styles.formGroup}>
                     <label htmlFor="name" className={styles.formLabel}>Full Name</label>
@@ -67,7 +67,7 @@ function Contact() {
                     </select>
                   </div>
                   <button type="submit" className={styles.submitButton}>
-                    Get Started
+                    Message Us
                   </button>
                 </form>
               </div>

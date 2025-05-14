@@ -11,7 +11,7 @@ function Testimonials(){
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
       name: "Emma",
       service: "Anxiety Management",
-      quote: "\"After just 8 weeks of CBT with MindEase, my anxiety levels have decreased significantly. The convenience of virtual sessions meant I could stick with therapy even during busy work weeks.\"",
+      quote: "\"After just 8 weeks of CBT with Terapeuta, my anxiety levels have decreased significantly. The convenience of virtual sessions meant I could stick with therapy even during busy work weeks.\"",
       rating: 5
     },
     {

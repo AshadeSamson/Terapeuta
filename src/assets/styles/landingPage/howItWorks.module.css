@@ -64,6 +64,7 @@
     margin-top: 0.5rem;
     color: var(--ash);
     line-height: 1.6;
+    font-size: var(--Text-Four);
   }
   
   @media (min-width: 768px) {

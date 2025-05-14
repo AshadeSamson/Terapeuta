@@ -16,6 +16,7 @@
 .content {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .title {
@@ -27,7 +28,7 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: var(--Text-Four);
   color: var(--lavender);
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -37,7 +38,7 @@
   margin-top: 1rem;
 }
 
-.button {
+.contactbutton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -51,8 +52,9 @@
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.contactbutton:hover {
   background-color: var(--lavender);
+  font-weight: 500 !important;
 }
 
 .formContainer {

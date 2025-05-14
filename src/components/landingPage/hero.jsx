@@ -1,9 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Link as ScrollLink } from 'react-scroll';
 import styles from '../../assets/styles/landingPage/hero.module.css'
-import heroImg from '../../assets/images/terapeuta.gif'
-import Animated from '../animations/animated'
 
 
 function Hero({ user }) {
@@ -19,34 +16,11 @@ function Hero({ user }) {
       Expert-led therapy tailored to your unique needs. At Terapeuta, we’re here to guide you toward healing, growth, and lasting wellness in a supportive and inclusive environment.
       </p>
       <div className={styles.heroButtons}>
-        <Link to={user !== null ? 'booking' : 'signup'} className={`button ${styles.primaryButton}`}>{ user !== null ? 'Book A Session' : 'Get Started Here'}</Link>
-        <Link to="#services" className={`button ${styles.secondaryButton}`}>Learn More</Link>
+        <Link to={user !== null ? 'booking' : 'signup'} className={`${styles.primaryButton}`}>{ user !== null ? 'Book A Session' : 'Get Started Here'}</Link>
+        <a href="#faqs" className={`${styles.secondaryButton}`}>Learn More</a>
       </div>
     </div>
   </div>
-  )
-  return (
-    <div className={styles.heroContainer}>
-      <div className={styles.heroText}>
-        <Animated y={true} className={styles.heroText}>
-        <h1 className={styles.heroHeading}>
-            Empower Your Mind, Embrace Your Journey
-        </h1>
-        <div className={styles.heroParagraph}>
-            <p>
-            Discover compassionate, expert-led therapy tailored to your unique needs. At Terapeuta, we’re here to guide you toward healing, growth, and lasting wellness in a supportive and inclusive environment.
-            </p>
-        </div>
-        <div>
-          <Link to={user !== null ? 'booking' : 'signup'}>
-              <button className={`button ${styles.heroButton}`}>{ user !== null ? 'Book A Session' : 'Get Started Here'}</button>
-          </Link></div>
-        </Animated>
-      </div>
-      <div className={styles.heroImage}>
-        <img src={heroImg} alt="Hero Background" />
-      </div>
-    </div>
   )
 }
 
