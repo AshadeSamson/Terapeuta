@@ -36,7 +36,7 @@ Terapeuta is an innovative web application designed to make mental health suppor
 
 ### AI & Natural Language Processing
 - Llama 3
-- Azure AI SDKs
+- Azure AI SDKs via Github Marketplace models
 
 
 ## License
