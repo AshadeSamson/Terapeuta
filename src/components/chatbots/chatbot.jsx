@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { chatAI } from "../../services/chatCompletion";
 import styles from "../../assets/styles/chatbots/chatbot.module.css";
 
 
 
 function Chatbot({ headline, servicePrompt }) {
+
+    const textareaRef = useRef(null);
     const [thoughtValue, setThoughtValue] = useState("");
     const [messages, setMessages] = useState([
         {
@@ -41,6 +43,15 @@ function Chatbot({ headline, servicePrompt }) {
         }
     }
 
+    function autoResizeTextarea() {
+        const textarea = textareaRef.current;
+        if (textarea) {
+            textarea.style.height = "auto"; 
+            textarea.style.height = textarea.scrollHeight + "px";
+        }
+    }
+    
+
 
     return (
         <section className={styles.chatArea}>
@@ -50,16 +61,17 @@ function Chatbot({ headline, servicePrompt }) {
                 {messages
                 .filter((message) => message.role !== "system")
                 .map((message, index) => (
-                    <p
-                        key={index}
-                        className={`${styles.message} ${
-                            message.role === "user"
-                                ? styles.userMessage
-                                : styles.aiMessage
-                        }`}
+                    <div
+                    key={index}
+                    className={`${styles.message} ${
+                        message.role === "user" ? styles.userMessage : styles.aiMessage
+                    }`}
                     >
-                        {message.content}
-                    </p>
+                    {message.content.split('\n').map((line, idx) => (
+                        <p key={idx}>{line}</p>
+                    ))}
+                    </div>
+
                 ))}
                 {loading && (
                     <p className={`${styles.message} ${styles.aiMessage} ${styles.typingIndicator}`}>
@@ -74,11 +86,15 @@ function Chatbot({ headline, servicePrompt }) {
                 className={styles.messageInput}
                 onSubmit={sendNewMessage}
             >
-                <input
-                    type="text"
+                <textarea
+                    rows="1"
+                    ref={textareaRef}
                     placeholder="Enter Your Thoughts Here"
                     value={thoughtValue}
-                    onChange={(e) => setThoughtValue(e.currentTarget.value)}
+                    onChange={(e) => {
+                        setThoughtValue(e.currentTarget.value);
+                        autoResizeTextarea(); 
+                    }}
                 />
                 <input type="submit" value="Send" />
             </form>

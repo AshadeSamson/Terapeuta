@@ -62,8 +62,15 @@
     font-size: var(--Text-Four);
     word-wrap: break-word;
     margin: 0.5rem 0;
-    position: relative; 
+    position: relative;
+    white-space: pre-wrap;
+    line-height: 1.6;      
   }
+
+  .message p {
+    margin: 0.5rem 0;
+  }
+  
   
   /* User Message */
   .userMessage {
@@ -71,7 +78,8 @@
     background-color: var(--spicet);
     color: var(--black);
     text-align: right;
-    border-top-right-radius: 0; 
+    border-top-right-radius: 0;
+    margin-left: auto; 
   }
   
   /* AI Message */
@@ -80,7 +88,8 @@
     background-color: var(--black);
     color: var(--primary-bg);
     text-align: left;
-    border-top-left-radius: 0; 
+    border-top-left-radius: 0;
+    margin-right: auto; 
   }
   
   /* Error Message */
@@ -107,21 +116,28 @@
     z-index: 10;
   }
   
-  /* Input Field */
-  .messageInput input[type="text"] {
-    flex: 1;
-    padding: 0.6rem 0.8rem;
-    font-size: var(--Text-Four);
-    border: 1px solid var(--grey);
-    border-radius: 4px;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .messageInput input[type="text"]:focus {
-    border-color: var(--spicet);
-    box-shadow: 0 0 4px var(--spicet);
-  }
+ 
+/* Textarea Field */
+.messageInput textarea {
+  flex: 1;
+  resize: none; 
+  padding: 0.6rem 0.8rem;
+  font-size: var(--Text-Four);
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  font-family: inherit;
+  background-color: var(--white);
+  color: var(--black);
+  overflow: hidden;
+}
+
+.messageInput textarea:focus {
+  border-color: var(--spicet);
+  box-shadow: 0 0 4px var(--spicet);
+}
+
   
   /* Send Button */
   .messageInput input[type="submit"] {
