@@ -19,29 +19,39 @@ function Chatbot({ headline, servicePrompt }) {
 
     async function sendNewMessage(e) {
         e.preventDefault();
-
+    
         if (!thoughtValue.trim()) {
             setError("Message cannot be empty");
             return;
         }
-
+    
         try {
             const newMessage = {
                 role: "user",
                 content: thoughtValue.trim(),
             };
-
-            setMessages((prevList) => [...prevList, newMessage]);
+    
+            // Build the full message history with the new user input included
+            const updatedMessages = [...messages, newMessage];
+    
+            // Update UI state
+            setMessages(updatedMessages);
             setThoughtValue("");
-            setLoading(true); 
-            const response = await chatAI(messages)
-            setMessages((prevMsgs) => [...prevMsgs, response])  
+            setLoading(true);
+            setError(null);
+    
+            // Now pass the correct message history
+            const response = await chatAI(updatedMessages);
+    
+            // Append the assistant's response
+            setMessages((prevMsgs) => [...prevMsgs, response]);
         } catch (error) {
             setError(error.message);
         } finally {
             setLoading(false);
         }
     }
+    
 
     function autoResizeTextarea() {
         const textarea = textareaRef.current;
