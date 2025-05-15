@@ -6,7 +6,7 @@ const apiKey = import.meta.env.VITE_APP_OPENAI_KEY
 export async function chatAI(messages){
 
     const client = new ModelClient(
-        "https://models.inference.ai.azure.com",
+        "https://models.github.ai/inference",
         new AzureKeyCredential(apiKey),
     );
 
@@ -14,10 +14,10 @@ export async function chatAI(messages){
     const response = await client.path("/chat/completions").post({
         body: {
             messages: messages,
-            model: "Meta-Llama-3.1-8B-Instruct",
+            model: "openai/gpt-4o-mini",
             temperature: 0.5,
-            max_tokens: 2048,
-            top_p: 0.2
+            max_tokens: 1000,
+            top_p: 1.0,
         }
     });
 

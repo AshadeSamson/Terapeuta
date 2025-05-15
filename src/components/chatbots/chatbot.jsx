@@ -19,29 +19,67 @@ function Chatbot({ headline, servicePrompt }) {
 
     async function sendNewMessage(e) {
         e.preventDefault();
-
+    
         if (!thoughtValue.trim()) {
             setError("Message cannot be empty");
             return;
         }
-
+    
         try {
             const newMessage = {
                 role: "user",
                 content: thoughtValue.trim(),
             };
+    
 
-            setMessages((prevList) => [...prevList, newMessage]);
+            const updatedMessages = [...messages, newMessage];
+    
+            // Update UI state
+            setMessages(updatedMessages);
             setThoughtValue("");
-            setLoading(true); 
-            const response = await chatAI(messages)
-            setMessages((prevMsgs) => [...prevMsgs, response])  
+            setLoading(true);
+            setError(null);
+    
+            
+            const response = await chatAI(updatedMessages);
+    
+            // Append the assistant's response
+            setMessages((prevMsgs) => [...prevMsgs, response]);
         } catch (error) {
             setError(error.message);
         } finally {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        const stored = localStorage.getItem("chat_history");
+    
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            const ageInHours = (Date.now() - parsed.timestamp) / (1000 * 60 * 60);
+    
+            if (ageInHours <= 72 && parsed.messages) {
+                setMessages(parsed.messages);
+            } else {
+                localStorage.removeItem("chat_history"); 
+            }
+        }
+    }, []);
+    
+
+    useEffect(() => {
+        // Save chat to localStorage whenever messages change
+        if (messages.length > 1) {
+            const dataToStore = {
+                timestamp: Date.now(),
+                messages: messages,
+            };
+            localStorage.setItem("chat_history", JSON.stringify(dataToStore));
+        }
+    }, [messages]);
+    
+    
 
     function autoResizeTextarea() {
         const textarea = textareaRef.current;
