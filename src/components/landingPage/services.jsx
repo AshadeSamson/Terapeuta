@@ -1,11 +1,10 @@
 import React from 'react'
 import styles from '../../assets/styles/landingPage/services.module.css'
-import { servicesData } from '../../services/fake-data/data';
 import { FaProjectDiagram, FaSpa, FaBullseye, FaCheck } from 'react-icons/fa';
 
 function Services(){
   
-  const services = [
+  const servicesData = [
     {
       icon: <FaProjectDiagram />,
       title: "Cognitive Behavioral Therapy",
@@ -50,7 +49,7 @@ function Services(){
         </div>
 
         <div className={styles.servicesGrid}>
-          {services.map((service, index) => (
+          {servicesData.map((service, index) => (
             <div key={index} className={styles.serviceCard}>
               <div className={styles.serviceIcon}>
                 {service.icon}

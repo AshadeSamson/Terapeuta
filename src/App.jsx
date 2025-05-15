@@ -20,9 +20,7 @@ import RouteError from "./components/error-components/Error"
 import About from "./pages/about"
 import Appointments, { loader as appointmentLoader } from "./components/dashboard/appointments"
 import ComingSoon from "./components/utilities/comingSoon"
-import CareerCoachBot from "./components/chatbots/careerCoachBot"
-import CognitiveBTBot from "./components/chatbots/cognitiveBTbot"
-import MindfulnessBTBot from "./components/chatbots/mindfulnessBTbot"
+import TerapeutaBot from "./components/chatbots/terapeutaBot"
 import Policy from "./pages/policy"
 
 
@@ -48,9 +46,7 @@ function App() {
                 <Route path="settings" element={<Settings />} />
               </Route>
               <Route path="comingsoon" element={<ComingSoon />} />
-              <Route path="cbtchat" element={<CognitiveBTBot />} />
-              <Route path="mindchat" element={<MindfulnessBTBot />} />
-              <Route path="careerchat" element={<CareerCoachBot />} />
+              <Route path="cbtchat" element={<TerapeutaBot />} />
               <Route  path="booking" 
                       element={<Booking/>} 
                       action={bookingAction(userContext)}

@@ -22,30 +22,82 @@ export const faqs = [
   ];
 
 
+export const steps = [
+    {
+      number: "1",
+      title: "Initial Assessment",
+      description: "Complete our brief online assessment to help us understand your needs and match you with the right therapist."
+    },
+    {
+      number: "2",
+      title: "Match & Schedule",
+      description: "We'll introduce you to your therapist and help schedule your first session at a convenient time."
+    },
+    {
+      number: "3",
+      title: "Begin Your Journey",
+      description: "Attend virtual sessions and access our AI support tools between sessions to reinforce your progress."
+    }
+  ]
+
+
 export const servicesData = [
-    { title: 'Cognitive Behavioral Therapy (CBT)', description: 'Evidence-based therapy that identifies and changes negative thought patterns and behaviors. Effective for managing anxiety, depression, and other mood disorders by fostering healthier coping mechanisms.' },
-    { title: 'Mindfulness-Based Therapy', description: 'Techniques that incorporate mindfulness and meditation practices to enhance self-awareness and reduce stress. This therapy empowers clients to stay grounded and focused on the present moment.' },
-    { title: 'Career and Life Coaching', description: 'Sessions focused on personal and professional development. Clients can work on setting and achieving goals, improving self-confidence, and navigating life transitions.' },
+    {
+      icon: '<FaProjectDiagram />',
+      title: "Cognitive Behavioral Therapy",
+      description: "Identify and change negative thought patterns and behaviors that may be causing difficulties in your life.",
+      benefits: [
+        "Manage anxiety and depression",
+        "Develop coping strategies",
+        "Improve emotional regulation"
+      ]
+    },
+    {
+      icon: '<FaSpa />',
+      title: "Mindfulness-Based Therapy",
+      description: "Cultivate present-moment awareness to reduce stress, enhance focus, and improve overall well-being.",
+      benefits: [
+        "Reduce stress and burnout",
+        "Enhance emotional resilience",
+        "Improve sleep quality"
+      ]
+    },
+    {
+      icon: '<FaBullseye />',
+      title: "Career & Life Coaching",
+      description: "Gain clarity on your goals, overcome obstacles, and create actionable plans for personal and professional success.",
+      benefits: [
+        "Career transitions",
+        "Work-life balance",
+        "Personal development"
+      ]
+    }
   ];
 
 
 
 export const testimonialsData = [
     {
-      quote: "This platform has changed my life. The therapists are so understanding and helpful!",
-      name: "Sarah W.",
-      role: "Client",
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+      name: "Emma",
+      service: "Anxiety Management",
+      quote: "\"After just 8 weeks of CBT with Terapeuta, my anxiety levels have decreased significantly. The convenience of virtual sessions meant I could stick with therapy even during busy work weeks.\"",
+      rating: 5
     },
     {
-      quote: "The booking process is so easy, and I feel supported throughout my sessions.",
-      name: "James P.",
-      role: "Client",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80",
+      name: "James",
+      service: "Career Coaching",
+      quote: "\"The career coaching helped me transition into a new industry with confidence. The AI chatbot was surprisingly helpful for practicing interview questions between sessions.\"",
+      rating: 5
     },
     {
-      quote: "I love the professional approach and the care I receive here.",
-      name: "Emily R.",
-      role: "Client",
-    },
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
+      name: "Priya",
+      service: "Mindfulness Training",
+      quote: "\"The mindfulness techniques I learned have completely changed how I handle stress. I love the professional approach and the care I receive here.\"",
+      rating: 4.5
+    }
   ];
 
 export const text = `Welcome to Terapeuta, a trusted source for professional therapy services. Our team of experienced therapists is dedicated to providing compassionate and effective care to help you achieve your mental health and wellness goals.
