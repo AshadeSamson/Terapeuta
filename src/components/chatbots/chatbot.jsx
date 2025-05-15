@@ -31,7 +31,7 @@ function Chatbot({ headline, servicePrompt }) {
                 content: thoughtValue.trim(),
             };
     
-            // Build the full message history with the new user input included
+
             const updatedMessages = [...messages, newMessage];
     
             // Update UI state
@@ -40,7 +40,7 @@ function Chatbot({ headline, servicePrompt }) {
             setLoading(true);
             setError(null);
     
-            // Now pass the correct message history
+            
             const response = await chatAI(updatedMessages);
     
             // Append the assistant's response
@@ -51,6 +51,34 @@ function Chatbot({ headline, servicePrompt }) {
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        const stored = localStorage.getItem("chat_history");
+    
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            const ageInHours = (Date.now() - parsed.timestamp) / (1000 * 60 * 60);
+    
+            if (ageInHours <= 72 && parsed.messages) {
+                setMessages(parsed.messages);
+            } else {
+                localStorage.removeItem("chat_history"); 
+            }
+        }
+    }, []);
+    
+
+    useEffect(() => {
+        // Save chat to localStorage whenever messages change
+        if (messages.length > 1) {
+            const dataToStore = {
+                timestamp: Date.now(),
+                messages: messages,
+            };
+            localStorage.setItem("chat_history", JSON.stringify(dataToStore));
+        }
+    }, [messages]);
+    
     
 
     function autoResizeTextarea() {
