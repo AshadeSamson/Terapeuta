@@ -46,7 +46,7 @@ function Chatbot({ headline, servicePrompt }) {
             // Append the assistant's response
             setMessages((prevMsgs) => [...prevMsgs, response]);
         } catch (error) {
-            setError(error.message);
+            setError(error?.message || "We're having trouble processing your message. Please try again shortly");
         } finally {
             setLoading(false);
         }
