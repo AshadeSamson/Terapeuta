@@ -14,7 +14,7 @@ export async function chatAI(messages){
     const response = await client.path("/chat/completions").post({
         body: {
             messages: messages,
-            model: "xai/grok-3-mini",
+            model: "openai/gpt-4.1-mini",
             temperature: 0.5,
             max_tokens: 1000,
             top_p: 1.0,
