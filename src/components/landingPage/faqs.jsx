@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../../assets/styles/landingPage/faqs.module.css'
 import { faqs } from '../../services/fake-data/data';
-import Animated from '../animations/animated';
 
 function Faqs() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -12,7 +11,7 @@ function Faqs() {
 
   return (
     <div className={styles.faqContainer}>
-      <Animated y={true}>
+      <div className={styles.contentWrapper}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionSubtitle}>FAQs</h2>
           <h3 className={styles.sectionTitle}>Frequently Asked Questions</h3>
@@ -37,7 +36,7 @@ function Faqs() {
             </div>
           ))}
         </div>
-      </Animated>
+      </div>
     </div>
   )
 }

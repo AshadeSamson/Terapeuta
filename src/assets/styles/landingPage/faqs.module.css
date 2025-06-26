@@ -1,10 +1,17 @@
 @import '../app.css';
 
 .faqContainer {
-  margin: 0 auto;
+  width: 100%;
   padding: 20px;
-  background-color: #5149900d;
+  background-color: var(--white);
 }
+
+.contentWrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 
 .heading {
   font-size: 2rem;
