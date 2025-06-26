@@ -1,77 +1,82 @@
-/* Scoped to Footer Component */
 .footer {
-    background-color: var(--black);
-    color: var(--primary-bg);
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .footerContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    row-gap: 50px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  .linksSection, .contactSection, .socialSection {
-    flex: 1;
-    min-width: 200px;
-  }
+  background-color: var(--black);
+  color: var(--primary-bg);
+  padding: 40px 20px;
+  text-align: center;
+}
 
+.footerWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  .contactSection p, .linksSection ul li a{
-    font-size: var(--Text-Five);
-    line-height: 1.5;
-  }
-  
-  .footer h4 {
-    font-family: var(--primary-font);
-    font-size: var(--Text-Four);
-    margin-bottom: 10px;
-    color: var(--spice);
-  }
-  
-  .footer ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .footer ul li {
-    margin: 5px 0;
-  }
-  
-  .footer a {
-    color: var(--primary-bg);
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    color: var(--spice);
-    text-decoration: underline;
-  }
-  
-  .socialSection .socialIcons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .socialIcons a {
-    color: var(--primary-bg);
-    font-size: var(--Text-Four);
-  }
-  
-  .socialIcons a:hover {
-    color: var(--spice);
-  }
-  
-  .footer .copyright {
-    margin-top: 50px;
-    font-size: calc(var(--Text-Five) - 3px);
-    color: var(--primary-bg);
-  }
-  
+.footerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  row-gap: 50px;
+  padding: 0 10px;
+}
+
+.linksSection,
+.contactSection,
+.socialSection {
+  flex: 1;
+  min-width: 200px;
+}
+
+.contactSection p,
+.linksSection ul li a {
+  font-size: var(--Text-Five);
+  line-height: 1.5;
+}
+
+.footer h4 {
+  font-family: var(--primary-font);
+  font-size: var(--Text-Four);
+  margin-bottom: 10px;
+  color: var(--spice);
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer ul li {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: var(--primary-bg);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--spice);
+  text-decoration: underline;
+}
+
+.socialSection .socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.socialIcons a {
+  color: var(--primary-bg);
+  font-size: var(--Text-Four);
+}
+
+.socialIcons a:hover {
+  color: var(--spice);
+}
+
+.footer .copyright {
+  margin-top: 50px;
+  font-size: calc(var(--Text-Five) - 3px);
+  color: var(--primary-bg);
+}
+
