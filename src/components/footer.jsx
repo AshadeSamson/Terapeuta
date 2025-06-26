@@ -44,7 +44,7 @@ function Footer() {
     
             <div className={styles.contactSection}>
               <h4>Contact Us</h4>
-              <p>Email: support@terapeuta.com</p>
+              <p>Email: support@terapeuta.web.app</p>
               <p>Phone: +1 (718) 252-9311</p>
               <p>Address: 1408 Avenue J, Suite 101, Brooklyn, NY</p>
             </div>
@@ -62,7 +62,7 @@ function Footer() {
           </div>
     
           <div className={styles.copyright}>
-            <p>&copy; {new Date().getFullYear()} Terapeuta. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Terapeuta. All Rights Reserved.</p>
           </div>
         </footer>
       )

@@ -44,7 +44,7 @@ body{
 }
 
 #root{
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin: auto auto;
     text-align: center;
     background-color: var(--primary-bg);
@@ -77,16 +77,26 @@ body{
   }
 
 /* HEADER COMPONENT*/
-nav{
-    display: flex;
-    align-items: center;
-    padding: 15px 15px;
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    background-color: var(--primary-bg);
-    height: 100px;
+
+nav.main-header {
+  width: 100%;
+  padding: 15px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--primary-bg);
+  height: 100px;
 }
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 
 .nav-logo{
     margin-right: auto;
@@ -107,6 +117,8 @@ nav{
 
 .nav-items{
     display: flex;
+    justify-content: space-around;
+    gap: 25px;
     align-items: center;
     padding: 10px;
     border-radius: 5px;
@@ -146,9 +158,9 @@ a{
     color: var(--black);
 }
 
-a.navLink:not(:last-child), .submenu-trigger{
+/* a.navLink:not(:last-child), .submenu-trigger{
     margin-right: 25px;
-}
+} */
 
 a.active{
     color: var(--primary-color);
@@ -569,93 +581,102 @@ a.user-profile-link:not(:last-child){
 
 @media screen and (max-width: 760px){
     
-.bars{
-    display: block;
-    color: var(--primary-color);
+/* === Mobile Bars Icon === */
+.bars {
+  display: block;
+  color: var(--primary-color);
 }
 
-nav{
-    height: unset;
+/* Reset nav height on mobile */
+nav.main-header {
+  height: unset;
 }
 
-.logo{
-    font-size: 1.85rem;
+/* Adjust logo size for smaller screens */
+.logo {
+  font-size: 1.85rem;
 }
 
-.logo-link p{
-    font-size: calc(var(--Text-Five) - 2px);
-}
-.nav-items{
-    display: none;
+.logo-link p {
+  font-size: calc(var(--Text-Five) - 2px);
 }
 
-a.navLink:not(:last-child){
-    margin-right: auto;
+/* Hide nav-items by default (desktop override will set to flex) */
+.nav-items {
+  display: none;
+  gap: unset;
 }
 
+/* Show mobile menu if opened */
+.nav-items.mobile-open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  width: 220px;
+  background-color: var(--primary-bg);
+  color: var(--black);
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+  z-index: 100;
+  border-radius: 8px;
+}
+
+/* Spacing for each nav link inside the collapsible menu */
+.nav-items.mobile-open .navLink {
+  display: block;
+  width: 100%;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 15px 20px;
+  text-align: left;
+}
+
+.nav-items.mobile-open .navLink:not(:last-child) {
+  border-bottom: 1px solid var(--primary-color);
+  width: 100%;
+}
+
+/* Adjust CTA (Get Started) button */
+.nav-items.mobile-open .btnNavLink {
+  width: 85%;
+  margin: 12px auto;
+  background-color: var(--primary-color);
+  color: var(--primary-bg);
+  padding: 14px !important;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.nav-items.mobile-open .btnNavLink:hover {
+  color: var(--primary-bg) !important;
+  background-color: var(--black) !important;
+}
+
+/* Menu animation + responsiveness */
 a.menu {
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+/* General reset */
+a {
+  margin-right: 0;
+}
+
+a.active {
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
 a.submenu-trigger {
-    color: inherit;
+  color: inherit;
 }
 
-#collapsible{
-    position: absolute;
-    top: 55px;
-    right: 5%;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    z-index: 100;
-    padding:  0 0;
-    background-color: var(--primary-bg);
-    color: var(--black);
-    box-shadow:  -2px 2px 5px 1px rgba(0, 0, 0, 0.5)
+button {
+  opacity: 0.95;
 }
 
-a{
-    margin-right: 0;
-}
-
-a.active{
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-button{
-    opacity: 0.95;
-}
-
-
-
-#collapsible .navLink{
-    display: block;
-    width: 100%;
-    color: var(--primary-color);
-    font-weight: 700;
-    padding: 25px 25px 15px 25px;
-}
-
-#collapsible .navLink:not(:last-child){
-    border-bottom: 1px solid var(--primary-color);
-}
-
-#collapsible a.btnNavLink {
-    width: 80%;
-    margin: 10px auto;
-    background-color: var(--primary-color);
-    color: var(--primary-bg);
-    padding-top: 15px !important;
-    text-align: center;
-}
-
-#collapsible a.btnNavLink:hover {
-    color: var(--primary-bg) !important;
-    background-color: var(--black) !important;
-}
 
 .info-message{
     width: 90%;
