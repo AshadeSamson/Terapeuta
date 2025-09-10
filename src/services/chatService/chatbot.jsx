@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { chatAI } from "../../services/chatCompletion";
+import { chatAI } from "./chatCompletion";
 import styles from "../../assets/styles/chatbots/chatbot.module.css";
 
 

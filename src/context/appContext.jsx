@@ -104,17 +104,6 @@ function AppContextProvider({children}) {
     }
 
 
-    // add a new booking to the user's appointment
-    function addNewBooking(uid, bookingDetails){   
-        return addDoc(collection(db, 'users', uid, 'appointments'), bookingDetails)
-    }
-
-
-    // add a new booking to the global appointment collection
-    function globalAddNewBooking(bookingDetails){   
-        return addDoc(collection(db, 'appointments'), bookingDetails)
-    }
-
 
     // delete a booked appointment document globally
     async function globalDeleteBooking(appointmentID) {
@@ -133,8 +122,8 @@ function AppContextProvider({children}) {
 
 
     // get a newly booked appointment document
-    function getNewBooking(uid, docId){
-        return getDoc(doc(db, 'users', uid, 'appointments', docId ))
+    function getNewBooking(docId){
+        return getDoc(doc(db, 'appointments', docId ))
     }
 
 
@@ -143,12 +132,6 @@ function AppContextProvider({children}) {
         return deleteDoc(doc(db, 'users', uid, 'appointments', docId ))
     } 
 
-
-    // get all booked appointments for a user
-    function getAppointments(uid) {
-        return getDocs(collection(db, 'users', uid, 'appointments'))
-        
-    }
 
 
     // VIRTUAL SESSIONS LINKS
@@ -167,11 +150,8 @@ function AppContextProvider({children}) {
     async function getResources(category) {
                 
         const resourcesRef = collection(db, "resources");
-
         const q = await query(resourcesRef, where("category", "==", category));
-
         const querySnapshot = await getDocs(q);
-
         return querySnapshot;
     }
 
@@ -191,12 +171,9 @@ function AppContextProvider({children}) {
         changePassword,
         resetPassword,
         addNewUser,
-        addNewBooking,
-        globalAddNewBooking,
         globalDeleteBooking,
         getNewBooking,
         deleteBooking,
-        getAppointments,
         getResources,
         getLinks,
     }

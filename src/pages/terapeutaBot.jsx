@@ -1,5 +1,4 @@
-import React from 'react'
-import Chatbot from './chatbot'
+import Chatbot from '../services/chatService/chatbot'
 
 function TerapeutaBot() {
   return (

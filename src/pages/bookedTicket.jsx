@@ -1,20 +1,19 @@
-import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import TicketLayout from './utilities/ticketLayout';
+import TicketLayout from '../components/utilities/ticketLayout';
 import styles from '../assets/styles/bookingTicket.module.css'
 
 
 
 export const loader = (userContext) => async ({ params }) => {
   const { getNewBooking } = userContext;
-  const ticket = await getNewBooking(params.uid, params.id);
+  const ticket = await getNewBooking(params.id);
   return ticket.data();
 };
 
 
 
-function BookingTicket() {
+function BookedTicket() {
 
   const data = useLoaderData();
 
@@ -73,4 +72,4 @@ function BookingTicket() {
   );
 }
 
-export default BookingTicket;
+export default BookedTicket;

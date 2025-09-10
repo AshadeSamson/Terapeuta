@@ -15,12 +15,12 @@ import { RouterProvider,
         Route } from "react-router-dom"
 import "./assets/styles/app.css"
 import { useApp } from "./context/appContext"
-import BookingTicket, { loader as bookingTicketLoader } from "./components/bookingTicket"
+import BookedTicket, { loader as bookedTicketLoader } from "./pages/bookedTicket"
 import RouteError from "./components/error-components/Error"
 import About from "./pages/about"
 import Appointments, { loader as appointmentLoader } from "./components/dashboard/appointments"
 import ComingSoon from "./components/utilities/comingSoon"
-import TerapeutaBot from "./components/chatbots/terapeutaBot"
+import TerapeutaBot from "./pages/terapeutaBot"
 import Policy from "./pages/policy"
 
 
@@ -51,9 +51,9 @@ function App() {
                       element={<Booking/>} 
                       action={bookingAction(userContext)}
                       errorElement={<RouteError />}/>
-              <Route  path="booking/:uid/:id" 
-                      element={<BookingTicket />}
-                      loader={bookingTicketLoader(userContext)} 
+              <Route  path="bookings/:id"
+                      element={<BookedTicket />}
+                      loader={bookedTicketLoader(userContext)} 
                       errorElement={<RouteError />}/>
             </Route>
           </Route>

@@ -1,8 +1,8 @@
 import { serverTimestamp } from 'firebase/firestore'
-import React from 'react'
 import { Form, redirect, useNavigation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { getRandomNumber } from '../utils/randomNumber'
+import appointmentService from '../services/databaseService/appointmentService'
 
 
 
@@ -13,7 +13,7 @@ export const action = (userContext) => async ({request}) => {
   const booking = await request.formData()
 
   // Accessing context values
-  const { user, addNewBooking, globalAddNewBooking, getLinks } = userContext
+  const { user, getLinks } = userContext
 
   // getting session links available
   const virtualSessions = await getLinks()
@@ -35,24 +35,22 @@ export const action = (userContext) => async ({request}) => {
   }
 
   try {
-    // Booking a new ticket and getting the ticket ID
-    const ticket = await addNewBooking(user.uid, bookingDetails);
-    const bookingID = ticket.id;
 
-    // Prepare data for global collection
+        // Prepare payload
     const details = {
       ...bookingDetails,
-      userID: user.uid,
-      appointmentID: bookingID,
+      userID: user.uid
     };
 
-    // Add booking to global collection
-    await globalAddNewBooking(details);
+    // Booking a new ticket and getting the ticket ID
+    const ticket = await appointmentService.addNewBooking(details);
+    const bookingID = ticket.id;
 
     toast.success("Appointment booked successfully");
 
+
     // Navigate to the booking ticket page
-    return redirect(`/booking/${user.uid}/${bookingID}`);
+    return redirect(`/bookings/${bookingID}`);
 
   } catch (error) {
     toast.error("Failed to book appointment. Please try again.");
