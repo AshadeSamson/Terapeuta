@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLoaderData, useNavigation, Link } from 'react-router-dom'
 import { useApp } from '../../context/appContext'
 import Pagination from '../utilities/pagination'
@@ -32,7 +32,7 @@ function Appointments() {
   const navigation = useNavigation()
   const pageIsLoading = navigation.state === "loading";
 
-  const { user, deleteBooking, globalDeleteBooking } = useApp()
+  const { user } = useApp()
 
   // Sort appointments by date
   const [appointments, setAppointments] = useState(data.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate)));
@@ -47,6 +47,7 @@ function Appointments() {
 
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
+
 
   // refresh data
   async function fetchAppointments() {
@@ -67,16 +68,10 @@ function Appointments() {
     const confirmDelete = window.confirm("Are you sure you want to cancel this appointment?");
     if(confirmDelete){
     try {
-
-      await Promise.all([
-        deleteBooking(user.uid, id), // Local deletion
-        globalDeleteBooking(id)     // Global deletion
-    ]);
-
+      await appointmentService.deleteBooking(id);
       toast.success("Appointment deleted successfully");
-      fetchAppointments();
+      setAppointments(prev => prev.filter(app => app.id !== id));
     } catch (e) {
-      
       toast.warning(`Appointment not deleted: ${e.message}`);
     }
   }

@@ -104,33 +104,10 @@ function AppContextProvider({children}) {
     }
 
 
-
-    // delete a booked appointment document globally
-    async function globalDeleteBooking(appointmentID) {
-
-        const appointmentsRef = collection(db, 'appointments');
-        const q = await query(appointmentsRef, where('appointmentID', '==', appointmentID));
-        
-        const querySnapshot = await getDocs(q);
-        
-        querySnapshot.forEach(async (document) => {
-            await deleteDoc(doc(db, 'appointments', document.id));
-        });
-
-        return true;
-      }
-
-
     // get a newly booked appointment document
     function getNewBooking(docId){
         return getDoc(doc(db, 'appointments', docId ))
     }
-
-
-    // delete a booked appointment document
-    function deleteBooking(uid, docId){
-        return deleteDoc(doc(db, 'users', uid, 'appointments', docId ))
-    } 
 
 
 
@@ -171,9 +148,7 @@ function AppContextProvider({children}) {
         changePassword,
         resetPassword,
         addNewUser,
-        globalDeleteBooking,
         getNewBooking,
-        deleteBooking,
         getResources,
         getLinks,
     }
