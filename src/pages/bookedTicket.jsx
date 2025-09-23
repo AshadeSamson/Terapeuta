@@ -2,12 +2,12 @@ import { useLoaderData } from 'react-router-dom';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import TicketLayout from '../components/utilities/ticketLayout';
 import styles from '../assets/styles/bookingTicket.module.css'
+import appointmentService from '../services/databaseService/appointmentService';
 
 
 
 export const loader = (userContext) => async ({ params }) => {
-  const { getNewBooking } = userContext;
-  const ticket = await getNewBooking(params.id);
+  const ticket = await appointmentService.getAppointment(params.id);
   return ticket.data();
 };
 
