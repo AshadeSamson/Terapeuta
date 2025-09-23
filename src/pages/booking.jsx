@@ -3,6 +3,7 @@ import { Form, redirect, useNavigation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { getRandomNumber } from '../utils/randomNumber'
 import appointmentService from '../services/databaseService/appointmentService'
+import sessionLinkService from '../services/databaseService/sessionLinkService'
 
 
 
@@ -13,10 +14,10 @@ export const action = (userContext) => async ({request}) => {
   const booking = await request.formData()
 
   // Accessing context values
-  const { user, getLinks } = userContext
+  const { user } = userContext
 
   // getting session links available
-  const virtualSessions = await getLinks()
+  const virtualSessions = await sessionLinkService.getLinks()
   const sessionData = await virtualSessions[getRandomNumber()]
 
   const bookingDetails = {
