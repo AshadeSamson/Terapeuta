@@ -36,14 +36,14 @@ export const action = (userContext) => async ({request}) => {
 
   try {
 
-        // Prepare payload
+    // Prepare payload
     const details = {
       ...bookingDetails,
       userID: user.uid
     };
 
     // Booking a new ticket and getting the ticket ID
-    const ticket = await appointmentService.addNewBooking(details);
+    const ticket = await appointmentService.addAppointment(details);
     const bookingID = ticket.id;
 
     toast.success("Appointment booked successfully");

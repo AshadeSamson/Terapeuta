@@ -18,7 +18,7 @@ export const loader = (userContext) => async () => {
     return null;
   }
 
-  const appointments =  await appointmentService.getAppointments(user.uid)
+  const appointments =  await appointmentService.getAllAppointments(user.uid)
   const data = appointments.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
   
   return data
@@ -52,7 +52,7 @@ function Appointments() {
   // refresh data
   async function fetchAppointments() {
     try {
-      const result = await appointmentService.getAppointments(user.uid);
+      const result = await appointmentService.getAllAppointments(user.uid);
       const updatedAppointments = result.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setAppointments(
         updatedAppointments.sort((a, b) => new Date(b.appointmentDate) - new Date(a.appointmentDate))
@@ -68,7 +68,7 @@ function Appointments() {
     const confirmDelete = window.confirm("Are you sure you want to cancel this appointment?");
     if(confirmDelete){
     try {
-      await appointmentService.deleteBooking(id);
+      await appointmentService.deleteAppointment(id);
       toast.success("Appointment deleted successfully");
       setAppointments(prev => prev.filter(app => app.id !== id));
     } catch (e) {

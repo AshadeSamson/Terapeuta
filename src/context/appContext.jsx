@@ -104,12 +104,6 @@ function AppContextProvider({children}) {
     }
 
 
-    // get a newly booked appointment document
-    function getNewBooking(docId){
-        return getDoc(doc(db, 'appointments', docId ))
-    }
-
-
 
     // VIRTUAL SESSIONS LINKS
     async function getLinks(){
@@ -148,7 +142,6 @@ function AppContextProvider({children}) {
         changePassword,
         resetPassword,
         addNewUser,
-        getNewBooking,
         getResources,
         getLinks,
     }
