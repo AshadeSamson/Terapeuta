@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/appContext';
 import { toast } from 'react-toastify';
 import { Link as ScrollLink } from 'react-scroll';
+import styles from '../assets/styles/header.module.css';
 
 function Header({ mobileNav, toggleNav }) {
   const { user, logoutUser } = useApp();
   const navigate = useNavigate();
-  const [submenuOpen, setSubmenuOpen] = useState(false);
-
-  function toggleSubmenu() {
-    setSubmenuOpen((prev) => !prev);
-  }
 
   async function logout(e) {
     e.preventDefault();
@@ -28,27 +23,27 @@ function Header({ mobileNav, toggleNav }) {
   }
 
   return (
-    <nav className="main-header">
-      <div className="nav-content">
-        <div className="nav-logo">
-          <Link className="logo-link" to=".">
-            <h1 className="logo">Terapeuta</h1>
+    <nav className={styles.mainHeader}>
+      <div className={styles.navContent}>
+        <div className={styles.navLogo}>
+          <Link className={styles.logoLink} to=".">
+            <h1 className={styles.logo}>Terapeuta</h1>
             <p>...your therapist</p>
           </Link>
         </div>
 
-        <div className="bars-con">
-          <a className="menu" onClick={toggleNav}>
+        <div className={styles.barsCon}>
+          <button className={styles.menu} onClick={toggleNav}>
             {mobileNav ? (
-              <FontAwesomeIcon className="bars close-bar" icon={faXmark} size="lg" />
+              <FontAwesomeIcon className={`${styles.bars} closeBar`} icon={faXmark} size="lg" />
             ) : (
-              <FontAwesomeIcon className="bars open-bar" icon={faBars} size="lg" />
+              <FontAwesomeIcon className={`${styles.bars} openBar`} icon={faBars} size="lg" />
             )}
-          </a>
+          </button>
 
-          <div className={`nav-items ${mobileNav ? 'mobile-open' : ''}`}>
+          <div className={`${styles.navItems} ${mobileNav ? styles.mobileOpen : ''}`}>
             <ScrollLink
-              className="navLink"
+              className={styles.navLink}
               to="services"
               smooth={true}
               duration={500}
@@ -62,7 +57,7 @@ function Header({ mobileNav, toggleNav }) {
             </ScrollLink>
 
             <ScrollLink
-              className="navLink"
+              className={styles.navLink}
               to="howItWorks"
               smooth={true}
               duration={500}
@@ -76,35 +71,35 @@ function Header({ mobileNav, toggleNav }) {
             </ScrollLink>
 
             {user !== null && (
-              <NavLink to="profile" onClick={toggleNav} className="navLink user-in">
+              <NavLink to="profile" onClick={toggleNav} className={styles.navLink}>
                 Dashboard
               </NavLink>
             )}
 
             {user !== null && (
-              <NavLink to="booking" onClick={toggleNav} className="navLink user-in">
+              <NavLink to="booking" onClick={toggleNav} className={styles.navLink}>
                 Book a session
               </NavLink>
             )}
 
             {user === null && (
-              <NavLink to="about" onClick={toggleNav} className="navLink user-out">
+              <NavLink to="about" onClick={toggleNav} className={styles.navLink}>
                 About Us
               </NavLink>
             )}
 
-            <NavLink to="cbtchat" onClick={toggleNav} className="navLink">
+            <NavLink to="cbtchat" onClick={toggleNav} className={styles.navLink}>
               AI Therapist
             </NavLink>
 
             {user === null && (
-              <NavLink to="login" onClick={toggleNav} className="navLink btnNavLink">
+              <NavLink to="login" onClick={toggleNav} className={`${styles.navLink} ${styles.btnNavLink}`}>
                 Get Started
               </NavLink>
             )}
 
             {user !== null && (
-              <Link onClick={logout} className="navLink user-in">
+              <Link onClick={logout} className={styles.navLink}>
                 <FontAwesomeIcon icon={faRightFromBracket} size="1x" />
               </Link>
             )}
