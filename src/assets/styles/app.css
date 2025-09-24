@@ -221,10 +221,12 @@ label,legend{
     color: var(--black);
     font-size: var(--Text-Three);
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
-label:not(.radio),legend{
-    font-weight: bold;
+
+label.radio {
+    font-weight: normal;
 }
 
 .select{

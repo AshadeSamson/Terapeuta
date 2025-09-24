@@ -122,7 +122,7 @@ function Booking() {
               id="contact-phone"
               className='radio' 
               required/>
-            <label htmlFor="contact-phone">Phone</label>
+            <label htmlFor="contact-phone" className='radio'>Phone</label>
             </div>
             <div className='radio-holder'>
             <input 
@@ -132,7 +132,7 @@ function Booking() {
               id="contact-email"
               className='radio'
               required />
-            <label htmlFor="contact-email">E-mail</label>
+            <label htmlFor="contact-email" className='radio'>E-mail</label>
             </div>
           </fieldset>
         </div>
@@ -162,7 +162,7 @@ function Booking() {
               id="cognitive"
               className='radio'
               required />
-            <label htmlFor="cognitive">Cognitive Behaviour</label>
+            <label htmlFor="cognitive" className='radio'>Cognitive Behaviour</label>
             </div>
             <div className="radio-holder">
             <input 
@@ -172,7 +172,7 @@ function Booking() {
               id="mindfulness"
               className='radio'
               required />
-            <label htmlFor="mindfulness">Mindfulness-Based</label>
+            <label htmlFor="mindfulness" className='radio'>Mindfulness-Based</label>
             </div>
             <div className="radio-holder">
             <input 
@@ -182,7 +182,7 @@ function Booking() {
               id="careerLife"
               className='radio'
               required />
-            <label htmlFor="careerLife">Career & Life Coaching</label>
+            <label htmlFor="careerLife" className='radio'>Career & Life Coaching</label>
             </div>
           </fieldset>
         </div>

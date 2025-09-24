@@ -1,93 +1,112 @@
 .ticketSection {
-    padding: 20px;
-    background-color: var(--primary-bg);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.sections-header {
+  text-align: center;
+  font-size: var(--Text-Two);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--black);
+}
+
+/* Wrapper as a modern card */
+.ticketWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: var(--white);
+  border: 1px solid var(--ash);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Appointment details */
+.ticketDetails {
+  flex: 2;
+  min-width: 260px;
+  text-align: left;
+}
+
+.ticketDetails h3 {
+  font-size: var(--Text-Three);
+  margin-bottom: 1rem;
+  color: var(--black);
+  font-family: var(--primary-font);
+  font-weight: 500;
+}
+
+.specialText {
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Action button */
+.printTicket {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.printTicket a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 220px;
+  padding: 0.9rem 1.25rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-radius: 8px;
+  font-size: var(--Text-Five);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.printTicket a:hover {
+  background-color: var(--black);
+  transform: translateY(-2px);
+}
+
+.printTicket a:active {
+  transform: translateY(0);
+}
+
+/* Contact section */
+.contactSection {
+  margin-top: 2.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--primary-bg);
+  border-radius: 10px;
+  font-size: var(--Text-Four);
+  line-height: 1.7;
+  color: var(--black);
+}
+
+.ticketParagraph {
+  margin-bottom: 1.2rem;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 768px) {
   .ticketWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 20px 0;
-    padding: 20px;
-    background-color: var(--white);
-    border: 1px solid var(--ash);
-    border-radius: 8px;
-    box-shadow: -3px 3px 5px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    padding: 1.5rem;
   }
-  
-  .ticketDetails {
-    flex: 1;
-    margin-right: 15px;
-    text-align: left;
-  }
-  
+
   .ticketDetails h3 {
-    font-size: var(--Text-Three);
-    margin-bottom: 15px;
-    color: var(--black);
-    font-family: var(--primary-font);
-    font-style: italic;
+    font-size: var(--Text-Four);
   }
-  
-  .specialText {
-    font-style: normal;
-    font-weight: bold;
-    color: var(--primary-color);
-  }
-  
-  a.specialText {
-    all: unset;
-  }
-  
+
   .printTicket {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 180px; 
-    height: 45px; 
-    background-color: var(--primary-color); 
-    color: var(--white);
-    border: none; 
-    border-radius: 8px; 
-    font-size: var(--Text-Five); 
-    font-weight: 600; 
-    cursor: pointer; 
-    transition: all 0.3s ease; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    width: 100%;
   }
-  
-  .printTicket:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px); 
-    color: var(--white);
-  }
-  
-  .printTicket:active {
-    transform: translateY(0); 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-  }
-  
-  .contactSection {
-    margin-top: 20px;
-    font-size: var(--Text-Four);
-    line-height: 1.6;
-    color: var(--ash);
-    text-align: justify;
-  }
-
-  .ticketParagraph {
-    margin-bottom: 20px;
-  }
-  
-
-@media (max-width: 767.9px) {
-
-  .ticketDetails h3 {
-    font-size: var(--Text-Four);
-  }
-
-
 }
