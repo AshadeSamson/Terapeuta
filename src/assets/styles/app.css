@@ -87,7 +87,7 @@ a {
 
 
 
-/* HOMEPAGE */
+/* ABOUT & POLICY */
 
 .section-heading h1{
     font-size: var(--Text-One);
@@ -113,6 +113,11 @@ a {
 
 .first-line{
     margin-bottom: 10px;
+}
+
+.aboutWrapper, .policyWrapper{
+    max-width: 1200px;
+    margin: auto auto;
 }
 
 
@@ -288,8 +293,8 @@ button:disabled{
 
 .dashboard{
     text-align: center;
-    margin-top: 8%;
-    margin-bottom: 100px;
+    max-width: 1200px;
+    margin: 8% auto 100px auto;
 }
 
 .user{

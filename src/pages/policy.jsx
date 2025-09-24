@@ -9,20 +9,22 @@ function Policy() {
 
   return (
     <section className='policy'>
-        <div className={styles.policy}>
-        <Animated y={true} className={styles.policy}>
-            <div className={styles.policyContentWrapper}>
-                <div className={styles.image}>
-                    <img src={privacyImg} alt="About Us" className={styles.policyImage} />
+        <div className='policyWrapper'>
+            <div className={styles.policy}>
+            <Animated y={true} className={styles.policy}>
+                <div className={styles.policyContentWrapper}>
+                    <div className={styles.image}>
+                        <img src={privacyImg} alt="About Us" className={styles.policyImage} />
+                    </div>
+                    <div className={styles.headline}>
+                        <h2>Privacy Policy</h2>
+                    </div>
                 </div>
-                <div className={styles.headline}>
-                    <h2>Privacy Policy</h2>
-                </div>
+            </Animated>
             </div>
-        </Animated>
-        </div>
-        <div className='section-body'>
-            <PrivacyPolicyContainer />
+            <div className='section-body'>
+                <PrivacyPolicyContainer />
+            </div>
         </div>
     </section>
   )

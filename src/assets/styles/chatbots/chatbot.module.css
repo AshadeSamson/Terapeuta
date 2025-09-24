@@ -4,10 +4,9 @@
     flex-direction: column;
     justify-content: space-between; 
     align-items: center;
-    max-width: 95%;
+    max-width: 1200px;
     margin: 10px auto 35px;
     height: calc(100vh - var(--header-height) - var(--footer-height));
-    background-color: var(--primary-bg);
     border: .1px solid var(--grey);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -36,7 +35,7 @@
     padding: 0.5rem;
     flex-grow: 1; 
     overflow-y: auto; 
-    background-color: var(--primary-bg);
+    background-color: var(--primary-color);
     scrollbar-width: none;
   }
   
@@ -75,7 +74,7 @@
   /* User Message */
   .userMessage {
     align-self: flex-end; 
-    background-color: var(--spicet);
+    background-color: var(--primary-bg);
     color: var(--black);
     text-align: right;
     border-top-right-radius: 0;
