@@ -1,0 +1,186 @@
+/* ---------------- Overall header ---------------- */
+.mainHeader {
+  width: 100%;
+  background: var(--white);
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ---------------- Content wrapper ---------------- */
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---------------- Logo ---------------- */
+.navLogo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logoLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  font-size: var(--Text-Two);
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+
+.logoLink p {
+  font-size: 0.75rem;
+  margin: 0;
+  color: var(--ash);
+  text-align: right;
+}
+
+/* ---------------- Burger + container ---------------- */
+.barsCon {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1250;
+}
+
+/* hide burger on desktop by default */
+.menu {
+  background: transparent;
+  border: 0;
+  padding: 0.25rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+/* icon itself */
+.bars {
+  color: var(--black);
+  font-size: 1.4rem;
+  transition: transform 240ms ease;
+}
+
+.openBar,
+.closeBar {
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: transform 240ms ease, color 180ms ease;
+}
+
+.openBar:hover,
+.closeBar:hover {
+  transform: rotate(12deg);
+  color: var(--primary-color); 
+}
+
+
+/* ---------------- Desktop nav (default) ---------------- */
+.navItems {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  transition: transform 300ms ease, opacity 300ms ease;
+  position: static;
+}
+
+/* basic link */
+.navLink {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+  transition: color 180ms ease;
+  cursor: pointer;
+}
+
+.navLink:hover {
+  color: var(--primary-color);
+}
+
+/* CTA */
+.btnNavLink {
+  background: var(--primary-color);
+  color: var(--white) !important;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: var(--Text-Five);
+  font-weight: 600;
+  transition: background 180ms ease;
+  outline: none;
+}
+
+.btnNavLink:hover {
+  background: var(--black);
+}
+
+
+
+@media (max-width: 768px) {
+  /* show burger on mobile */
+  .menu {
+    display: flex;
+  }
+
+  .navItems {
+    display: flex; 
+    position: fixed;
+    top: calc(var(--header-height) - 2px);
+    right: 0;
+    height: 100vh;
+    width: 280px;
+    max-width: 92%;
+    background: var(--white);
+    flex-direction: column;
+    align-items: stretch;
+    padding: calc(var(--header-height) + 1.25rem) 1.25rem 1.5rem;
+    gap: 1rem;
+    box-shadow: -12px 0 30px rgba(8, 20, 40, 0.06);
+    transform: translateX(100%); 
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; 
+    transition:
+    transform 320ms cubic-bezier(.2,.9,.3,1),
+    opacity 220ms ease,
+    visibility 0ms linear 320ms;
+    z-index: 1200;
+  }
+
+  .navItems.mobileOpen {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+
+  /* bigger tap targets on mobile */
+  .navLink {
+    font-size: 1.15rem;
+    padding: 0.6rem 0;
+    width: 100%;
+    color: var(--black);
+    border-bottom: 1px solid var(--grey);
+  }
+
+  .btnNavLink {
+    align-self: stretch;
+    text-align: center;
+    padding: 0.9rem 0;
+    border-radius: 8px;
+  }
+}

@@ -16,10 +16,11 @@
     --Text-Three: 1.2rem;
     --Text-Four: 1rem;
     --Text-Five: calc(0.75rem + 2.5px);
-    --header-height: 60px;
+    --header-height: 64px;
     --footer-height: 75px;
     --header-height-mobile: 50px;
     --footer-height-mobile: 100px;
+
 }
 
 
@@ -41,6 +42,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #root{
@@ -53,6 +55,10 @@ body{
 .error{
     color: red;
     padding: 20px;
+}
+
+a {
+    text-decoration: none;
 }
 
 
@@ -75,170 +81,13 @@ body{
     font-weight: bold !important;
     line-height: 1.5 !important;
   }
-
-/* HEADER COMPONENT*/
-
-nav.main-header {
-  width: 100%;
-  padding: 15px 15px;
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  background-color: var(--primary-bg);
-  height: 100px;
-}
-
-.nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-
-.nav-logo{
-    margin-right: auto;
-    color: var(--primary-color);
-}
-
-.logo{
-    font-family: var(--primary-font);
-    margin: 0 0;
-    font-size: 2.2rem;
-    font-weight: 700;
-}
-
-.logo-link p{
-    font-size: var(--Text-Five);
-    text-align: right;
-}
-
-.nav-items{
-    display: flex;
-    justify-content: space-around;
-    gap: 25px;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow:  -1px 1px 5px rgba(0, 0, 0, 0.5)
-}
-
-a.logo-link{
-    all: unset;
-}
-
-a.navLink {
-    font-size: var(--Text-Four);
-    font-weight: 500;
-    border-bottom: none;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    transition: all 0.3s ease-in-out;
-}
-
-a.navLink:hover {
-    font-weight: 500;
-    border-bottom: var(--primary-color) 1px solid;
-    padding-bottom: 4px;
-}
-
-a.specialNavLink:hover {
-    font-weight: initial !important;
-}
-
-li{
-    list-style-type: none;
-}
-
-a{
-    font-size: var(--Text-Three);
-    text-decoration: none;
-    color: var(--black);
-}
-
-/* a.navLink:not(:last-child), .submenu-trigger{
-    margin-right: 25px;
-} */
-
-a.active{
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-a:hover{
-    cursor: pointer;
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-a.btnNavLink {
-    background-color: var(--primary-color);
-    color: var(--primary-bg);
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 6.5px;
-}
-
-a.btnNavLink.active {
-    font-weight: 500;
-}
-
-a.btnNavLink:hover {
-    color: var(--primary-bg) !important;
-    background-color: var(--black) !important;
-}
-
-.bars-con{
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.bars{
-    display: none;
-}
-
-.menu{
-    margin-right: 10px;
-}
-
-
-.submenu-container {
-    position: relative;
-    display: inline-block;
-  }
-  
-  
-.submenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--primary-bg);
-    border: 1px solid var(--ash);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-}
-  
-.submenu-item {
-    padding: 10px;
-    color: var(--spicez);
-    text-decoration: none;
-}
-  
-.submenu-item:hover {
-    background-color: #f0f0f0;
-}
   
 
 
 
 
 
-/* HOMEPAGE */
+/* ABOUT & POLICY */
 
 .section-heading h1{
     font-size: var(--Text-One);
@@ -266,19 +115,29 @@ a.btnNavLink:hover {
     margin-bottom: 10px;
 }
 
+.aboutWrapper, .policyWrapper{
+    max-width: 1200px;
+    margin: auto auto;
+}
+
 
 
 
 
 /* FORMS*/
 
-.forms, .sections{
+.sections{
     text-align: center;
     margin-top: 10%;
 }
 
 .forms {
     margin-bottom: 50px;
+    margin-top: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .form-header, .sections-header{
@@ -434,8 +293,8 @@ button:disabled{
 
 .dashboard{
     text-align: center;
-    margin-top: 8%;
-    margin-bottom: 100px;
+    max-width: 1200px;
+    margin: 8% auto 100px auto;
 }
 
 .user{
@@ -581,97 +440,6 @@ a.user-profile-link:not(:last-child){
 
 @media screen and (max-width: 760px){
     
-/* === Mobile Bars Icon === */
-.bars {
-  display: block;
-  color: var(--primary-color);
-}
-
-/* Reset nav height on mobile */
-nav.main-header {
-  height: unset;
-}
-
-/* Adjust logo size for smaller screens */
-.logo {
-  font-size: 1.85rem;
-}
-
-.logo-link p {
-  font-size: calc(var(--Text-Five) - 2px);
-}
-
-/* Hide nav-items by default (desktop override will set to flex) */
-.nav-items {
-  display: none;
-  gap: unset;
-}
-
-/* Show mobile menu if opened */
-.nav-items.mobile-open {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  right: 0;
-  width: 220px;
-  background-color: var(--primary-bg);
-  color: var(--black);
-  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
-  padding: 10px 0;
-  z-index: 100;
-  border-radius: 8px;
-}
-
-/* Spacing for each nav link inside the collapsible menu */
-.nav-items.mobile-open .navLink {
-  display: block;
-  width: 100%;
-  color: var(--primary-color);
-  font-weight: 600;
-  padding: 15px 20px;
-  text-align: left;
-}
-
-.nav-items.mobile-open .navLink:not(:last-child) {
-  border-bottom: 1px solid var(--primary-color);
-  width: 100%;
-}
-
-/* Adjust CTA (Get Started) button */
-.nav-items.mobile-open .btnNavLink {
-  width: 85%;
-  margin: 12px auto;
-  background-color: var(--primary-color);
-  color: var(--primary-bg);
-  padding: 14px !important;
-  text-align: center;
-  border-radius: 6px;
-}
-
-.nav-items.mobile-open .btnNavLink:hover {
-  color: var(--primary-bg) !important;
-  background-color: var(--black) !important;
-}
-
-/* Menu animation + responsiveness */
-a.menu {
-  transition: all 0.3s ease-in-out;
-}
-
-/* General reset */
-a {
-  margin-right: 0;
-}
-
-a.active {
-  color: var(--primary-color);
-  font-weight: 700;
-}
-
-a.submenu-trigger {
-  color: inherit;
-}
 
 button {
   opacity: 0.95;
