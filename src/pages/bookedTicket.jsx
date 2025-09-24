@@ -47,7 +47,6 @@ function BookedTicket() {
           <PDFDownloadLink
             document={<TicketLayout data={data} />}
             fileName="appointment.pdf"
-            className={styles.printTicket}
           >
             {({ loading }) => (loading ? 'Generating PDF...' : 'Download Ticket')}
           </PDFDownloadLink>
