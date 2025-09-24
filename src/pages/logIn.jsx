@@ -100,6 +100,7 @@ function Login() {
 
 <section className='forms'>
 
+
     {redirectMessage && (
           <p className="info-message">
             You must log in to access the page you were trying to visit.
@@ -154,6 +155,7 @@ function Login() {
         </div>
     </form>
     <ResetPasswordModal isOpen={isModalOpen} onClose={closeModal}/>
+
 </section>
 
   )

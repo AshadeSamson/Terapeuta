@@ -5,13 +5,14 @@
 
 .heroWrapper {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  height: 60dvh;
+  height: 100dvh;
   gap: 2rem;
+  margin-top: -64px;
 }
 
 .heroText {
@@ -95,8 +96,9 @@
 @media (max-width: 768px) {
   .heroWrapper {
     flex-direction: column;
-    height: auto;
     text-align: center;
+    margin-top: 0;
+    padding-top: var(--header-height);
   }
 
   .heroText {

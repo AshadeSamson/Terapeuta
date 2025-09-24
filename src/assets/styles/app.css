@@ -42,6 +42,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #root{
@@ -120,13 +121,18 @@ a {
 
 /* FORMS*/
 
-.forms, .sections{
+.sections{
     text-align: center;
     margin-top: 10%;
 }
 
 .forms {
     margin-bottom: 50px;
+    margin-top: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .form-header, .sections-header{
