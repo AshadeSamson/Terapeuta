@@ -8,7 +8,7 @@ import { createUserWithEmailAndPassword,
         sendEmailVerification,
         updatePassword,
         sendPasswordResetEmail} from 'firebase/auth';
-import { addDoc, collection, doc, getDoc, getDocs, setDoc, deleteDoc, query, where } from 'firebase/firestore'
+import { doc, setDoc } from 'firebase/firestore'
 import { auth, db } from '../firebase'
 
 
@@ -93,7 +93,7 @@ function AppContextProvider({children}) {
 
 
 
-    // FIRESTORE AND DATABASE
+    // DATABASE
 
     // registering a new user on sign up
 
@@ -101,29 +101,6 @@ function AppContextProvider({children}) {
         return setDoc(doc(db, 'users', id),{
             userID: id
         })
-    }
-
-
-
-    // VIRTUAL SESSIONS LINKS
-    async function getLinks(){
-        const data = await getDocs(collection(db, "virtualSessionLinks"))
-        const links = await data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-
-        return links
-    }
-
-
-
-    // RESOURCES ( BOOKS & ARTICLES)
-    
-    // fetch all resources
-    async function getResources(category) {
-                
-        const resourcesRef = collection(db, "resources");
-        const q = await query(resourcesRef, where("category", "==", category));
-        const querySnapshot = await getDocs(q);
-        return querySnapshot;
     }
 
 
@@ -142,8 +119,6 @@ function AppContextProvider({children}) {
         changePassword,
         resetPassword,
         addNewUser,
-        getResources,
-        getLinks,
     }
 
 

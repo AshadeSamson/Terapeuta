@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useApp } from "../../context/appContext";
 import styles from "../../assets/styles/dashboard/resources.module.css";
+import resourceService from "../../services/databaseService/resourceService";
 
 
 function Resources() {
@@ -8,14 +8,13 @@ function Resources() {
   const [resources, setResources] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { getResources } = useApp()
 
   useEffect(() => {
 
     const fetchResources = async () => {
       setLoading(true);
       try {
-        const querySnapshot = await getResources(selectedCategory.toLowerCase())
+        const querySnapshot = await resourceService.getResources(selectedCategory.toLowerCase())
 
         // Map the data into an array of resource objects
         const fetchedResources = querySnapshot.docs.map((doc) => ({
