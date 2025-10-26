@@ -22,7 +22,8 @@ import Appointments, { loader as appointmentLoader } from "./components/dashboar
 import ComingSoon from "./components/utilities/comingSoon"
 import TerapeutaBot from "./pages/terapeutaBot"
 import Policy from "./pages/policy"
-
+import PaymentFailure from "./pages/paymentFailure"
+import PaymentSuccess from "./pages/paymentSuccess"
 
 function App() {
 
@@ -55,6 +56,8 @@ function App() {
                       element={<BookedTicket />}
                       loader={bookedTicketLoader(userContext)} 
                       errorElement={<RouteError />}/>
+              <Route path="payment-successful" element={<PaymentSuccess />}/>
+              <Route path="payment-cancelled" element={<PaymentFailure />}/>
             </Route>
           </Route>
     )
