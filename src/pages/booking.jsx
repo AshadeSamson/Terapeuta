@@ -2,7 +2,6 @@ import { serverTimestamp } from 'firebase/firestore'
 import { Form, redirect, useNavigation } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { getRandomNumber } from '../utils/randomNumber'
-import appointmentService from '../services/databaseService/appointmentService'
 import sessionLinkService from '../services/databaseService/sessionLinkService'
 
 
@@ -43,15 +42,42 @@ export const action = (userContext) => async ({request}) => {
       userID: user.uid
     };
 
-    // Booking a new ticket and getting the ticket ID
-    const ticket = await appointmentService.addAppointment(details);
-    const bookingID = ticket.id;
+    const paymentAPI = import.meta.env.VITE_APP_PAYMENT_URL;
 
-    toast.success("Appointment booked successfully");
+    const response = await fetch(paymentAPI, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(details),
+    });
+    
+    if (!response.ok) {
+      toast.error("Failed to create payment session");
+      console.log(response);
+      return null;
+    }
+
+    const data = await response.json();
+
+    if (data && data.url) {
+      // Redirect to the payment gateway
+      window.location.href = data.url;
+      return null;
+    } else {
+      toast.error("Invalid response from payment gateway");
+      return null;
+    }
+
+    // Booking a new ticket and getting the ticket ID
+    // const ticket = await appointmentService.addAppointment(details);
+    // const bookingID = ticket.id;
+
+    // toast.success("Appointment booked successfully");
 
 
     // Navigate to the booking ticket page
-    return redirect(`/bookings/${bookingID}`);
+    // return redirect(`/bookings/${bookingID}`);
 
   } catch (error) {
     toast.error("Failed to book appointment. Please try again.");
