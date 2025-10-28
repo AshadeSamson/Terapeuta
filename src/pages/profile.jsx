@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom'
 import { useApp } from '../context/appContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faCircleCheck, faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
+import Loading from '../components/utilities/loading'
 
 function Profile() {
 
@@ -32,7 +33,7 @@ function Profile() {
 
   return (
     <section className='dashboard'>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading text='Loading Dashboard'/>}>
       <div className='user'>
         <div className='user-icon-box'>
           <FontAwesomeIcon icon={faUser} size='6x' className='user-icon'/>
