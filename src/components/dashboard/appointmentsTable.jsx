@@ -35,7 +35,7 @@ function AppointmentsTable({ data }) {
 
   if(appointments <= 0){
     return (
-        <h3 className={styles.noBooking}>No Booked Appointments as of Now.</h3>
+        <h3 className={styles.noBooking}>No Booked Appointments as of Now</h3>
     )
   }
 
