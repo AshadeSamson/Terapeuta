@@ -26,7 +26,7 @@ function BillingsList({ data }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (!sortedBillings.length) {
-    return <h3 className={styles.noBooking}>No Payments History Found.</h3>;
+    return <h3 className={styles.noBooking}>No Payments History Found</h3>;
   }
 
   return (
@@ -36,7 +36,6 @@ function BillingsList({ data }) {
           const isSuccess =
             billing.paymentStatus === 'success' || billing.paymentStatus === 'completed';
 
-          // ✅ Handle Firestore timestamp or string
           const billingDate = billing.createdAt?.seconds
             ? new Date(billing.createdAt.seconds * 1000)
             : new Date(billing.createdAt);

@@ -31,6 +31,10 @@
   gap: 0.75rem;
 }
 
+.noBooking {
+  color: var(--primary-color);
+}
+
 .statusDot {
   display: flex;
   align-items: center;

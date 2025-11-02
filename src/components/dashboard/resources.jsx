@@ -36,8 +36,6 @@ function Resources() {
 
   return (
     <div className={styles.resources}>
-      <h4>Helpful Resources</h4>
-
       {/* Category Buttons */}
       <div className={styles.categoryButtons}>
         <button
