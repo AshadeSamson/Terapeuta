@@ -4,10 +4,10 @@ import Login  from "./pages/logIn"
 import SignUp  from "./pages/signUp"
 import Profile from "./pages/profile"
 import Private from "./components/private/private"
-import Billing from "./components/billing"
+import Billing, { loader as billingsLoader } from "./components/dashboard/billing"
 import Messages from "./components/messages"
 import Resources from "./components/dashboard/resources"
-import Settings from "./components/settings"
+import Settings from "./components/dashboard/settings"
 import Booking ,{ action as bookingAction } from "./pages/booking"
 import { RouterProvider, 
         createBrowserRouter, 
@@ -42,7 +42,7 @@ function App() {
               <Route path="profile" element={<Profile/>}>
                 <Route index element={<Appointments />} loader={appointmentLoader(userContext)} />
                 <Route path="messages" element={<Messages />} />
-                <Route path="billing" element={<Billing />} />
+                <Route path="billing" element={<Billing />} loader={billingsLoader(userContext)} />
                 <Route path="resources" element={<Resources />} />
                 <Route path="settings" element={<Settings />} />
               </Route>
