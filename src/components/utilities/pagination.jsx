@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../../assets/styles/pagination.module.css';
 
-const Pagination = ({ appointmentsPerPage, totalAppointments, paginate }) => {
+const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalAppointments / appointmentsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 

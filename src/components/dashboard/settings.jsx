@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { useApp } from '../context/appContext'
+import { useApp } from '../../context/appContext.jsx'
 import { useOutletContext } from 'react-router-dom'
-import errorRegex from '../utils/regex.js'
+import errorRegex from '../../utils/regex.js'
 import { toast } from 'react-toastify'
 
 function Settings() {

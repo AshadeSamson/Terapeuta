@@ -103,8 +103,8 @@ function AppointmentsTable({ data }) {
       </table>
 
       <Pagination
-        appointmentsPerPage={appointmentsPerPage}
-        totalAppointments={appointments.length}
+        itemsPerPage={appointmentsPerPage}
+        totalItems={appointments.length}
         paginate={paginate}
       />
     </>
