@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "../../assets/styles/dashboard/resources.module.css";
 import resourceService from "../../services/databaseService/resourceService";
+import Loading from "../utilities/loading";
 
 
 function Resources() {
@@ -56,7 +57,7 @@ function Resources() {
       {/* Display Resources */}
       <div className={styles.resourceList}>
         {loading ? (
-          <p>Loading resources...</p>
+          <Loading />
         ) : resources.length > 0 ? (
           resources.map((resource) => (
             <div key={resource.id} className={styles.resourceItem}>

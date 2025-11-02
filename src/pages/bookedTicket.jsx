@@ -1,72 +1,87 @@
-import { useLoaderData } from 'react-router-dom';
+import React from 'react';
+import { defer, useLoaderData, Await } from 'react-router-dom';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import TicketLayout from '../components/utilities/ticketLayout';
 import styles from '../assets/styles/bookingTicket.module.css'
 import appointmentService from '../services/databaseService/appointmentService';
+import Loading from '../components/utilities/loading';
 
 
 
 export const loader = (userContext) => async ({ params }) => {
-  const ticket = await appointmentService.getAppointment(params.id);
-  return ticket.data();
+  const ticketPromise = appointmentService.getAppointment(params.id);
+
+  return defer({ ticket: ticketPromise });
+  // return ticket.data();
 };
 
 
 
 function BookedTicket() {
 
-  const data = useLoaderData();
+  const loaderData = useLoaderData();
 
   return (
     <section className={`sections ${styles.ticketSection}`}>
       <h3 className="sections-header succeed-msg">Therapist Appointment Details</h3>
+      <React.Suspense fallback={<Loading text='Fetching appointment details...'/>}>
+        <Await resolve={loaderData.ticket}>
+          {(ticketDetails) => {
+            const data = ticketDetails.data();
 
-      <div className={styles.ticketWrapper}>
-        <div className={styles.ticketDetails}>
-          <h3>
-            Client Name: <span className={styles.specialText}>{data.name}</span>
-          </h3>
-          <h3>
-            Appointment Date: <span className={styles.specialText}>{data.appointmentDate}</span>
-          </h3>
-          <h3>
-            Appointment Time: <span className={styles.specialText}>{data.time}</span>
-          </h3>
-          <h3>
-            Session Link: <span className={styles.specialText}><a className={styles.specialText} href={data.sessionLink} target="_blank" rel="noopener noreferrer">{data.sessionLink}</a></span>
-          </h3>
-          <h3>
-            Google Meet ID: <span className={styles.specialText}>{data.sessionId}</span>
-          </h3>
-          <h3>
-            Contact Number: <span className={styles.specialText}>+1 (718) 252-9311</span>
-          </h3>
-        </div>
+            return (
+              <>
+                <div className={styles.ticketWrapper}>
+                  <div className={styles.ticketDetails}>
+                    <h3>
+                      Client Name: <span className={styles.specialText}>{data.name}</span>
+                    </h3>
+                    <h3>
+                      Appointment Date: <span className={styles.specialText}>{data.appointmentDate}</span>
+                    </h3>
+                    <h3>
+                      Appointment Time: <span className={styles.specialText}>{data.time}</span>
+                    </h3>
+                    <h3>
+                      Session Link: <span className={styles.specialText}><a className={styles.specialText} href={data.sessionLink} target="_blank" rel="noopener noreferrer">{data.sessionLink}</a></span>
+                    </h3>
+                    <h3>
+                      Google Meet ID: <span className={styles.specialText}>{data.sessionId}</span>
+                    </h3>
+                    <h3>
+                      Contact Number: <span className={styles.specialText}>+1 (718) 252-9311</span>
+                    </h3>
+                  </div>
 
-        <div className={styles.printTicket}>
-          <PDFDownloadLink
-            document={<TicketLayout data={data} />}
-            fileName="appointment.pdf"
-          >
-            {({ loading }) => (loading ? 'Generating PDF...' : 'Download Ticket')}
-          </PDFDownloadLink>
-        </div>
-      </div>
+                  <div className={styles.printTicket}>
+                    <PDFDownloadLink
+                      document={<TicketLayout data={data} />}
+                      fileName="appointment.pdf"
+                    >
+                      {({ loading }) => (loading ? 'Generating PDF...' : 'Download Ticket')}
+                    </PDFDownloadLink>
+                  </div>
+                </div>
 
-      <div className={styles.contactSection}>
-        <p className={styles.ticketParagraph}>
-          Please note that the scheduled appointment is virtual. The link and ID to the virtual space is provided in the ticket. If you need to cancel or reschedule your
-          appointment, please contact us at least 24 hours in advance.
-        </p>
-        <p className={styles.ticketParagraph}>
-          We look forward to seeing you soon. If you have any questions or concerns, please feel free to reach out to
-          us.
-        </p>
-        <p className={styles.ticketParagraph}>
-          Thank you, <br />
-          <strong>The Terapeuta Team</strong>
-        </p>
-      </div>
+                <div className={styles.contactSection}>
+                  <p className={styles.ticketParagraph}>
+                    Please note that the scheduled appointment is virtual. The link and ID to the virtual space is provided in the ticket. If you need to cancel or reschedule your
+                    appointment, please contact us at least 24 hours in advance.
+                  </p>
+                  <p className={styles.ticketParagraph}>
+                    We look forward to seeing you soon. If you have any questions or concerns, please feel free to reach out to
+                    us.
+                  </p>
+                  <p className={styles.ticketParagraph}>
+                    Thank you, <br />
+                    <strong>The Terapeuta Team</strong>
+                  </p>
+                </div>
+              </>
+            )
+          }}
+        </Await>
+      </React.Suspense>
     </section>
   );
 }
