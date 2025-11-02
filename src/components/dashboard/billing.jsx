@@ -29,7 +29,6 @@ function Billing() {
   return (
     <div className={styles.billingContainer}>
       <>
-      <h4>Billing History</h4>
       <React.Suspense fallback={<Loading text='Fetching payments history...'/>}>
         <Await resolve={loaderData.billings}>
           {(loadedBillings) => {
