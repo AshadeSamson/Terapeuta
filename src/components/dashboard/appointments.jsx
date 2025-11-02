@@ -29,7 +29,6 @@ function Appointments() {
   return (
     <div className={styles.appointmentsContainer}>
       <>
-      <h4>Appointments</h4>
       <React.Suspense fallback={<Loading text='Fetching your appointments...'/>}>
         <Await resolve={loaderData.appointments}>
           {(loadedAppointments) => {
