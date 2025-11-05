@@ -37,6 +37,9 @@ function BookedTicket() {
                       Client Name: <span className={styles.specialText}>{data.name}</span>
                     </h3>
                     <h3>
+                      Appointment ID: <span className={styles.specialText}>{ticketDetails.id}</span>
+                    </h3>
+                    <h3>
                       Appointment Date: <span className={styles.specialText}>{data.appointmentDate}</span>
                     </h3>
                     <h3>
@@ -55,7 +58,7 @@ function BookedTicket() {
 
                   <div className={styles.printTicket}>
                     <PDFDownloadLink
-                      document={<TicketLayout data={data} />}
+                      document={<TicketLayout data={{id: ticketDetails.id, ...data}} />}
                       fileName="appointment.pdf"
                     >
                       {({ loading }) => (loading ? 'Generating PDF...' : 'Download Ticket')}
