@@ -1,5 +1,5 @@
 import { db } from '../../firebase'
-import { addDoc, collection, doc, getDoc, getDocs, setDoc, deleteDoc, query, where } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, updateDoc, deleteDoc, query, where } from 'firebase/firestore'
 
 
 const appointmentService = {
@@ -36,7 +36,19 @@ const appointmentService = {
 
     // delete an appointment
     async deleteAppointment(docId) {
+
+        const paymentRef = collection(db, 'billings')
+        const q = query(paymentRef, where('appointmentId', '==', docId))
+
         try {
+
+            const querySnapshot = await getDocs(q)
+            const updatePromises = querySnapshot.docs.map((paymentDoc) =>
+            updateDoc(paymentDoc.ref, { paymentStatus: 'cancelled' })
+            );
+            await Promise.all(updatePromises);
+
+
             await deleteDoc(doc(db, 'appointments', docId));
             return true;
         } catch (e) {

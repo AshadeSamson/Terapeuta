@@ -55,6 +55,20 @@
   background-color: #dc2626; 
 }
 
+.cancelledDot {
+  color: grey;
+  background-color: #dcdcdc;
+}
+
+.cancelledText {
+  color: grey;
+  font-weight: 500;
+}
+
+.cancelledRow {
+  opacity: 0.7;
+}
+
 .textInfo {
   display: flex;
   flex-direction: column;
