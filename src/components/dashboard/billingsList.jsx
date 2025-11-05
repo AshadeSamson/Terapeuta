@@ -17,7 +17,7 @@ function BillingsList({ data }) {
   }, [data]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const billingsPerPage = 5;
+  const billingsPerPage = 10;
 
   const indexOfLastBilling = currentPage * billingsPerPage;
   const indexOfFirstBilling = indexOfLastBilling - billingsPerPage;
@@ -47,15 +47,29 @@ function BillingsList({ data }) {
           });
 
           return (
-            <div key={billing.id} className={styles.transactionRow}>
+            <div
+              key={billing.id}
+              className={`${styles.transactionRow} ${
+                billing.paymentStatus === 'cancelled' ? styles.cancelledRow : ''
+              }`}
+            >
               <div className={styles.leftSection}>
                 <span
                   className={`${styles.statusDot} ${
-                    isSuccess ? styles.successDot : styles.failedDot
+                    billing.paymentStatus === 'cancelled'
+                      ? styles.cancelledDot
+                      : billing.paymentStatus === 'success' || billing.paymentStatus === 'completed'
+                      ? styles.successDot
+                      : styles.failedDot
                   }`}
                 >
-                  {isSuccess ? '↑' : '↓'}
+                  {billing.paymentStatus === 'cancelled'
+                    ? '×'
+                    : billing.paymentStatus === 'success' || billing.paymentStatus === 'completed'
+                    ? '↑'
+                    : '↓'}
                 </span>
+
                 <div className={styles.textInfo}>
                   <p className={styles.date}>{formattedDate}</p>
                   <p className={styles.meta}>Appointment ID: {billing.appointmentId}</p>
@@ -67,10 +81,18 @@ function BillingsList({ data }) {
                 <p className={styles.amount}>${(billing.amount / 100).toFixed(2)}</p>
                 <p
                   className={`${styles.statusText} ${
-                    isSuccess ? styles.successText : styles.failedText
+                    billing.paymentStatus === 'cancelled'
+                      ? styles.cancelledText
+                      : billing.paymentStatus === 'success' || billing.paymentStatus === 'completed'
+                      ? styles.successText
+                      : styles.failedText
                   }`}
                 >
-                  {isSuccess ? 'Successful' : 'Failed'}
+                  {billing.paymentStatus === 'cancelled'
+                    ? 'Cancelled'
+                    : billing.paymentStatus === 'success' || billing.paymentStatus === 'completed'
+                    ? 'Successful'
+                    : 'Failed'}
                 </p>
               </div>
             </div>
