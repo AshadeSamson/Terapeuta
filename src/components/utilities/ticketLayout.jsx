@@ -75,6 +75,9 @@ function TicketLayout({ data }) {
             <Text><Text style={styles.label}>Client Name: </Text><Text style={styles.text}>{data.name}</Text></Text>
           </View>
           <View style={styles.row}>
+            <Text><Text style={styles.label}>Appointment ID: </Text><Text style={styles.text}>{data.id}</Text></Text>
+          </View>
+          <View style={styles.row}>
             <Text><Text style={styles.label}>Appointment Date: </Text><Text style={styles.text}>{data.appointmentDate}</Text></Text>
           </View>
           <View style={styles.row}>
